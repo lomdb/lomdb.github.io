@@ -1,0 +1,105 @@
+$nano: "nn-";
+
+// ------------------ Fonts
+@import "~@fontsource/montserrat/latin-300.css";
+@import "~@fontsource/montserrat/latin-400.css";
+@import "~@fontsource/montserrat/latin-600.css";
+
+// ------------------ Modules
+@import "nano-grid/scss/nano-grid";
+
+@import "nano-grid/scss/btn-nav";
+@import "nano-grid/scss/btn-ghost";
+@import "nano-grid/scss/btn-outline";
+
+@import "nano-spirit/scss/nano-spirit";
+
+@import "core/functions";
+@import "core/font-styles";
+@import "core/icomoon";
+@import "core/animations";
+@import "core/layers";
+@import "core/shortcuts";
+@import "core/mixins";
+
+@import "components/app";
+@import "components/table";
+@import "components/footer";
+@import "components/header";
+
+@import "views/builder";
+@import "views/tests";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Montserrat", Helvetica, Arial, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  overflow: hidden;
+}
+
+hr {
+  border-color: var(--color-border);
+  border-width: 0 0 1px 0;
+}
+
+main {
+  color: var(--color-foreground);
+
+  --color-panel-background: #23232f;
+  --title-shadow: 0;
+  --color-shadow: rgb(0 0 0 / 65%);
+  --shadow-depth: 2px 2px 5px;
+}
+
+.nn-light {
+  --color-title: #214e67;
+  --color-background: #ffffff;
+  --color-foreground: #202028;
+  --color-workarea-background: #f8f7fb;
+  --color-panel-details-background: #ffffff;
+  --color-panel-border-separator: #cccccc;
+  --color-border: #e2e2e2;
+  --color-palette: #f7f7f7;
+  --color-label: #104e86;
+  --color-legend: #9c330a;
+  --color-background-input: #dadada;
+  --color-background-input2: #d7d7d7;
+  --color-table-background: hsl(240deg 20% 80% / 0.2);
+  --color-table-background-2: hsl(240deg 20% 85% / 0.2);
+  --color-table-background-hover: hsl(240deg 35% 90% / 0.2);
+  --color-nano-box: hsl(240deg 10% 83% / 27%);
+  --spirit-background: #dadde5;
+}
+
+.nn-dark {
+  --color-title: #97da6f;
+  --color-background: #222;
+  --color-foreground: #eee;
+  --color-workarea-background: #202028;
+  --color-panel-details-background: #1d1d26;
+  --color-panel-border-separator: #19191d;
+  --color-border: #444444;
+  --color-palette: #272727;
+  --color-label: #4ca1ef;
+  --color-legend: #b9b90e;
+  --color-background-input: #272731;
+  --color-background-input2: #232323;
+  --color-table-background: hsl(240deg 5% 25% / 0.2);
+  --color-table-background-2: hsl(240deg 5% 30% / 0.2);
+  --color-table-background-hover: hsl(240deg 20% 35% / 0.2);
+  --color-nano-box: hsl(240deg 12% 10% / 27%);
+  --spirit-background: #1a1a1a;
+}
+
+/*------------------------*/
+
+.demo-row {
+  background-color: var(--nn-track-color);
+  margin-bottom: 0;
+}

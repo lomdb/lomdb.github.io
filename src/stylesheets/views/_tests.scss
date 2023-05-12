@@ -1,0 +1,10 @@
+.section-tests {
+  .workarea {
+    #{wc("row")} {
+      align-items: stretch;
+      .nn-label {
+        height: 100%;
+      }
+    }
+  }
+}

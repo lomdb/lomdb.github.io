@@ -1,0 +1,36 @@
+.nano-app {
+  height: 100vh;
+  margin-bottom: 0;
+  align-items: stretch;
+
+  &,
+  .main-panel,
+  .workarea {
+    max-height: 100vh;
+  }
+
+  .main-panel {
+    position: relative;
+    background: var(--color-panel-background);
+    border-right: 1px solid #222;
+
+    nn-column {
+      padding-inline: 7px;
+      padding-block-start: 1rem;
+    }
+
+    nn-container {
+      margin: unset;
+      height: 100%;
+    }
+
+    nn-scroll-area {
+      height: 100%;
+    }
+  }
+
+  .workarea {
+    transition: all 200ms ease;
+    background-color: var(--color-workarea-background);
+  }
+}

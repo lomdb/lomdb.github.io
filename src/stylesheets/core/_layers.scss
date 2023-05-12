@@ -1,0 +1,18 @@
+$layers: (
+  //----Bottom
+  '.section-home .content',
+  '.nano-app .main-panel',
+  '.panel',
+  '.panel-bar',
+  '.modal-bk',
+  '.alert',
+  //----Front
+);
+
+$index: 10;
+@each $layer in $layers {
+  $index: $index + 1;
+  #{$layer} {
+    z-index: $index;
+  }
+}
