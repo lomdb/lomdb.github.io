@@ -26,7 +26,6 @@
       }
 
       /* ---- Block Elements ---- */
-      p,
       dl,
       ul,
       ol,
@@ -225,6 +224,9 @@
         padding: 1rem;
         border-radius: var(--border-radius);
         background-color: var(--details-bk);
+      }
+      details[open] summary {
+        margin-block-end: .5rem;
       }
 
       footer {
