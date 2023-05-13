@@ -24,7 +24,57 @@
         display: block;
         max-width: 100%;
       }
+
+      /* ---- Block Elements ---- */
+      p,
+      dl,
+      ul,
+      ol,
+      code {
+        display: block;
+        width: 100%;
+        margin-block-end: 2rem;
+      }
+
+      table {
+        width: 100%;
+        margin-block-end: 2rem;
+      }
+
+      /* ---- Content Tags ---- */
+      dl,
+      p,
+      li {
+        color: var(--content-color);
+        font-size: var(--content-size);
+      }
+
+      dl:not(:last-child),
+      p:not(:last-child),
+      li:not(:last-child) {
+        margin-block-end: .5rem;
+      }
+
+      /* ---- Bold Elements ---- */
+      dt,
+      strong,
+      th {
+        font-weight: Bold;
+      }
       /* ---- Reset: END ---- */
+
+      /* ---- Keyframes: Begin ---- */
+
+      @keyframes slide {
+        from {
+           background-position: 0 0;
+        }
+        to {
+          background-position: 200px 0;
+        }
+      }
+
+      /* ---- Keyframes: END ---- */
 
       body,
       html {
@@ -71,14 +121,19 @@
       }
 
       header {
-        --padding: 2rem;
+        --padding: 4rem;
         position: relative;
         background-color: var(--header-bk);
         color: var(--header-color);
         min-height: 320px;
-        display: flex;
         padding-top: var(--padding);
         margin-bottom: calc(180px + var(--padding));
+      }
+      
+      header,
+      header mr-container {
+        display: flex;
+        align-items: center;
       }
 
       header::before {
@@ -95,15 +150,6 @@
         animation-iteration-count: infinite;
       }
 
-      @keyframes slide {
-        from {
-           background-position: 0 0;
-        }
-        to {
-          background-position: 200px 0;
-        }
-      }
-
       h1 {
         font-size: 6rem;
         font-weight: Bold;
@@ -113,17 +159,15 @@
         font-size: 1.5rem;
         font-weight: Bold;
         color: var(--h2-color);
+        text-align: center;
+        margin-block-end: 2rem;
       }
 
-      dl,
-      p,
-      li {
-        color: var(--content-color);
-        font-size: var(--content-size);
-      }
-
-      dt {
-        font-weight: Bold;
+      img {
+        width: 250px;
+        margin-inline: auto;
+        margin-block-end: 1rem;
+        filter: drop-shadow(1rem 0.5rem 0 var(--shadow));
       }
 
       table {
@@ -165,7 +209,7 @@
       mr-container {
         display: block;
         max-width: 900px;
-        margin: auto;
+        margin-inline: auto;
         padding: 1rem;
       }
     </style>
@@ -191,7 +235,7 @@
         </section>
     
         <section>
-          <img src="img/kat_mekanikisto.svg" alt="Kato Mekanikisto">
+          <img src="img/kato_mekanikisto.svg" alt="Kato Mekanikisto">
           <h2>Retumilo Subteno</h2>
     
           <table>
