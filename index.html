@@ -1,65 +1,241 @@
 <html>
   <head>
     <title>Alirebleco</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+      /* ---- Reset: BEGIN ---- */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
+      }
+
+      img,
+      picture,
+      svg,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+      /* ---- Reset: END ---- */
+
+      body,
+      html {
+        /* ---- VAR: Colors ---- */
+        --cinnamon-satin: #D26284;
+        --deep-green: #108065;
+        --lapis-lazuli: #2E74A7;
+        --black-bean: #3F1309;
+        --dark-liver: #4E4E4E;
+        --tuscany: #CCA59C;
+        --dust-storm: #E0C8C0;
+        --chinesse-silver: #CCCCCC;
+        --laurel-green: #A0C593;
+        --fern-green: #4A803D;
+        --bole: #80493D;
+        --cinereous: #A28A82;
+        --pine-tree: #31251E;
+        /* --chocolate-cosmos: #5E0B24; */
+
+        /* ---- VAR:Elements ---- */
+        --shadow: var(--lapis-lazuli);
+        --header-bk: var(--cinnamon-satin);
+        --header-color: white;
+
+        --h2-color: var(--black-bean);
+
+        --content-color: var(--dark-liver);
+        --content-size: 1rem;
+        
+        --table-row-header-bk: var(--tuscany);
+        --table-row-odd-bk: var(--tuscany);
+        --table-row-even-bk: var(--dust-storm);
+
+        --code-bk: var(--chinesse-silver);
+
+        --details-bk: var(--chinesse-silver);
+        --details-summary-bk: var(--fern-green);
+        --details-summary-color: var(--laurel-green);
+        
+        --footer-bk: var(--cinereous);
+        
+        /* ---- Defaults ---- */
+        font-family: 'Quicksand', sans-serif;
+      }
+
+      header {
+        --padding: 2rem;
+        position: relative;
+        background-color: var(--header-bk);
+        color: var(--header-color);
+        min-height: 320px;
+        display: flex;
+        padding-top: var(--padding);
+        margin-bottom: calc(180px + var(--padding));
+      }
+
+      header::before {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 180px;
+        width: 100%;
+        bottom: -180px;
+        background: url("img/pattern_oil.svg") 0 0 repeat-x;
+        animation-duration: 20s;
+        animation-name: slide;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes slide {
+        from {
+           background-position: 0 0;
+        }
+        to {
+          background-position: 200px 0;
+        }
+      }
+
+      h1 {
+        font-size: 6rem;
+        font-weight: Bold;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: Bold;
+        color: var(--h2-color);
+      }
+
+      dl,
+      p,
+      li {
+        color: var(--content-color);
+        font-size: var(--content-size);
+      }
+
+      dt {
+        font-weight: Bold;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0 .5rem;
+      }
+      table tr {
+        margin-block-end: 1rem;
+      }
+      table tr:nth-child(odd) th {
+        background-color: var(--table-row-header-bk);
+      }
+      table tr:nth-child(odd) td {
+        background-color: var(--table-row-odd-bk);
+      }
+      table tr:nth-child(even) td {
+        background-color: var(--table-row-even-bk);
+      }
+
+      code {
+        background-color: var(--code-bk);
+      }
+
+      details summary {
+        color: var(--details-summary-color);
+        background-color: var(--details-summary-bk);
+      }
+      details summary ~ * {
+        background-color: var(--details-bk);
+      }
+
+      footer {
+        background-color: var(--footer-bk);
+      }
+
+      /* ---- WebComponents: Custom Elements: STRUCTURE ---- */
+      /* for this example I'm using web components to replace all the classes with a more simple and clear structure but always keep in mind that not everything should be a web component */
+
+      mr-container {
+        display: block;
+        max-width: 900px;
+        margin: auto;
+        padding: 1rem;
+      }
+    </style>
   </head>
   <body>
     
     <header>
-      <h1>Alirebleco</h1>
+      <mr-container>
+        <h1>Alirebleco</h1>
+      </mr-container>
     </header>
 
     <main>
-      <section>
-        <img src="img/kato_legante.svg" alt="Kato Legante">
-        <h2>Resumo</h2>
-        <dl>
-          <dt>Details</dt>
-          <dd>The <details> <abbr title="HyperText Markup Language">HTML</abbr> element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the <summary> element.
-          </dd>
-        </dl>
-      </section>
-  
-      <section>
-        <img src="img/kat_mekanikisto.svg" alt="Kato Mekanikisto">
-        <h2>Retumilo Subteno</h2>
-  
-        <table>
-          <tr>
-            <th>Tag</th>
-            <th>Chrome</th>
-            <th>Firefox</th>
-            <th>Safari</th>
-            <th>Opera</th>
-          </tr>
-          <tr>
-            <td>Details</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-        </table>
-      </section>
-  
-      <section>
-        <img src="img/kato_en_malliberejo.svg" alt="Kato en Malliberejo">
-        <h2>Strukturo</h2>
-        <code>olis</code>
-      </section>
-  
-      <section>
-        <img src="img/kato_prezidanto.svg" alt="Kato Prezidanto">
-        <h2>Demandoj</h2>
-        <details>
-          <summary>Question 1</summary>
-          Answer
-        </details>
-      </section>
+      <mr-container>
+        <section>
+          <img src="img/kato_legante.svg" alt="Kato Legante">
+          <h2>Resumo</h2>
+          <dl>
+            <dt>Details</dt>
+            <dd>The &lt;details&gt; <abbr title="HyperText Markup Language">HTML</abbr> element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the &lt;summary&gt; element.
+            </dd>
+          </dl>
+        </section>
+    
+        <section>
+          <img src="img/kat_mekanikisto.svg" alt="Kato Mekanikisto">
+          <h2>Retumilo Subteno</h2>
+    
+          <table>
+            <tr>
+              <th>Tag</th>
+              <th>Chrome</th>
+              <th>Firefox</th>
+              <th>Safari</th>
+              <th>Opera</th>
+            </tr>
+            <tr>
+              <td>Details</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </table>
+        </section>
+    
+        <section>
+          <img src="img/kato_en_malliberejo.svg" alt="Kato en Malliberejo">
+          <h2>Strukturo</h2>
+          <code>olis</code>
+        </section>
+    
+        <section>
+          <img src="img/kato_prezidanto.svg" alt="Kato Prezidanto">
+          <h2>Demandoj</h2>
+          <details>
+            <summary>Question 1</summary>
+            <div>
+              <p>Answer</p>
+            </div>
+          </details>
+        </section>
+      </mr-container>
     </main>
 
     <footer>
-      <p>Farita kun <span class="amo">amo</span> de <a href="https://github.com/jmiguelrivas">Miguel Rivas</a></p>
+      <mr-container>
+        <p>Farita kun <span class="amo">amo</span> de <a href="https://github.com/jmiguelrivas">Miguel Rivas</a></p>
         <p><time datetime="2023-05-12">2023</time></p>
+      </mr-container>
     </footer>
   </body>
 </html>
