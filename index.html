@@ -96,6 +96,8 @@
 
         /* ---- VAR:Elements ---- */
         --shadow: var(--lapis-lazuli);
+        --border-radius: 5px;
+
         --header-bk: var(--cinnamon-satin);
         --header-color: white;
 
@@ -177,6 +179,25 @@
       table tr {
         margin-block-end: 1rem;
       }
+      table tr:hover th,
+      table tr:hover td {
+        opacity: 0.8;
+      }
+      table th,
+      table td {
+        padding: 1rem;
+        text-align: center;
+        transition: opacity ease 300ms;
+      }
+      table th:first-child,
+      table td:first-child {
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+      }
+      table th:last-child,
+      table td:last-child {
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      }
+
       table tr:nth-child(odd) th {
         background-color: var(--table-row-header-bk);
       }
@@ -188,19 +209,42 @@
       }
 
       code {
+        padding: 1rem;
+        border-radius: var(--border-radius);
         background-color: var(--code-bk);
       }
 
       details summary {
         color: var(--details-summary-color);
         background-color: var(--details-summary-bk);
+        padding: 1rem;
+        font-weight: bold;
+        border-radius: var(--border-radius);
       }
       details summary ~ * {
+        padding: 1rem;
+        border-radius: var(--border-radius);
         background-color: var(--details-bk);
       }
 
       footer {
+        position: relative;
         background-color: var(--footer-bk);
+        margin-top: calc(100px + 4rem);
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+
+      footer::before {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 133px;
+        width: 100%;
+        top: -100px;
+        z-index: -1;
+        background: url("img/katos.svg") 0 0 repeat-x;
       }
 
       /* ---- WebComponents: Custom Elements: STRUCTURE ---- */
@@ -245,9 +289,27 @@
               <th>Firefox</th>
               <th>Safari</th>
               <th>Opera</th>
+              <th>IE</th>
             </tr>
             <tr>
               <td>Details</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Details</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Details</td>
+              <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
