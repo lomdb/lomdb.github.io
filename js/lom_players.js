@@ -3,13 +3,13 @@ import { getPrefix, createNode } from './helpers.js'
 import { usersDB as users } from './db_users.js'
 import { createFilters, langs } from './component_filters.js'
 
-class Users extends HTMLElement {
-  static template = /*html*/ `
+class Players extends HTMLElement {
+  static template = `
 <nn-caja padding="4" class="base">
   ${createFilters()}
 
   <div class="title-disclaimer">
-    <h2>Users</h2>
+    <h2>Players</h2>
     <blockquote>
       If you believe your user should be listed here or that any data needs correction, feel free to send an email to 
       <a href="mailto:pombo.9g7ku@simplelogin.fr">pombo.9g7ku@simplelogin.fr</a> with the following:
@@ -45,11 +45,11 @@ class Users extends HTMLElement {
   }
 
   generateListeners() {
-    Users.data.langs.forEach(lang => {
+    Players.data.langs.forEach(lang => {
       document
         .querySelector('.nav button.' + lang)
         .addEventListener('click', () => {
-          Users.data.language = lang
+          Players.data.language = lang
           document
             .querySelectorAll('.nav button')
             .forEach(btn => btn.classList.remove('active'))
@@ -63,12 +63,12 @@ class Users extends HTMLElement {
     tableBody.innerHTML = ''
 
     document
-      .querySelector('.nav button.' + Users.data.language)
+      .querySelector('.nav button.' + Players.data.language)
       ?.classList.add('active')
 
-    let table = Users.data.users
-    if (Users.data.language !== 'all') {
-      table = Users.data.users.filter(user => user.lang === Users.data.language)
+    let table = Players.data.users
+    if (Players.data.language !== 'all') {
+      table = Players.data.Players.filter(user => user.lang === Players.data.language)
     }
 
     if (table.length) {
@@ -182,12 +182,12 @@ class Users extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = Users.template
+    this.innerHTML = Players.template
     this.generateTable()
     this.generateListeners()
   }
 }
 
-window.customElements.define(getPrefix('users'), Users)
+window.customElements.define(getPrefix('players'), Players)
 
-export { Users }
+export { Players }

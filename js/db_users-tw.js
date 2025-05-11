@@ -2,34 +2,94 @@ import { user } from './classes.js'
 
 export const tw = [
   user(['康康兒 (Kāng Kāng ér)'], 'TW_1499', 'D0202', [
-    { rank: 'top', position: 1, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 1,
+      date: '2025-05-11',
+      power: 322600000,
+      lv: 185,
+    },
   ]),
   user(['集八卡哇 (Jí Bā Kǎ Wā)'], 'TW_1391', '7040F', [
-    { rank: 'top', position: 2, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 2,
+      date: '2025-05-11',
+      power: 294500000,
+      lv: 200,
+    },
   ]),
   user(['強制被死亡 (Qiáng Zhì Bèi Sǐ Wáng)'], 'TW_1445', '80A0E', [
-    { rank: 'top', position: 3, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 3,
+      date: '2025-05-11',
+      power: 203000000,
+      lv: 198,
+    },
   ]),
   user(['棒棒棒棒貓 (Bàng Bàng Bàng Bàng Māo)'], 'TW_1223', '0170A', [
-    { rank: 'top', position: 4, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 4,
+      date: '2025-05-11',
+      power: 218900000,
+      lv: 196,
+    },
   ]),
   user(['坏坏 (Huài Huài)'], 'TW_1025', '70108', [
-    { rank: 'top', position: 5, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 5,
+      date: '2025-05-11',
+      power: 300900000,
+      lv: 197,
+    },
   ]),
   user(['兔兔、 (Tù Tù)'], 'TW_1158', '70207', [
-    { rank: 'top', position: 6, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 6,
+      date: '2025-05-11',
+      power: 188400000,
+      lv: 196,
+    },
   ]),
   user(['插騷鴨 (Chā Sāo Yā)'], 'TW_1084', '70C02', [
-    { rank: 'top', position: 7, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 7,
+      date: '2025-05-11',
+      power: 182600000,
+      lv: 194,
+    },
   ]),
   user(['正正經經鴨 (Zhèng Zhèng Jīng Jīng Yā)'], 'TW_1084', 'B030F', [
-    { rank: 'top', position: 8, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 8,
+      date: '2025-05-11',
+      power: 187900000,
+      lv: 195,
+    },
   ]),
   user(['Karidee'], 'TW_1084', 'A0B04', [
-    { rank: 'top', position: 9, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 9,
+      date: '2025-05-11',
+      power: 196000000,
+      lv: 198,
+    },
   ]),
   user(['晴儿 (Qíng ér)'], 'TW_1328', '40E03', [
-    { rank: 'top', position: 10, date: '2025-05-11' },
+    {
+      rank: 'top',
+      position: 10,
+      date: '2025-05-11',
+      power: 187000000,
+      lv: 196,
+    },
   ]),
   user(['猴猴、 (Hóu Hóu)'], 'TW_1158', '01308', [
     { rank: 'top', position: 11, date: '2025-05-11' },
