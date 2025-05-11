@@ -2,7 +2,6 @@
 @import url("./modules/iconos.css");
 @import url('../fonts/Montserrat/Montserrat.css');
 @import url('../fonts/Icomoon/Icomoon.css');
-@import url('../fonts/Quicksand/Quicksand.css');
 
 html,
 body {
@@ -35,10 +34,6 @@ blockquote {
   margin: 0;
   padding: 1rem;
   border-radius: 10px;
-}
-
-h1, h2 {
-  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
 }
 
 .workarea {
