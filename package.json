@@ -1,0 +1,32 @@
+{
+  "name": "jmiguelrivas.github.io",
+  "version": "1.0.0",
+  "description": "portfolio",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest",
+    "sb": "storybook dev -p 6006",
+    "sb-b": "storybook build --output-dir 'storybook'",
+    "gitlog": "./gitlog.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/experimental-addon-test": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@storybook/web-components": "^8.6.12",
+    "@storybook/web-components-vite": "^8.6.12",
+    "@vitest/ui": "^3.1.2",
+    "dotenv": "^16.5.0",
+    "node-fetch": "^3.3.2",
+    "storybook": "^8.6.12",
+    "vitest": "^3.1.2"
+  }
+}

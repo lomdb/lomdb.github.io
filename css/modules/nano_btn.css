@@ -1,0 +1,136 @@
+body {
+  --sunglow: hsl(47deg, 100%, 57%);
+  --shamrock: hsl(149deg, 61%, 51%);
+  --royal-purple: hsl(262.83deg 41.07% 43.92%);
+  --charcoal: #36454F;
+}
+
+.btn {
+  font-size: 9pt;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 1pt;
+  text-transform: uppercase;
+  transition-property: background-color,
+    box-shadow,
+    border,
+    color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  border-radius: 0;
+  min-height: 35px;
+  min-width: 35px;
+  padding: .5rem;
+  border-width: 0;
+
+  --color-70: color-mix(in srgb, black 70%, var(--color));
+  --color-10: color-mix(in srgb, black 15%, var(--color));
+  --color-20: color-mix(in srgb, black 30%, var(--color));
+
+  color: var(--color-70);
+  background-color: var(--color);
+  box-shadow: 0px 3px 0 var(--color-10);
+
+  &:active,
+  &.active,
+  &:hover {
+    background-color: var(--color-10);
+    box-shadow: 0px 3px 0 var(--color-20);
+  }
+
+  nn-icono {
+    pointer-events: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.pill {
+  padding: 4px 6px;
+  border-radius: 10px;
+  color: #26220d;
+  /* font-size: 9px; */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--color);
+
+  &.royal-purple {
+    --color: var(--royal-purple);
+  }
+
+  &.charcoal {
+    --color: var(--charcoal);
+  }
+  &.white {
+    --color: white;
+    color: var(--charcoal) !important;
+  }
+}
+
+.pill,
+.btn {
+  --color: attr(data-color type(<color>));
+
+  /* Old browsers support::BEGIN */
+
+  &.royal-purple {
+    --color: var(--royal-purple);
+  }
+
+  &.sunglow {
+    --color: var(--sunglow);
+  }
+
+  &.shamrock {
+    --color: var(--shamrock);
+  }
+
+  &.royal-purple {
+    color: #fff;
+  }
+
+  /* Old browsers support::END */
+}
+
+/* 
+  --white : ;
+  --silver : ;
+  
+  --persian-red : ;
+  --denim : ;
+  --gold-tips : ;
+  --cod-grey : ;
+  --gravel : ;
+  --emerald : ;
+  --burn-orange : ;
+  --razzmatazz : ;
+  --desert : ;
+  --charcoal : ;
+  --golden-brown : ;
+  --sepia : ;
+  --alizarin : ;
+  --rust : ;
+  --blush : ;
+  --fire-brick : ;
+  --milk-punch : ;
+  --yukon-gold : ;
+  --green-pea : ;
+  --laurel : ;
+  --elf-green : ;
+  --lake : ;
+  --cobalt-blue : ;
+  --mariner : ;
+  --fuchsia : ;
+  --blue-violet : ;
+  --purple-heart : ; */

@@ -1,0 +1,13 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  trailingComma: "es5",
+  semi: false,
+  singleQuote: true,
+  singleAttributePerLine: true,
+  arrowParens: "avoid",
+  proseWrap: "always",
+  "bracketSpacing": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "printWidth": 80
+}

@@ -1,0 +1,47 @@
+const countryCodes = {
+  CN: 1,
+  AMEN: 1,
+  VN: 4,
+  ES: 6,
+  ID: 7,
+  EN: 10,
+  PT: 11,
+  ESPT: 11,
+  TH: 13,
+  EUEN: 30,
+  MUSH: 30,
+  DE: 33,
+  FR: 36,
+  ME: 39,
+  TR: 39,
+  RU: 42,
+
+  TW: 54,
+  KR: 64,
+  JP: 74,
+
+  // 1: 'CN',
+  1: 'AMEN',
+  4: 'VN',
+  6: 'ES',
+  7: 'ID',
+  10: 'EN',
+  11: 'PT',
+  // 11: 'ESPT',
+  13: 'TH',
+  30: 'EUEN',
+  // 30: 'MUSH',
+  33: 'DE',
+  36: 'FR',
+  39: 'ME',
+  // 39: 'TR',
+  42: 'RU',
+
+  54: 'TW',
+  65: 'KR',
+  74: 'JP',
+}
+
+export {
+  countryCodes,
+}

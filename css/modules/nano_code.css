@@ -1,0 +1,86 @@
+nn-code {
+  display: block;
+  background-color: #171922;
+  color: #a38ce5;
+  padding: 0.5rem;
+  text-align: left;
+  font-family: "Lucida Console", Courier, monospace;
+  line-height: 1.5;
+  overflow-x: auto;
+
+  .nn-newline:before {
+    content: "⤵";
+  }
+
+  .nn-space:before {
+    content: "\2022";
+  }
+
+  .nn-tab:before {
+    content: "→";
+  }
+
+  .nn-string,
+  .nn-boolean,
+  .nn-number,
+  .nn-type {
+    transition: background 100ms ease, color 100ms ease;
+    padding-block: 0.05rem;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
+  .nn-string * {
+    padding: 0;
+  }
+
+  .nn-reserved {
+    color: #88c8ff;
+  }
+
+  .nn-boolean {
+    color: #88c8ff;
+  }
+
+  .nn-number {
+    color: #e6b033;
+  }
+
+  .nn-type {
+    color: #3f7fc3;
+  }
+
+  .nn-parenthesis {
+    color: #e76464;
+  }
+
+  .nn-string,
+  .nn-string * {
+    color: #2edb35;
+  }
+
+  .nn-comment,
+  .nn-comment * {
+    color: #666;
+  }
+
+  .nn-space,
+  .nn-tab,
+  .nn-newline {
+    color: rgba(255, 255, 255, 0.1) !important;
+    padding-inline: 0.1rem;
+  }
+
+  .nn-string:hover,
+  .nn-boolean:hover,
+  .nn-number:hover,
+  .nn-type:hover {
+    background: rgba(237, 199, 0, 0.13);
+
+  }
+
+  .nn-string:hover * {
+    background: transparent;
+    color: inherit;
+  }
+}

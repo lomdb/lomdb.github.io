@@ -1,0 +1,50 @@
+nn-desplazador {
+  --nn-track-color: hsl(0deg 0% 14%);
+  --nn-thumb-color: var(--accent-color-2);
+
+  scroll-behavior: smooth;
+
+  overflow: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+
+  scrollbar-color: var(--nn-thumb-color) var(--nn-track-color);
+  scrollbar-base-color: var(--nn-track-color);
+  scrollbar-highlight-color: var(--nn-track-color);
+  scrollbar-track-color: var(--nn-track-color);
+  scrollbar-face-color: var(--nn-thumb-color);
+  scrollbar-arrow-color: var(--nn-thumb-color);
+  scrollbar-shadow-color: var(--nn-thumb-color);
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--nn-thumb-color);
+    border-radius: 25px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--nn-track-color);
+    border-radius: 25px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &:hover,
+  &.keep {
+    scrollbar-face-color: var(--accent-color);
+    scrollbar-arrow-color: var(--accent-color);
+    scrollbar-shadow-color: var(--accent-color);
+
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--accent-color);
+    }
+  }
+}

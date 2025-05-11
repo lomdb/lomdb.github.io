@@ -1,0 +1,125 @@
+nn-fila {
+  --gap: 0;
+  --padding-inline: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  padding-inline: var(--padding-inline);
+
+  &.gap-1 {
+    --gap: 0.25rem;
+  }
+
+  &.gap-2 {
+    --gap: 0.50rem;
+  }
+
+  &.gap-3 {
+    --gap: 75rem;
+  }
+
+  &.gap-4 {
+    --gap: 1rem;
+  }
+
+  &.gap-5 {
+    --gap: 1.25rem;
+  }
+
+  &.gap-6 {
+    --gap: 1.50rem;
+  }
+
+  &.gap-7 {
+    --gap: 1.75rem;
+  }
+
+  &.gap-8 {
+    --gap: 2rem;
+  }
+
+  &.pi-1 {
+    --padding-inline: 0.25rem;
+  }
+
+  &.pi-2 {
+    --padding-inline: 0.50rem;
+  }
+
+  &.pi-1 {
+    --padding-inline: 75rem;
+  }
+
+  &.pi-4 {
+    --padding-inline: 1rem;
+  }
+
+  &.pi-5 {
+    --padding-inline: 1.25rem;
+  }
+
+  &.pi-6 {
+    --padding-inline: 1.50rem;
+  }
+
+  &.pi-7 {
+    --padding-inline: 1.75rem;
+  }
+
+  &.pi-8 {
+    --padding-inline: 2rem;
+  }
+
+  nn-fila>nn-pilar {
+    padding-inline: var(--padding-inline);
+  }
+}
+
+@media (max-width: 1200px) {
+  nn-fila {
+    &.break-lg {
+      flex-direction: column;
+
+      nn-pilar {
+        --size: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  nn-fila {
+    &.break-md {
+      flex-direction: column;
+
+      nn-pilar {
+        --size: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  nn-fila {
+    &.break-sm {
+      flex-direction: column;
+
+      nn-pilar {
+        --size: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  nn-fila {
+    &.break-xs {
+      flex-direction: column;
+
+      nn-pilar {
+        --size: 100%;
+      }
+    }
+  }
+}
