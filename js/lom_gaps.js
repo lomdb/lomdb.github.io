@@ -5,9 +5,11 @@ import { getCountryCode } from './utils.js'
 import './component_users.js'
 import { createFilters, langs } from './component_filters.js'
 import { countryCodes } from './enum_country-codes.js'
+import './component_navbar.js'
 
 const template = `
   <nn-caja padding="4" class="base">
+    <lom-navbar></lom-navbar>
     ${createFilters(['tr', 'espt', 'mush'])}
     <div id="all-servers" class="base"></div>
   </nn-caja>
@@ -38,11 +40,11 @@ class Gaps extends HTMLElement {
   generateListeners() {
     langs.forEach(lang => {
       document
-        .querySelector('.nav button.' + lang)
+        .querySelector('.filters button.' + lang)
         .addEventListener('click', () => {
           data.language = lang
           document
-            .querySelectorAll('.nav button')
+            .querySelectorAll('.filters button')
             .forEach(btn => btn.classList.remove('active'))
           this.generateGapsList()
         })
@@ -54,7 +56,7 @@ class Gaps extends HTMLElement {
     container.innerHTML = ''
 
     document
-      .querySelector('.nav button.' + data.language)
+      .querySelector('.filters button.' + data.language)
       .classList.add('active')
 
     const servers = [

@@ -8,8 +8,10 @@
   --background-color: light-dark(#fcfcfc, #202028);
   --foreground-color: light-dark(#707784, #fcfcfc);
   --accent-color: light-dark(#e8a98f, #d5e288);
-  --header-color: light-dark(#e7949b, #d5e288);
+  --header-color: light-dark(#64719b, #64719b);
   --footer-color: light-dark(#b9d2ea, #b9d2ea);
+  --tips-color: light-dark(#e5f1ff, #e5f1ff);
+  --link-color: light-dark(#4575c5, #4575c5);
   /* --btn-color: light-dark(#b6c8e6, #b6c8e6); */
 
   --cn: hsl(0deg 54.26% 31.65%);
@@ -48,6 +50,10 @@
   /* linear-gradient(131deg, rgb(174 39 122) 0%, rgb(212 64 154) 100%); */
   /* --accent-color: #88e2b4; */
   /* --accent-color-2: #d5e288; */
+
+  &:has(input[id="theme"]:checked) {
+    color-scheme: dark;
+  }
 }
 
 html,
@@ -89,6 +95,11 @@ img {
   max-width: 100%;
 }
 
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
 nav {
   ul {
     display: flex;
@@ -101,7 +112,6 @@ nav {
 
     a {
       color: var(--header-color);
-      text-decoration: none;
       padding: 1rem;
       transition: background-color, color, ease, 200ms;
       border-radius: 10px;
@@ -115,6 +125,10 @@ nav {
 }
 
 .home {
+  nav {
+    padding: 1rem;
+  }
+  
   header {
     background-color: var(--header-color);
     display: flex;
@@ -130,7 +144,8 @@ nav {
       display: block;
       width: 100%;
       height: 70px;
-      background: url('../img/wave-inverted.png') top center repeat;
+      background: url('../img/wave-white-down.png') top center repeat;
+      animation: waves linear 5s infinite;
     }
 
     &:after {
@@ -140,7 +155,8 @@ nav {
       display: block;
       width: 100%;
       height: 70px;
-      background: url('../img/wave.png') top center repeat;
+      background: url('../img/wave-denim.png') top center repeat;
+      animation: waves linear 5s infinite reverse;
     }
   }
 
@@ -184,6 +200,64 @@ nav {
 
   footer {
     background-color: var(--footer-color);
+    position: relative;
+    padding: 6rem 0 7rem;
+    font-size: 12px;
+
+    blockquote {
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+      background-color: var(--tips-color);
+      padding: 1rem;
+      display: flex;
+      gap: .5rem;
+      flex-direction: column;
+      animation: floating 2s ease-in-out infinite alternate;
+
+      .angel {
+        position: absolute;
+        width: 100px;
+        top: -60px;
+
+        &.angel-1 {
+          right: -80px;
+        }
+
+        &.angel-2 {
+          transform: rotateY(180deg);
+          left: -80px;
+        }
+      }
+
+      ul, p {
+        margin: 0;
+      }
+
+      ul {
+        padding-inline-start: 1rem;
+      }
+    }
+    
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      top: -70px;
+      background: url('../img/wave-blue.png') top center repeat;
+      animation: waves linear 5s infinite;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      bottom: 0;
+      background: url('../img/wave-white.png') top center repeat;
+      animation: waves linear 5s infinite reverse;
+    }
   }
 }
 
@@ -572,12 +646,12 @@ nav {
     }
   }
 
-  .nav {
+  .filters {
     position: sticky;
     inset: 0 0 auto 0;
     width: 100%;
     z-index: 1;
-    background: #222;
+    background: var(--background-color);
     padding: 1rem 0;
     display: flex;
     flex-flow: column;
@@ -701,5 +775,25 @@ nav {
     .help {
       visibility: visible;
     }
+  }
+}
+
+@keyframes waves {
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: 70px;
+  }
+}
+
+@keyframes floating {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 0 10px;
   }
 }

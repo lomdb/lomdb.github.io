@@ -6,6 +6,7 @@ import './component_users.js'
 import mergesGlobal from './db_merges_global.js'
 import mergesSea from './db_merges_sea.js'
 import mergesTW from './db_merges_tw.js'
+import './component_navbar.js'
 
 function mapToTableRows(inputs) {
   const merged = {}
@@ -42,6 +43,7 @@ const mergesArray = mapToTableRows([mergesGlobal, mergesSea, mergesTW])
 
 const template = `
   <nn-caja padding="4" class="base">
+    <lom-navbar></lom-navbar>
     ${createFilters()}
     <div id="merged-list" class="base"></div>
   </nn-caja>
@@ -61,11 +63,11 @@ class Simple extends HTMLElement {
   generateListeners() {
     data.langs.forEach(lang => {
       document
-        .querySelector('.nav button.' + lang)
+        .querySelector('.filters button.' + lang)
         .addEventListener('click', () => {
           data.language = lang
           document
-            .querySelectorAll('.nav button')
+            .querySelectorAll('.filters button')
             .forEach(btn => btn.classList.remove('active'))
           this.generateTable()
         })
@@ -77,7 +79,7 @@ class Simple extends HTMLElement {
     body.innerHTML = ''
 
     document
-      .querySelector('.nav button.' + data.language)
+      .querySelector('.filters button.' + data.language)
       .classList.add('active')
 
     data.mergesArray.forEach(merge => {

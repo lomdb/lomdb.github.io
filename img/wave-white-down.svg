@@ -7,8 +7,11 @@
    viewBox="0 0 18.520833 18.520833"
    version="1.1"
    id="svg9471"
-   sodipodi:docname="wave.svg"
+   sodipodi:docname="wave-white-down.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="wave-white-down.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +28,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="8.8193515"
-     inkscape:cx="36.964169"
+     inkscape:cx="24.831758"
      inkscape:cy="10.65838"
      inkscape:window-width="1680"
      inkscape:window-height="994"
@@ -41,7 +44,7 @@
      id="layer1">
     <path
        id="circle89645"
-       style="fill:#e7949b;fill-opacity:1;stroke:none;stroke-width:5.08874;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.08874;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        d="M 0 0 A 9.260417 9.260417 0 0 0 9.2604167 9.2604167 A 9.260417 9.260417 0 0 0 18.520833 0 L 0 0 z " />
   </g>
 </svg>

@@ -7,9 +7,9 @@
    viewBox="0 0 18.520833 18.520833"
    version="1.1"
    id="svg9471"
-   sodipodi:docname="wave-blue.svg"
+   sodipodi:docname="wave-denim.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   inkscape:export-filename="wave-blue.png"
+   inkscape:export-filename="wave-denim.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="8.8193515"
-     inkscape:cx="21.543534"
-     inkscape:cy="33.902719"
+     inkscape:cx="3.4016107"
+     inkscape:cy="10.65838"
      inkscape:window-width="1680"
      inkscape:window-height="994"
      inkscape:window-x="0"
@@ -44,7 +44,7 @@
      id="layer1">
     <path
        id="circle89645"
-       style="fill:#b9d2ea;fill-opacity:1;stroke:none;stroke-width:5.08874;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="M 18.520833,18.520833 A 9.260417,9.260417 0 0 0 9.2604163,9.2604167 9.260417,9.260417 0 0 0 0,18.520833 Z" />
+       style="fill:#64719b;fill-opacity:1;stroke:none;stroke-width:5.08874;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 0 0 A 9.260417 9.260417 0 0 0 9.2604167 9.2604167 A 9.260417 9.260417 0 0 0 18.520833 0 L 0 0 z " />
   </g>
 </svg>

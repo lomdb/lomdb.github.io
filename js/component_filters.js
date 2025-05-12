@@ -28,7 +28,7 @@ export function createFilters(remove = []) {
     .join('')
 
   return `
-<div class="nav">
+<div class="filters">
   <div class="controllers">
     ${filters}
   </div>

@@ -3,23 +3,16 @@ import { servers } from './db_merges.js'
 import { getTooltip } from './utils.js'
 import { getPrefix, createNode } from './helpers.js'
 import { createFilters, langs } from './component_filters.js'
+import './component_navbar.js'
 import './component_users.js'
 
 const template = `
   <nn-caja padding="4" class="base">
+    <lom-navbar></lom-navbar>
 		${createFilters()}
 
     <div class="title-disclaimer">
       <h2>Merged Servers</h2>
-      <blockquote>
-        If you believe your user should be listed here or that any data needs correction, feel free to send an email to 
-        <a href="mailto:pombo.9g7ku@simplelogin.fr">pombo.9g7ku@simplelogin.fr</a> with the following:
-        <ul>
-          <li>A screenshot of your user profile, ideally showing your original server.</li>
-          <li>Screenshots showing your presence in the Elite Champion or above.</li>
-          <li>The date when you were ranked in one of these tiers.</li>
-        </ul>
-      </blockquote>
     </div>
 
     <table>
@@ -49,11 +42,11 @@ class Timeline extends HTMLElement {
   generateListeners() {
     data.langs.forEach(lang => {
       document
-        .querySelector('.nav button.' + lang)
+        .querySelector('.filters button.' + lang)
         .addEventListener('click', () => {
           data.language = lang
           document
-            .querySelectorAll('.nav button')
+            .querySelectorAll('.filters button')
             .forEach(btn => btn.classList.remove('active'))
 
           this.generateTable()
@@ -66,7 +59,7 @@ class Timeline extends HTMLElement {
     tableBody.innerHTML = ''
 
     document
-      .querySelector('.nav button.' + data.language)
+      .querySelector('.filters button.' + data.language)
       .classList.add('active')
 
     let localServers

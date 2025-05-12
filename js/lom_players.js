@@ -2,23 +2,16 @@ import './modules/index.js'
 import { getPrefix, createNode } from './helpers.js'
 import { usersDB as users } from './db_users.js'
 import { createFilters, langs } from './component_filters.js'
+import './component_navbar.js'
 
 class Players extends HTMLElement {
   static template = `
 <nn-caja padding="4" class="base">
+  <lom-navbar></lom-navbar>
   ${createFilters()}
 
   <div class="title-disclaimer">
     <h2>Players</h2>
-    <blockquote>
-      If you believe your user should be listed here or that any data needs correction, feel free to send an email to 
-      <a href="mailto:pombo.9g7ku@simplelogin.fr">pombo.9g7ku@simplelogin.fr</a> with the following:
-      <ul>
-        <li>A screenshot of your user profile, ideally showing your original server.</li>
-        <li>Screenshots showing your presence in the Elite Champion or above.</li>
-        <li>The date when you were ranked in one of these tiers.</li>
-      </ul>
-    </blockquote>
   </div>
 
   <div class="table">
