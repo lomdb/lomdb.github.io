@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="lomdb"
+    />
+    <title>lomdb</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://lomdb.github.io/img/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="256x256"
+      href="https://lomdb.github.io/img/favicon_256x256.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="https://lomdb.github.io/img/favicon_128x128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="https://lomdb.github.io/img/favicon_64x64.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="https://lomdb.github.io/img/favicon_48x48.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://lomdb.github.io/img/favicon_32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="24x24"
+      href="https://lomdb.github.io/img/favicon_24x24.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://lomdb.github.io/img/favicon_16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://lomdb.github.io/img/favicon_180x180.png"
+    />
+    <meta
+      name="msapplication-TileColor"
+      content="#e9c200"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="https://lomdb.github.io/img/favicon_128x128.png"
+    />
+    <meta
+      property="og:image"
+      content="https://lomdb.github.io/img/lom-preview.webp"
+    />
+    <meta
+      property="og:image:type"
+      content="image/png"
+    />
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+    <script
+      type="module"
+      src="./js/lom_timeline.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="./css/lom.css"
+    />
+  </head>
+  <body class="home">
+    <nav>
+      <nn-caja
+        size="1000"
+        padding="4"
+      >
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="timeline.html">Timeline</a>
+          </li>
+          <li>
+            <a href="merges.html">Merges</a>
+          </li>
+          <li>
+            <a href="gaps.html">Merge's Gap</a>
+          </li>
+          <li>
+            <a href="players.html">Players</a>
+          </li>
+        </ul>
+      </nn-caja>
+    </nav>
+
+    <header>
+      <img
+        src="./img/lomdb.svg"
+        alt="lomdb logo"
+      />
+    </header>
+
+    <main>
+      <section>
+        <nn-caja
+          size="1000"
+          padding="4"
+        >
+          <nn-fila
+            break="md"
+            class="ltr"
+          >
+            <nn-pilar size="30%">
+              <img
+                src="./img/timeline.svg"
+                alt="a graph showing an increment"
+              />
+            </nn-pilar>
+            <nn-pilar size="70%">
+              <h2>Timeline</h2>
+              <p>
+                A comprehensive and intuitive visual overview of all server merges
+                that have occurred in Legend of Mushrooms. This timeline
+                consolidates every known merge event into a single,
+                easy-to-navigate table. Each entry includes details like merge
+                date, servers involved, and regional context—helping users track
+                the evolution of the server landscape at a glance.
+              </p>
+              <div>
+                <a
+                  href="timeline.html"
+                  class="btn sunglow"
+                  >Check Timeline</a
+                >
+              </div>
+            </nn-pilar>
+          </nn-fila>
+        </nn-caja>
+      </section>
+  
+      <section>
+        <nn-caja
+          size="1000"
+          padding="4"
+        >
+          <nn-fila
+            break="md"
+            class="rtl"
+          >
+            <nn-pilar size="30%">
+              <img
+                src="./img/merges.svg"
+                alt="a summatory of mushroms servers"
+              />
+            </nn-pilar>
+            <nn-pilar size="70%">
+              <h2>Merges</h2>
+              <p>
+                A detailed table displaying the same merge information as the
+                public spreadsheet, enhanced with language filters to tailor the
+                view by region or localization. This view is especially useful for
+                cross-referencing and double-checking data between the internal
+                project database and the shared community spreadsheet. Ideal for
+                those who want a deeper, verified look at the data source.
+              </p>
+              <div>
+                <a
+                  href="timeline.html"
+                  class="btn sunglow"
+                  >Check Merges</a
+                >
+              </div>
+            </nn-pilar>
+          </nn-fila>
+        </nn-caja>
+      </section>
+  
+      <section>
+        <nn-caja
+          size="1000"
+          padding="4"
+        >
+          <nn-fila
+            break="md"
+            class="ltr"
+          >
+            <nn-pilar size="30%">
+              <img
+                src="./img/gaps.svg"
+                alt="a sequence of numbers missing number 5."
+              />
+            </nn-pilar>
+            <nn-pilar size="70%">
+              <h2>Merge's Gaps</h2>
+              <p>
+                A diagnostic view designed to identify servers that have never
+                appeared in any known merge throughout the game's history. This
+                tool scans for gaps in the merge timeline, helping to surface
+                unmerged servers, data inconsistencies, or potential oversights in
+                the merge records.
+              </p>
+              <div>
+                <a
+                  href="timeline.html"
+                  class="btn sunglow"
+                  >Check Merge's Gaps</a
+                >
+              </div>
+            </nn-pilar>
+          </nn-fila>
+        </nn-caja>
+      </section>
+  
+      <section>
+        <nn-caja
+          size="1000"
+          padding="4"
+        >
+          <nn-fila
+            break="md"
+            class="rtl"
+          >
+            <nn-pilar size="30%">
+              <img
+                src="./img/players.svg"
+                alt="3 mushroms posing for a picture"
+              />
+            </nn-pilar>
+            <nn-pilar size="70%">
+              <h2>Players Leaderboard</h2>
+              <p>
+                A focused list of players tracked in the project’s dedicated
+                player database. This leaderboard contributes additional context
+                to both the Timeline and Merges View. It highlights selected
+                players across servers, enabling further insights into server
+                populations or notable player movements over time.
+              </p>
+              <div>
+                <a
+                  href="timeline.html"
+                  class="btn sunglow"
+                  >Check Players Board</a
+                >
+              </div>
+            </nn-pilar>
+          </nn-fila>
+        </nn-caja>
+      </section>
+    </main>
+
+
+    <footer>
+      <blockquote>
+        If you believe your user should be listed here or that any data needs
+        correction, feel free to send an email to
+        <a href="mailto:pombo.9g7ku@simplelogin.fr"
+          >pombo.9g7ku@simplelogin.fr</a
+        >
+        with the following:
+        <ul>
+          <li>
+            A screenshot of your user profile, ideally showing your original
+            server.
+          </li>
+          <li>
+            Screenshots showing your presence in the Elite Champion or above.
+          </li>
+          <li>The date when you were ranked in one of these tiers.</li>
+        </ul>
+      </blockquote>
+    </footer>
+  </body>
+</html>

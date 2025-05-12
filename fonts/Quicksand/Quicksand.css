@@ -2,12 +2,12 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  src: url("/static/Quicksand-Medium.ttf") format('truetype');
+  src: url("./static/Quicksand-Medium.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
-  src: url("/static/Quicksand-SemiBold.ttf") format('truetype');
+  src: url("./static/Quicksand-SemiBold.ttf") format('truetype');
 }
