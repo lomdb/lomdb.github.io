@@ -496,11 +496,6 @@ export const am = [
   user(['Chopa', 'Grandma'], 'AMEN_488', 'A0A03', [
     { rank: 'top', position: 83, date: '2025-05-05' },
   ]),
-  user(['JDaddy'], 'AMEN_310', '90505', [
-    { rank: 'elite', date: '2025-04-25' },
-    { rank: 'top', position: 92, date: '2025-04-28' },
-    { rank: 'top', position: 84, date: '2025-05-05' },
-  ]),
   user(['Bonita'], 'AMEN_404', '80004', [
     { rank: 'top', position: 67, date: '2025-04-25' },
     { rank: 'top', position: 59, date: '2025-04-28' },
@@ -551,9 +546,6 @@ export const am = [
   ]),
   user(['Postmaster'], 'AMEN_338', 'C0908', [
     { rank: 'top', position: 98, date: '2025-05-05' },
-  ]),
-  user(['StepsisLily'], 'AMEN_421', 'F0A05', [
-    { rank: 'top', position: 99, date: '2025-05-05' },
   ]),
   user(['Dean_W'], 'AMEN_122', '80A03', [
     { rank: 'top', position: 100, date: '2025-05-05' },
@@ -679,6 +671,28 @@ export const am = [
   ]),
   user(['Tony'], 'AMEN_435', 'C0506', [
     { rank: 'top', position: 87, date: '2025-04-25' },
+  ]),
+
+
+  user(['Callous'], 'AMEN_321', '90E0B', [
+    { rank: 'top', position: 100, date: '2024-12-07' },
+    { rank: 'top', position: 88, date: '2025-05-12' },
+  ]),
+  user(['IPutLubeOn'], 'AMEN_302', '60A0D', [
+    { rank: 'top', position: 93, date: '2025-05-12' },
+  ]),
+  user(['JDaddy'], 'AMEN_310', '90505', [
+    { rank: 'elite', date: '2025-04-25' },
+    { rank: 'top', position: 92, date: '2025-04-28' },
+    { rank: 'top', position: 84, date: '2025-05-05' },
+    { rank: 'top', position: 98, date: '2025-05-10' },
+  ]),
+  user(['F2Pshroom'], 'AMEN_026', '5020D', [
+    { rank: 'top', position: 99, date: '2025-05-12' },
+  ]),
+  user(['StepsisLily'], 'AMEN_421', 'F0A05', [
+    { rank: 'top', position: 99, date: '2025-05-05' },
+    { rank: 'top', position: 100, date: '2025-05-12' },
   ]),
   //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   user(['PedroCarnicero'], 'AMEN_019', '71A0D', [
@@ -1722,9 +1736,6 @@ export const am = [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['Ramos'], 'PT_180', 'E050F', [
-    { rank: 'top', position: 100, date: '2024-12-07' },
-  ]),
-  user(['Callous'], 'AMEN_321', '90E0B', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['chobop'], 'AMEN_302', 'D0F02', [

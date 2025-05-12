@@ -4,14 +4,14 @@
 @import url('../fonts/Icomoon/Icomoon.css');
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --background-color: light-dark(#fcfcfc, #202028);
   --foreground-color: light-dark(#707784, #fcfcfc);
   --accent-color: light-dark(#e8a98f, #d5e288);
   --header-color: light-dark(#64719b, #64719b);
-  --footer-color: light-dark(#b9d2ea, #b9d2ea);
-  --tips-color: light-dark(#e5f1ff, #e5f1ff);
-  --link-color: light-dark(#4575c5, #4575c5);
+  --footer-color: light-dark(#b9d2ea, #40316c);
+  --tips-color: light-dark(#e5f1ff, #53667c);
+  --link-color: light-dark(#4575c5, #c1ff5f);
   /* --btn-color: light-dark(#b6c8e6, #b6c8e6); */
 
   --cn: hsl(0deg 54.26% 31.65%);
@@ -50,10 +50,10 @@
   /* linear-gradient(131deg, rgb(174 39 122) 0%, rgb(212 64 154) 100%); */
   /* --accent-color: #88e2b4; */
   /* --accent-color-2: #d5e288; */
+}
 
-  &:has(input[id="theme"]:checked) {
-    color-scheme: dark;
-  }
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -66,19 +66,16 @@ body {
   font-weight: 700;
 }
 
-* {
-  box-sizing: border-box;
+body.light {
+  color-scheme: light;
+}
+
+body.dark {
+  color-scheme: dark;
 }
 
 .sr-only {
   display: none;
-}
-
-blockquote {
-  /* background-color: hsl(218 10% 22% / 1); */
-  margin: 0;
-  padding: 1rem;
-  border-radius: 10px;
 }
 
 p,
@@ -116,7 +113,8 @@ nav {
       transition: background-color, color, ease, 200ms;
       border-radius: 10px;
 
-      &:hover {
+      &:hover,
+      &.active {
         background-color: var(--header-color);
         color: var(--background-color);
       }
@@ -128,7 +126,7 @@ nav {
   nav {
     padding: 1rem;
   }
-  
+
   header {
     background-color: var(--header-color);
     display: flex;
@@ -164,7 +162,7 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 5rem;
-    padding-block: 5rem;
+    padding-block: 10rem;
   }
 
   section {
@@ -205,6 +203,7 @@ nav {
     font-size: 12px;
 
     blockquote {
+      border-radius: 10px;
       position: relative;
       max-width: 500px;
       margin: auto;
@@ -230,7 +229,8 @@ nav {
         }
       }
 
-      ul, p {
+      ul,
+      p {
         margin: 0;
       }
 
@@ -238,7 +238,7 @@ nav {
         padding-inline-start: 1rem;
       }
     }
-    
+
     &:before {
       content: "";
       position: absolute;

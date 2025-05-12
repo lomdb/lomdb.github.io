@@ -31,8 +31,29 @@ class Navbar extends HTMLElement {
     super()
   }
 
+  static data = {
+    theme: 'light',
+  }
+
+  setTheme(theme) {
+    const localTheme = theme || Navbar.data.theme
+    localStorage.setItem('theme', localTheme)
+    document.body.classList.remove('dark', 'light')
+    document.body.classList.add(localTheme)
+  }
+
   connectedCallback() {
     this.innerHTML = Navbar.template
+    const localTheme = localStorage.getItem('theme') || Navbar.data.theme
+    Navbar.data.theme = localTheme
+    this.setTheme()
+
+    this.querySelector('#theme').checked = localTheme === 'dark' ? true : false
+
+    this.querySelector('#theme').addEventListener('change', e => {
+      console.log(e)
+      e.target.checked ? this.setTheme('dark') : this.setTheme('light')
+    })
   }
 }
 
