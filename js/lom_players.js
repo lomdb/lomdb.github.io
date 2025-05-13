@@ -83,8 +83,9 @@ class Players extends HTMLElement {
           })
           .join('')
 
-        const ranks = user.ranks.map(rank => {
-          return `
+        const ranks = user.ranks
+          .map(rank => {
+            return `
             <span class="pill ${rank?.rank}">
               ${[
                 rank?.rank,
@@ -95,7 +96,8 @@ class Players extends HTMLElement {
                 .join(' :: ')}
             </span>
           `
-        }).join('')
+          })
+          .join('')
 
         const maxLevel =
           user.maxPower && user.maxLevel
@@ -127,23 +129,21 @@ class Players extends HTMLElement {
 
         fragment.appendChild(wrapper.firstElementChild)
       })
-
-      tableBody.innerHTML = ''
-      tableBody.appendChild(fragment)
     } else {
       const wrapper = document.createElement('div')
       wrapper.innerHTML = `
         <nn-fila break="md">
           <nn-pilar size="100%" class="empty">
-            No users found
+            Empty
           </nn-pilar>
         </nn-fila>
         `
 
       fragment.appendChild(wrapper.firstElementChild)
-      tableBody.innerHTML = ''
-      tableBody.appendChild(fragment)
     }
+
+    tableBody.innerHTML = ''
+    tableBody.appendChild(fragment)
   }
 
   connectedCallback() {

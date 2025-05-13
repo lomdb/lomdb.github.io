@@ -18,6 +18,7 @@
   nn-pilar.empty {
     padding: 1rem;
     text-align: center;
+    background-color: hsl(240 6% 17% / 1);
   }
 
   .table-header {

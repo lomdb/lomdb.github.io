@@ -75,41 +75,53 @@ class Timeline extends HTMLElement {
     }
 
     const fragment = document.createDocumentFragment()
-    localServers.forEach(serv => {
-      const key = { ...serv.key }
-      const group = serv.values
+    if (localServers.length) {
+      localServers.forEach(serv => {
+        const key = { ...serv.key }
+        const group = serv.values
 
-      const tooltipMap = group
-        .map(cell => {
-          const tooltip = getTooltip(cell)
-          return `
-      <nn-pilar
-        class="fusion ${[cell.id, ...tooltip.classes].join(' ')}"
-        style="order:${cell.numericId}"
-      >
-        ${tooltip.msg || cell.label}
-      </nn-pilar>
+        const tooltipMap = group
+          .map(cell => {
+            const tooltip = getTooltip(cell)
+            return `
+        <nn-pilar
+          class="fusion ${[cell.id, ...tooltip.classes].join(' ')}"
+          style="order:${cell.numericId}"
+        >
+          ${tooltip.msg || cell.label}
+        </nn-pilar>
+      `
+          })
+          .join('')
+
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = `
+      <nn-fila break="md" class="row" gap="1">
+        <nn-pilar size="25%" class="leading-server flex-column">
+          <span class="index">${key.index}</span>
+          <span class="pill ${key.id}">${key.label}</span>
+          <span class="pill white">Length: ${group.length}</span>
+        </nn-pilar>
+        <nn-pilar size="75% - 0.25rem">
+          <nn-fila break="md" class="merge-group">
+            ${tooltipMap}
+          </nn-fila>
+        </nn-pilar>
+      </nn-fila>
     `
-        })
-        .join('')
-
+        fragment.appendChild(wrapper.firstElementChild)
+      })
+    } else {
       const wrapper = document.createElement('div')
       wrapper.innerHTML = `
-    <nn-fila break="md" class="row" gap="1">
-      <nn-pilar size="25%" class="leading-server flex-column">
-        <span class="index">${key.index}</span>
-        <span class="pill ${key.id}">${key.label}</span>
-        <span class="pill white">Length: ${group.length}</span>
-      </nn-pilar>
-      <nn-pilar size="75% - 0.25rem">
-        <nn-fila break="md" class="merge-group">
-          ${tooltipMap}
-        </nn-fila>
-      </nn-pilar>
-    </nn-fila>
-  `
+      <nn-fila break="md" class="row" gap="1">
+        <nn-pilar size="100%" class="empty">
+         Empty
+        </nn-pilar>
+      </nn-fila>
+    `
       fragment.appendChild(wrapper.firstElementChild)
-    })
+    }
 
     tableBody.innerHTML = ''
     tableBody.appendChild(fragment)
