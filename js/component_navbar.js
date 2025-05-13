@@ -20,40 +20,40 @@ class Navbar extends HTMLElement {
     <li>
       <a href="players.html">Players</a>
     </li>
-    <li>
-      <input type="checkbox" id="theme">
-    </li>
   </ul>
 </nav>
 `
+
+/* <li>
+  <input type="checkbox" id="theme">
+</li> */
 
   constructor() {
     super()
   }
 
   static data = {
-    theme: 'light',
+    theme: 'dark',
   }
 
-  setTheme(theme) {
-    const localTheme = theme || Navbar.data.theme
-    localStorage.setItem('theme', localTheme)
-    document.body.classList.remove('dark', 'light')
-    document.body.classList.add(localTheme)
-  }
+  // setTheme(theme) {
+  //   const localTheme = theme || Navbar.data.theme
+  //   localStorage.setItem('theme', localTheme)
+  //   document.body.classList.remove('dark', 'light')
+  //   document.body.classList.add(localTheme)
+  // }
 
   connectedCallback() {
     this.innerHTML = Navbar.template
     const localTheme = localStorage.getItem('theme') || Navbar.data.theme
     Navbar.data.theme = localTheme
-    this.setTheme()
+    // this.setTheme()
 
-    this.querySelector('#theme').checked = localTheme === 'dark' ? true : false
+    // this.querySelector('#theme').checked = localTheme === 'dark' ? true : false
 
-    this.querySelector('#theme').addEventListener('change', e => {
-      console.log(e)
-      e.target.checked ? this.setTheme('dark') : this.setTheme('light')
-    })
+    // this.querySelector('#theme').addEventListener('change', e => {
+    //   e.target.checked ? this.setTheme('dark') : this.setTheme('light')
+    // })
   }
 }
 

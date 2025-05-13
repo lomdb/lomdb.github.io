@@ -1,24 +1,26 @@
 export let langs = [
   'all',
-  'cn',
-  'tw',
   'amen',
-  'vn',
   'es',
-  'id',
-  'en',
   'espt',
   'pt',
-  'th',
   'euen',
   'mush',
   'de',
   'fr',
   'me',
   'tr',
+  'ru',
+  
+  'cn',
+  'vn',
+  'id',
+  'en',
+  'th',
+  
   'kr',
   'jp',
-  'ru',
+  'tw',
 ]
 
 export function createFilters(remove = []) {

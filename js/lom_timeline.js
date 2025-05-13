@@ -6,7 +6,19 @@ import { createFilters, langs } from './component_filters.js'
 import './component_navbar.js'
 import './component_users.js'
 
-const template = `
+class Timeline extends HTMLElement {
+  constructor() {
+    super()
+  }
+
+  static data = {
+    attrs: [],
+    language: 'all',
+    langs,
+    servers,
+  }
+
+  static template = `
   <nn-caja padding="4" class="base">
     <lom-navbar></lom-navbar>
 		${createFilters()}
@@ -15,144 +27,99 @@ const template = `
       <h2>Merged Servers</h2>
     </div>
 
-    <table>
-			<thead>
-				<tr>
-					<th>NEW</th>
-					<th>MERGED</th>
-				</tr>
-			</thead>
-			<tbody id="merged-list"></tbody>
-		</table>
+    <div class="table">
+      <nn-fila break="sm" class="table-header" gap="1">
+        <nn-pilar size="25%">LEADING SERVER</nn-pilar>
+        <nn-pilar size="75% - 0.25rem">MERGED</nn-pilar>
+      </nn-fila>
+      <div id="table-body" class="table-body"></div>
+    </div>
   </nn-caja>
-`
-
-const data = {
-  attrs: [],
-  language: 'all',
-  langs,
-  servers,
-}
-
-class Timeline extends HTMLElement {
-  constructor() {
-    super()
-  }
+  `
 
   generateListeners() {
-    data.langs.forEach(lang => {
-      document
-        .querySelector('.filters button.' + lang)
-        .addEventListener('click', () => {
-          data.language = lang
-          document
-            .querySelectorAll('.filters button')
-            .forEach(btn => btn.classList.remove('active'))
+    const filterContainer = this.querySelector('.filters')
+    if (!filterContainer) return
 
-          this.generateTable()
-        })
+    filterContainer.addEventListener('click', e => {
+      const button = e.target.closest('button')
+      if (!button || !filterContainer.contains(button)) return
+
+      const lang = button.classList[0] // assumes lang is class name
+      Timeline.data.language = lang
+
+      this.querySelectorAll('.filters button').forEach(btn =>
+        btn.classList.remove('active')
+      )
+      button.classList.add('active')
+
+      this.generateTable()
     })
   }
 
   generateTable() {
-    const tableBody = this.querySelector('#merged-list')
+    const tableBody = this.querySelector('#table-body')
     tableBody.innerHTML = ''
 
-    document
-      .querySelector('.filters button.' + data.language)
-      .classList.add('active')
+    this.querySelector(
+      '.filters button.' + Timeline.data.language
+    ).classList.add('active')
 
     let localServers
 
-    if (data.language !== 'all') {
-      localServers = data.servers.filter(
+    if (Timeline.data.language !== 'all') {
+      localServers = Timeline.data.servers.filter(
         server =>
-          server.key.id === data.language ||
-          server.values.some(val => val.id === data.language)
+          server.key.id === Timeline.data.language ||
+          server.values.some(val => val.id === Timeline.data.language)
       )
     } else {
-      localServers = data.servers
+      localServers = Timeline.data.servers
     }
 
+    const fragment = document.createDocumentFragment()
     localServers.forEach(serv => {
       const key = { ...serv.key }
       const group = serv.values
 
-      const tr = createNode({
-        type: 'tr',
-        parent: tableBody,
-      })
-
-      const td = createNode({
-        type: 'td',
-        parent: tr,
-        attrs: {
-          class: [key.id, 'leading-server'].join(' '),
-        },
-      })
-
-      createNode({
-        type: 'span',
-        parent: td,
-        attrs: {
-          // class: ['pill', 'charcoal'].join(' '),
-        },
-        text: key.label,
-      })
-
-      const div = createNode({
-        type: 'div',
-        parent: td,
-        attrs: {
-          class: ['user-details'].join(' '),
-        },
-      })
-
-      createNode({
-        type: 'span',
-        parent: div,
-        // attrs: {
-        //   class: ['pill', 'white'].join(' '),
-        // },
-        text: 'Index: ' + key.index,
-      })
-
-      createNode({
-        type: 'span',
-        parent: div,
-        // attrs: {
-        //   class: ['pill', 'white'].join(' '),
-        // },
-        text: 'Length: ' + group.length,
-      })
-
-      const tdGroup = createNode({
-        type: 'td',
-        parent: tr,
-        attrs: { class: ['merged', !group.length && key.id].join(' ') },
-      })
-
-      const groupCell = createNode({
-        type: 'div',
-        parent: tdGroup,
-      })
-
-      group.forEach(cell => {
-        const span = createNode({
-          type: 'span',
-          parent: groupCell,
-          attrs: {
-            class: ['fusion', cell.id, ...getTooltip(cell).classes].join(' '),
-            style: `order:${cell.numericId}`,
-          },
-          innerHTML: getTooltip(cell).msg ? getTooltip(cell).msg : cell.label,
+      const tooltipMap = group
+        .map(cell => {
+          const tooltip = getTooltip(cell)
+          return `
+      <nn-pilar
+        class="fusion ${[cell.id, ...tooltip.classes].join(' ')}"
+        style="order:${cell.numericId}"
+      >
+        ${tooltip.msg || cell.label}
+      </nn-pilar>
+    `
         })
-      })
+        .join('')
+
+      const wrapper = document.createElement('div')
+      wrapper.innerHTML = `
+    <nn-fila break="md" class="row" gap="1">
+      <nn-pilar size="25%" class="leading-server">
+        <span class="index">${key.index}</span>
+        <span class="pill ${key.id}">${key.label}</span>
+        <span class="pill white">Length: ${group.length}</span>
+      </nn-pilar>
+      <nn-pilar size="75% - 0.25rem">
+        <nn-fila break="md" class="merge-group">
+          ${tooltipMap}
+        </nn-fila>
+      </nn-pilar>
+    </nn-fila>
+  `
+      fragment.appendChild(wrapper.firstElementChild)
     })
+
+    tableBody.innerHTML = ''
+    tableBody.appendChild(fragment)
   }
 
   connectedCallback() {
-    this.innerHTML = template
+    this.innerHTML = Timeline.template
     this.generateTable()
     this.generateListeners()
   }
@@ -160,4 +127,4 @@ class Timeline extends HTMLElement {
 
 window.customElements.define(getPrefix('timeline'), Timeline)
 
-export { data }
+export { Timeline }
