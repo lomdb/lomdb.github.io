@@ -83,6 +83,9 @@ nn-fila {
 
       nn-pilar {
         --size: 100%;
+        flex-basis: var(--size) !important;
+        max-width: var(--size) !important;
+        width: var(--size) !important;
       }
     }
   }
@@ -95,6 +98,9 @@ nn-fila {
 
       nn-pilar {
         --size: 100%;
+        flex-basis: var(--size) !important;
+        max-width: var(--size) !important;
+        width: var(--size) !important;
       }
     }
   }
@@ -107,6 +113,9 @@ nn-fila {
 
       nn-pilar {
         --size: 100%;
+        flex-basis: var(--size) !important;
+        max-width: var(--size) !important;
+        width: var(--size) !important;
       }
     }
   }
@@ -119,6 +128,9 @@ nn-fila {
 
       nn-pilar {
         --size: 100%;
+        flex-basis: var(--size) !important;
+        max-width: var(--size) !important;
+        width: var(--size) !important;
       }
     }
   }

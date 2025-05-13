@@ -1,0 +1,25 @@
+nav {
+  ul {
+    display: flex;
+    padding: .5rem;
+    margin: 0;
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+    justify-content: end;
+    flex-wrap: wrap;
+
+    a {
+      color: var(--header-color);
+      padding: 1rem;
+      transition: background-color, color, ease, 200ms;
+      border-radius: 10px;
+
+      &:hover,
+      &.active {
+        background-color: var(--header-color);
+        color: var(--background-color);
+      }
+    }
+  }
+}

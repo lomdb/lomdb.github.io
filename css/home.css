@@ -1,0 +1,166 @@
+.home {
+  nav {
+    padding: 1rem;
+  }
+
+  header {
+    background-color: var(--header-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 370px;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 70px;
+      background: url('../img/wave-white-down-inv.png') top center repeat;
+      animation: waves linear 5s infinite;
+    }
+
+    &:after {
+      position: absolute;
+      bottom: -70px;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 70px;
+      background: url('../img/wave-denim.png') top center repeat;
+      animation: waves linear 5s infinite reverse;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding-block: 10rem;
+  }
+
+  section {
+    nn-pilar {
+      display: flex;
+      justify-content: center;
+
+      .btn {
+        min-width: 200px;
+      }
+
+      &[size="30%"] {
+        align-items: center;
+      }
+
+      &[size="70%"] {
+        flex-flow: column;
+        padding-inline: 1.5rem;
+        gap: 1rem;
+      }
+    }
+
+    .ltr {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .rtl {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  footer {
+    background-color: var(--footer-color);
+    position: relative;
+    padding: 6rem 0 7rem;
+    font-size: 12px;
+
+    blockquote {
+      border-radius: 10px;
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+      background-color: var(--tips-color);
+      padding: 1rem;
+      display: flex;
+      gap: .5rem;
+      flex-direction: column;
+      animation: floating 2s ease-in-out infinite alternate;
+
+      .angel {
+        position: absolute;
+        width: 100px;
+        top: -60px;
+
+        &.angel-1 {
+          right: -80px;
+        }
+
+        &.angel-2 {
+          transform: rotateY(180deg);
+          left: -80px;
+        }
+      }
+
+      ul,
+      p {
+        margin: 0;
+      }
+
+      ul {
+        padding-inline-start: 1rem;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      top: -69px;
+      background: url('../img/wave-blue-inv.png') top center repeat;
+      animation: waves linear 5s infinite;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      bottom: 0;
+      background: url('../img/wave-white-inv.png') top center repeat;
+      animation: waves linear 5s infinite reverse;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .home {
+    section {
+      nn-pilar {
+
+        &[size="30%"],
+        &[size="70%"] {
+          text-align: center;
+        }
+      }
+    }
+
+    footer {
+      padding-inline: 1rem;
+
+      blockquote {
+        animation: none;
+      }
+
+      &:before,
+      &:after,
+      .angel {
+        display: none;
+      }
+    }
+  }
+}

@@ -3,6 +3,8 @@
 @import url('../fonts/Quicksand/Quicksand.css');
 @import url('../fonts/Icomoon/Icomoon.css');
 @import url('./table.css');
+@import url('./navbar.css');
+@import url('./home.css');
 
 :root {
   color-scheme: light dark;
@@ -13,7 +15,6 @@
   --footer-color: light-dark(#b9d2ea, #3c3356);
   --tips-color: light-dark(#e5f1ff, #53667c);
   --link-color: light-dark(#4575c5, #c1ff5f);
-  /* --btn-color: light-dark(#b6c8e6, #b6c8e6); */
 
   --amen: hsl(0deg 40% 31.65%);
   --es: hsl(50deg 55% 40%);
@@ -98,182 +99,15 @@ img {
 a {
   color: var(--link-color);
   text-decoration: none;
-}
 
-nav {
-  ul {
-    display: flex;
-    padding: .5rem;
-    margin: 0;
-    list-style: none;
-    gap: 1rem;
-    align-items: center;
-    justify-content: end;
-
-    a {
-      color: var(--header-color);
-      padding: 1rem;
-      transition: background-color, color, ease, 200ms;
-      border-radius: 10px;
-
-      &:hover,
-      &.active {
-        background-color: var(--header-color);
-        color: var(--background-color);
-      }
-    }
-  }
-}
-
-.home {
-  nav {
-    padding: 1rem;
-  }
-
-  header {
-    background-color: var(--header-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 480px;
-    position: relative;
-
-    &:before {
-      position: absolute;
-      top: 0;
-      content: "";
-      display: block;
-      width: 100%;
-      height: 70px;
-      background: url('../img/wave-white-down-inv.png') top center repeat;
-      animation: waves linear 5s infinite;
+  &.disabled {
+    &, &.btn {
+      color: #333 !important;
+      pointer-events: none;
     }
 
-    &:after {
-      position: absolute;
-      bottom: -70px;
-      content: "";
-      display: block;
-      width: 100%;
-      height: 70px;
-      background: url('../img/wave-denim.png') top center repeat;
-      animation: waves linear 5s infinite reverse;
-    }
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    padding-block: 10rem;
-  }
-
-  section {
-    nn-pilar {
-      display: flex;
-      justify-content: center;
-
-      .btn {
-        min-width: 200px;
-      }
-
-      &[size="30%"] {
-        align-items: center;
-      }
-
-      &[size="70%"] {
-        flex-flow: column;
-        padding-inline: 1.5rem;
-        gap: 1rem;
-      }
-    }
-
-    .ltr {
-      flex-direction: row-reverse;
-      text-align: right;
-    }
-
-    .rtl {
-      flex-direction: row;
-      text-align: left;
-    }
-  }
-
-  footer {
-    background-color: var(--footer-color);
-    position: relative;
-    padding: 6rem 0 7rem;
-    font-size: 12px;
-
-    blockquote {
-      border-radius: 10px;
-      position: relative;
-      max-width: 500px;
-      margin: auto;
-      background-color: var(--tips-color);
-      padding: 1rem;
-      display: flex;
-      gap: .5rem;
-      flex-direction: column;
-      animation: floating 2s ease-in-out infinite alternate;
-
-      .angel {
-        position: absolute;
-        width: 100px;
-        top: -60px;
-
-        &.angel-1 {
-          right: -80px;
-        }
-
-        &.angel-2 {
-          transform: rotateY(180deg);
-          left: -80px;
-        }
-      }
-
-      ul,
-      p {
-        margin: 0;
-      }
-
-      ul {
-        padding-inline-start: 1rem;
-      }
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 70px;
-      top: -70px;
-      background: url('../img/wave-blue-inv.png') top center repeat;
-      animation: waves linear 5s infinite;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 70px;
-      bottom: 0;
-      background: url('../img/wave-white-inv.png') top center repeat;
-      animation: waves linear 5s infinite reverse;
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  .home {
-    section {
-      nn-pilar {
-
-        &[size="30%"],
-        &[size="70%"] {
-          text-align: center;
-        }
-      }
+    &.btn {
+      --color: #555;
     }
   }
 }
@@ -449,102 +283,10 @@ nav {
     }
   }
 
-  .user-details {
-    text-transform: uppercase;
-    display: flex;
-    gap: .5rem;
-    padding: 0.5rem;
-    align-items: center;
-    justify-content: center;
-
-    span {
-      font-size: 12px;
-      background-color: hsl(0deg 0% 100% / 60%);
-      color: var(--charcoal);
-      padding: 3px 6px;
-      border-radius: 10px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-  }
-
-  .date-rank-group {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .names-group {
-    display: flex;
-    gap: .5rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .table-pill-container {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2px;
-
-    li {
-      opacity: 1;
-      flex-grow: 1;
-      flex-basis: 130px;
-      padding: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 70px;
-
-      &.missing {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  blockquote {
-    max-width: 680px;
-    margin: auto;
-    font-size: 14px;
-
-    ul {
-      padding-inline-start: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
-  }
-
   .base {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
-  }
-
-  .title-disclaimer {
-    display: flex;
     flex-direction: column;
-    gap: .5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .user-details {
-    flex-direction: column;
-  }
-
-  mr-users {
-    >span {
-      flex-direction: column;
-
-      >button {
-        width: 100% !important;
-      }
-    }
   }
 }
 

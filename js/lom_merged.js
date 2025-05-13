@@ -1,6 +1,6 @@
 import './modules/index.js'
 import { getTooltip, getCountryCode } from './utils.js'
-import { getPrefix, createNode } from './helpers.js'
+import { getPrefix } from './helpers.js'
 import { createFilters, langs } from './component_filters.js'
 import './component_users.js'
 import mergesGlobal from './db_merges_global.js'
@@ -10,8 +10,6 @@ import './component_navbar.js'
 
 function mapToTableRows(inputs) {
   const merged = {}
-
-  // Step 1: Merge all inputs by date
   for (const input of inputs) {
     for (const [date, entries] of Object.entries(input)) {
       merged[date] ??= {}
@@ -19,7 +17,6 @@ function mapToTableRows(inputs) {
     }
   }
 
-  // Step 2: Convert to desired output format
   const rows = Object.entries(merged).map(([date, servers]) => ({
     date,
     servers: Object.entries(servers).map(([key, values]) => ({
@@ -28,10 +25,8 @@ function mapToTableRows(inputs) {
     })),
   }))
 
-  // Step 3: Sort the rows by date descending
   rows.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-  // Step 4: Sort servers inside each row by numericId
   for (const row of rows) {
     row.servers.sort((a, b) => a.key.numericId - b.key.numericId)
   }
@@ -48,6 +43,7 @@ const template = `
     <div id="merged-list" class="base"></div>
   </nn-caja>
 `
+
 const data = {
   attrs: [],
   language: 'all',
@@ -61,16 +57,22 @@ class Simple extends HTMLElement {
   }
 
   generateListeners() {
-    data.langs.forEach(lang => {
-      document
-        .querySelector('.filters button.' + lang)
-        .addEventListener('click', () => {
-          data.language = lang
-          document
-            .querySelectorAll('.filters button')
-            .forEach(btn => btn.classList.remove('active'))
-          this.generateTable()
-        })
+    const filterContainer = this.querySelector('.filters')
+    if (!filterContainer) return
+
+    filterContainer.addEventListener('click', e => {
+      const button = e.target.closest('button')
+      if (!button || !filterContainer.contains(button)) return
+
+      const lang = button.classList[0]
+      data.language = lang
+
+      this.querySelectorAll('.filters button').forEach(btn =>
+        btn.classList.remove('active')
+      )
+      button.classList.add('active')
+
+      this.generateTable()
     })
   }
 
@@ -78,116 +80,83 @@ class Simple extends HTMLElement {
     const body = this.querySelector('#merged-list')
     body.innerHTML = ''
 
-    document
-      .querySelector('.filters button.' + data.language)
-      .classList.add('active')
+    this.querySelector(
+      '.filters button.' + data.language
+    ).classList.add('active')
+
+    const fragment = document.createDocumentFragment()
 
     data.mergesArray.forEach(merge => {
-      createNode({
-        type: 'h2',
-        parent: body,
-        innerHTML: `${merge.date}`,
-      })
+      const title = document.createElement('h2')
+      title.textContent = merge.date
+      fragment.appendChild(title)
 
-      const table = createNode({
-        type: 'table',
-        parent: body,
-        innerHTML: `
-          <thead>
-            <tr>
-              <th>NEW</th>
-              <th>MERGED</th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-		    `,
-      })
-
-      const tableBody = table.querySelector('#table-body')
-
-      let localServers
-
-      if (data.language !== 'all') {
-        localServers = merge.servers.filter(
-          server =>
-            server.key.code === data.language ||
-            server.values.some(val => val.id === data.language)
-        )
-      } else {
-        localServers = merge.servers
-      }
+      const localServers =
+        data.language === 'all'
+          ? merge.servers
+          : merge.servers.filter(
+              server =>
+                server.key.code === data.language ||
+                server.values.some(val => val.id === data.language)
+            )
 
       if (localServers.length > 0) {
         localServers.forEach(serv => {
           const key = serv.key
           const group = serv.values
 
-          const tr = createNode({
-            type: 'tr',
-            parent: tableBody,
-          })
+          const row = document.createElement('nn-fila')
+          row.setAttribute('break', 'md')
+          row.setAttribute('gap', '1')
+          row.classList.add('row')
 
-          createNode({
-            type: 'td',
-            parent: tr,
-            attrs: {
-              class: [key.id, ...getTooltip(key).classes].join(' '),
-            },
-            innerHTML: getTooltip(key).msg ? getTooltip(key).msg : key.label,
-          })
+          const leading = document.createElement('nn-pilar')
+          leading.setAttribute('size', '25%')
+          leading.className = `${key.id} leading-server`
+          leading.innerHTML = `
+            <span>${key.label}</span>
+            <span>Index: ${key.index}</span>
+            <span>Length: ${group.length}</span>
+          `
+          row.appendChild(leading)
 
-          const tdGroup = createNode({
-            type: 'td',
-            parent: tr,
-            attrs: { class: 'merged' },
-          })
+          const mergedPilar = document.createElement('nn-pilar')
+          mergedPilar.setAttribute('size', '75% - 0.25rem')
 
-          const groupCell = createNode({
-            type: 'div',
-            parent: tdGroup,
-          })
+          const innerFila = document.createElement('nn-fila')
+          innerFila.setAttribute('break', 'md')
+          innerFila.classList.add('merge-group')
 
           group.forEach(cell => {
-            createNode({
-              type: 'span',
-              parent: groupCell,
-              attrs: {
-                class: ['fusion', cell.id, ...getTooltip(cell).classes].join(
-                  ' '
-                ),
-                style: `order:${cell.numericId}`,
-              },
-              innerHTML: getTooltip(cell).msg
-                ? getTooltip(cell).msg
-                : cell.label,
-            })
+            const tooltip = getTooltip(cell)
+            const pilar = document.createElement('nn-pilar')
+            pilar.className = `fusion ${[cell.id, ...tooltip.classes].join(' ')}`
+            pilar.style.order = cell.numericId
+            pilar.innerHTML = tooltip.msg || cell.label
+            innerFila.appendChild(pilar)
           })
+
+          mergedPilar.appendChild(innerFila)
+          row.appendChild(mergedPilar)
+          fragment.appendChild(row)
         })
       } else {
-        const tr = createNode({
-          type: 'tr',
-          parent: tableBody,
-        })
-
-        createNode({
-          type: 'td',
-          parent: tr,
-          attrs: {
-            colspan: 2,
-          },
-          innerHTML: 'No Merges Found',
-        })
+        const empty = document.createElement('div')
+        empty.classList.add('no-merge')
+        empty.innerHTML = `<strong>No Merges Found</strong>`
+        fragment.appendChild(empty)
       }
     })
+
+    body.appendChild(fragment)
   }
 
   connectedCallback() {
     this.innerHTML = template
-    this.generateTable('all')
+    this.generateTable()
     this.generateListeners()
   }
 }
 
 window.customElements.define(getPrefix('simple'), Simple)
-
 export { data }

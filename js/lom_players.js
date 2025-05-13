@@ -1,5 +1,5 @@
 import './modules/index.js'
-import { getPrefix, createNode } from './helpers.js'
+import { getPrefix } from './helpers.js'
 import { usersDB as users } from './db_users.js'
 import { createFilters, langs } from './component_filters.js'
 import './component_navbar.js'
@@ -10,18 +10,16 @@ class Players extends HTMLElement {
   <lom-navbar></lom-navbar>
   ${createFilters()}
 
-  <div class="title-disclaimer">
-    <h2>Players</h2>
-  </div>
+  <h2>Players</h2>
 
-  <div class="table">
-    <nn-fila break="sm" class="table-header">
+  <div class="table players">
+    <nn-fila break="sm" class="table-header" gap="1">
       <nn-pilar size="20%">Server</nn-pilar>
       <nn-pilar size="20%">UID</nn-pilar>
-      <nn-pilar size="35%">Nick</nn-pilar>
+      <nn-pilar size="35% - 0.25rem * 3">Nick</nn-pilar>
       <nn-pilar size="25%">Rank :: Position :: Date</nn-pilar>
     </nn-fila>
-    <div id="table-body"></div>
+    <div class="table-body"></div>
   </div>
 </nn-caja>
 `
@@ -38,21 +36,27 @@ class Players extends HTMLElement {
   }
 
   generateListeners() {
-    Players.data.langs.forEach(lang => {
-      document
-        .querySelector('.nav button.' + lang)
-        .addEventListener('click', () => {
-          Players.data.language = lang
-          document
-            .querySelectorAll('.nav button')
-            .forEach(btn => btn.classList.remove('active'))
-          this.generateTable()
-        })
+    const filterContainer = this.querySelector('.filters')
+    if (!filterContainer) return
+
+    filterContainer.addEventListener('click', e => {
+      const button = e.target.closest('button')
+      if (!button || !filterContainer.contains(button)) return
+
+      const lang = button.classList[0]
+      Players.data.language = lang
+
+      this.querySelectorAll('.filters button').forEach(btn =>
+        btn.classList.remove('active')
+      )
+      button.classList.add('active')
+
+      this.generateTable()
     })
   }
 
   generateTable() {
-    const tableBody = this.querySelector('#table-body')
+    const tableBody = this.querySelector('.table-body')
     tableBody.innerHTML = ''
 
     document
@@ -61,116 +65,84 @@ class Players extends HTMLElement {
 
     let table = Players.data.users
     if (Players.data.language !== 'all') {
-      table = Players.data.Players.filter(user => user.lang === Players.data.language)
+      table = Players.data.users.filter(
+        user => user.lang === Players.data.language
+      )
     }
 
+    const fragment = document.createDocumentFragment()
     if (table.length) {
       table.forEach(user => {
-        const tr = createNode({
-          type: 'nn-fila',
-          parent: tableBody,
-          attrs: {
-            title: user.names[0],
-            break: 'md',
-          },
-        })
-
-        createNode({
-          type: 'nn-pilar',
-          parent: tr,
-          attrs: {
-            size: '20%',
-          },
-          innerHTML: `<span class="pill ${user.lang}">${user.server}</span>`,
-        })
-
-        createNode({
-          type: 'nn-pilar',
-          parent: tr,
-          attrs: {
-            size: '20%',
-          },
-          innerHTML: user.id,
-        })
-
-        const names = createNode({
-          type: 'nn-pilar',
-          parent: tr,
-          attrs: {
-            size: '35%',
-          },
-        })
-
-        const namesGroup = createNode({
-          type: 'div',
-          parent: names,
-          attrs: {
-            class: 'names-group',
-          },
-        })
-
-        user.names.forEach(n => {
-          createNode({
-            type: 'span',
-            parent: namesGroup,
-            innerHTML: n,
-            attrs: {
-              class: ['pill', user.lang].join(' '),
-            },
+        const names = user.names
+          .map(n => {
+            return `
+            <span class="pill ${user.lang}">
+              ${n}
+            </span>
+          `
           })
-        })
+          .join('')
 
-        const ranks = createNode({
-          type: 'nn-pilar',
-          parent: tr,
-          attrs: {
-            class: 'date-rank-group',
-            size: '25%',
-          },
-        })
+        const ranks = user.ranks.map(rank => {
+          return `
+            <span class="pill ${rank?.rank}">
+              ${[
+                rank?.rank,
+                rank?.rank === 'top' && user?.maxPosition,
+                rank?.date,
+              ]
+                .filter(Boolean)
+                .join(' :: ')}
+            </span>
+          `
+        }).join('')
 
-        user.ranks.forEach(rank => {
-          createNode({
-            type: 'span',
-            parent: ranks,
-            innerHTML: [
-              rank?.rank,
-              rank?.rank === 'top' && user?.maxPosition,
-              rank?.date,
-            ]
-              .filter(Boolean)
-              .join(' :: '),
-            attrs: {
-              class: ['pill', rank?.rank].join(' '),
-            },
-          })
-        })
+        const maxLevel =
+          user.maxPower && user.maxLevel
+            ? `
+          <span class="pill ${user.lang}">
+            lv${user.maxLevel} :: ${user.maxPower / 1000000}M
+          </span>
+        `
+            : ''
 
-        if (user.maxPower && user.maxLevel) {
-          createNode({
-            type: 'span',
-            parent: ranks,
-            innerHTML: `lv${user.maxLevel} :: ${user.maxPower / 1000000}M`,
-            attrs: {
-              class: ['pill', user.lang].join(' '),
-            },
-          })
-        }
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = `
+        <nn-fila break="md" gap="1">
+          <nn-pilar size="20%" class="flex-row">
+            <span class="pill ${user.lang}">${user.server}</span>
+          </nn-pilar>
+          <nn-pilar size="20%" class="flex-row">
+            ${user.id}
+          </nn-pilar>
+          <nn-pilar size="35% - 0.25rem * 3" class="flex-row">
+            ${names}
+          </nn-pilar>
+          <nn-pilar size="25%" class="flex-column">
+            ${ranks}
+            ${maxLevel}
+          </nn-pilar>
+        </nn-fila>
+        `
+
+        fragment.appendChild(wrapper.firstElementChild)
       })
+
+      tableBody.innerHTML = ''
+      tableBody.appendChild(fragment)
     } else {
-      const tr = createNode({
-        type: 'tr',
-        parent: tableBody,
-      })
+      const wrapper = document.createElement('div')
+      wrapper.innerHTML = `
+        <nn-fila break="md">
+          <nn-pilar size="100%" class="empty">
+            No users found
+          </nn-pilar>
+        </nn-fila>
+        `
 
-      createNode({
-        type: 'nn-pilar',
-        parent: tr,
-        text: 'No users found',
-        attrs: {
-          colspan: 4,
-        },
-      })
+      fragment.appendChild(wrapper.firstElementChild)
+      tableBody.innerHTML = ''
+      tableBody.appendChild(fragment)
     }
   }
 
