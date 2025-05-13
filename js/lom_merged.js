@@ -40,7 +40,7 @@ const template = `
   <nn-caja padding="4" class="base">
     <lom-navbar></lom-navbar>
     ${createFilters()}
-    <div id="merged-list" class="base"></div>
+    <div id="merged-list" class="merged-list"></div>
   </nn-caja>
 `
 
@@ -80,16 +80,29 @@ class Simple extends HTMLElement {
     const body = this.querySelector('#merged-list')
     body.innerHTML = ''
 
-    this.querySelector(
-      '.filters button.' + data.language
-    ).classList.add('active')
+    this.querySelector('.filters button.' + data.language).classList.add(
+      'active'
+    )
 
     const fragment = document.createDocumentFragment()
 
     data.mergesArray.forEach(merge => {
-      const title = document.createElement('h2')
-      title.textContent = merge.date
-      fragment.appendChild(title)
+      const mergeTable = document.createElement('div')
+      mergeTable.classList.add('merge-table')
+  
+      mergeTable.innerHTML = `
+        <h2>${merge.date}</h2>
+
+        <div class="table">
+          <nn-fila break="sm" class="table-header" gap="1">
+            <nn-pilar size="25%">LEADING SERVER</nn-pilar>
+            <nn-pilar size="75% - 0.25rem">MERGED</nn-pilar>
+          </nn-fila>
+          <div class="table-body"></div>
+        </div>
+      `
+
+      const table = mergeTable.querySelector('.table-body')
 
       const localServers =
         data.language === 'all'
@@ -105,47 +118,54 @@ class Simple extends HTMLElement {
           const key = serv.key
           const group = serv.values
 
+          const groups = group
+            .map(cell => {
+              const tooltip = getTooltip(cell)
+
+              return `
+              <nn-pilar
+                class="fusion ${[cell.id, ...tooltip.classes].join(' ')}"
+                style="order:${cell.numericId}"
+              >
+                ${tooltip.msg || cell.label}
+              </nn-pilar>
+            `
+            })
+            .join('')
+
           const row = document.createElement('nn-fila')
           row.setAttribute('break', 'md')
           row.setAttribute('gap', '1')
           row.classList.add('row')
-
-          const leading = document.createElement('nn-pilar')
-          leading.setAttribute('size', '25%')
-          leading.className = `${key.id} leading-server`
-          leading.innerHTML = `
-            <span>${key.label}</span>
-            <span>Index: ${key.index}</span>
-            <span>Length: ${group.length}</span>
+          row.innerHTML = `
+            <nn-pilar size="25%" class="leading-server flex-column ${key.id}">
+              <span class="pill ${key.id}">${key.label}</span>
+              <span class="pill white">Length: ${group.length}</span>
+            </nn-pilar>
+            <nn-pilar size="75% - 0.25rem">
+              <nn-fila break="md" class="merge-group">
+                ${groups}
+              </nn-fila>
+            </nn-pilar>
           `
-          row.appendChild(leading)
 
-          const mergedPilar = document.createElement('nn-pilar')
-          mergedPilar.setAttribute('size', '75% - 0.25rem')
-
-          const innerFila = document.createElement('nn-fila')
-          innerFila.setAttribute('break', 'md')
-          innerFila.classList.add('merge-group')
-
-          group.forEach(cell => {
-            const tooltip = getTooltip(cell)
-            const pilar = document.createElement('nn-pilar')
-            pilar.className = `fusion ${[cell.id, ...tooltip.classes].join(' ')}`
-            pilar.style.order = cell.numericId
-            pilar.innerHTML = tooltip.msg || cell.label
-            innerFila.appendChild(pilar)
-          })
-
-          mergedPilar.appendChild(innerFila)
-          row.appendChild(mergedPilar)
-          fragment.appendChild(row)
+          table.appendChild(row)
         })
       } else {
-        const empty = document.createElement('div')
-        empty.classList.add('no-merge')
-        empty.innerHTML = `<strong>No Merges Found</strong>`
-        fragment.appendChild(empty)
+        const row = document.createElement('nn-fila')
+          row.setAttribute('break', 'md')
+          row.setAttribute('gap', '1')
+          row.classList.add('row')
+          row.innerHTML = `
+            <nn-pilar size="100%" class="empty">
+              Empty
+            </nn-pilar>
+          `
+
+          table.appendChild(row)
       }
+
+      fragment.appendChild(mergeTable)
     })
 
     body.appendChild(fragment)

@@ -15,7 +15,7 @@ class Navbar extends HTMLElement {
       <a href="players.html">Players</a>
     </li>
     <li>
-      <a href="merges.html" class="disabled">Merges</a>
+      <a href="merges.html">Merges</a>
     </li>
     <li>
       <a href="gaps.html" class="disabled">Merge's Gap</a>

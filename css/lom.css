@@ -311,6 +311,18 @@ a {
   }
 }
 
+.merged-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
+
+.merge-table {
+  h2 {
+    margin-bottom: 2rem;
+  }
+}
+
 @keyframes waves {
   from {
     background-position-x: 0;
