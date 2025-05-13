@@ -11,14 +11,14 @@ class Timeline extends HTMLElement {
     super()
   }
 
-  static data = {
+  #data = {
     attrs: [],
     language: 'all',
     langs,
     servers,
   }
 
-  static template = `
+  #template = `
   <nn-caja padding="4" class="base">
     <lom-navbar></lom-navbar>
 		${createFilters()}
@@ -35,7 +35,7 @@ class Timeline extends HTMLElement {
   </nn-caja>
   `
 
-  generateListeners() {
+  #generateListeners() {
     const filterContainer = this.querySelector('.filters')
     if (!filterContainer) return
 
@@ -44,34 +44,34 @@ class Timeline extends HTMLElement {
       if (!button || !filterContainer.contains(button)) return
 
       const lang = button.classList[0]
-      Timeline.data.language = lang
+      this.#data.language = lang
 
       this.querySelectorAll('.filters button').forEach(btn =>
         btn.classList.remove('active')
       )
       button.classList.add('active')
 
-      this.generateTable()
+      this.#generateTable()
     })
   }
 
-  generateTable() {
+  #generateTable() {
     const tableBody = this.querySelector('.table-body')
 
-    this.querySelector(
-      '.filters button.' + Timeline.data.language
-    ).classList.add('active')
+    this.querySelector('.filters button.' + this.#data.language).classList.add(
+      'active'
+    )
 
     let localServers
 
-    if (Timeline.data.language !== 'all') {
-      localServers = Timeline.data.servers.filter(
+    if (this.#data.language !== 'all') {
+      localServers = this.#data.servers.filter(
         server =>
-          server.key.id === Timeline.data.language ||
-          server.values.some(val => val.id === Timeline.data.language)
+          server.key.id === this.#data.language ||
+          server.values.some(val => val.id === this.#data.language)
       )
     } else {
-      localServers = Timeline.data.servers
+      localServers = this.#data.servers
     }
 
     const fragment = document.createDocumentFragment()
@@ -128,12 +128,10 @@ class Timeline extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = Timeline.template
-    this.generateTable()
-    this.generateListeners()
+    this.innerHTML = this.#template
+    this.#generateTable()
+    this.#generateListeners()
   }
 }
 
 window.customElements.define(getPrefix('timeline'), Timeline)
-
-export { Timeline }

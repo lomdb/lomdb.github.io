@@ -5,14 +5,14 @@ import { createFilters, langs } from './component_filters.js'
 import './component_navbar.js'
 
 class Players extends HTMLElement {
-  static template = `
+  #template = `
 <nn-caja padding="4" class="base">
   <lom-navbar></lom-navbar>
   ${createFilters()}
 
   <h2>Players</h2>
 
-  <div class="table players">
+  <div class="table">
     <nn-fila break="sm" class="table-header" gap="1">
       <nn-pilar size="20%">Server</nn-pilar>
       <nn-pilar size="20%">UID</nn-pilar>
@@ -24,7 +24,7 @@ class Players extends HTMLElement {
 </nn-caja>
 `
 
-  static data = {
+  #data = {
     attrs: [],
     language: 'all',
     langs,
@@ -35,7 +35,7 @@ class Players extends HTMLElement {
     super()
   }
 
-  generateListeners() {
+  #generateListeners() {
     const filterContainer = this.querySelector('.filters')
     if (!filterContainer) return
 
@@ -44,29 +44,29 @@ class Players extends HTMLElement {
       if (!button || !filterContainer.contains(button)) return
 
       const lang = button.classList[0]
-      Players.data.language = lang
+      this.#data.language = lang
 
       this.querySelectorAll('.filters button').forEach(btn =>
         btn.classList.remove('active')
       )
       button.classList.add('active')
 
-      this.generateTable()
+      this.#generateTable()
     })
   }
 
-  generateTable() {
+  #generateTable() {
     const tableBody = this.querySelector('.table-body')
     tableBody.innerHTML = ''
 
     document
-      .querySelector('.nav button.' + Players.data.language)
+      .querySelector('.nav button.' + this.#data.language)
       ?.classList.add('active')
 
-    let table = Players.data.users
-    if (Players.data.language !== 'all') {
-      table = Players.data.users.filter(
-        user => user.lang === Players.data.language
+    let table = this.#data.users
+    if (this.#data.language !== 'all') {
+      table = this.#data.users.filter(
+        user => user.lang === this.#data.language
       )
     }
 
@@ -147,12 +147,10 @@ class Players extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = Players.template
-    this.generateTable()
-    this.generateListeners()
+    this.innerHTML = this.#template
+    this.#generateTable()
+    this.#generateListeners()
   }
 }
 
 window.customElements.define(getPrefix('players'), Players)
-
-export { Players }

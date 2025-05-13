@@ -1,4 +1,4 @@
-.home {
+body.home {
   nav {
     padding: 1rem;
   }
@@ -63,12 +63,20 @@
 
     .ltr {
       flex-direction: row-reverse;
-      text-align: right;
+
+      &,
+      h2 {
+        text-align: right;
+      }
     }
 
     .rtl {
       flex-direction: row;
-      text-align: left;
+
+      &,
+      h2 {
+        text-align: left;
+      }
     }
   }
 
