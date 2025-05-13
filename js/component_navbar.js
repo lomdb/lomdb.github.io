@@ -12,13 +12,13 @@ class Navbar extends HTMLElement {
       <a href="timeline.html">Timeline</a>
     </li>
     <li>
+      <a href="players.html">Players</a>
+    </li>
+    <li>
       <a href="merges.html" class="disabled">Merges</a>
     </li>
     <li>
       <a href="gaps.html" class="disabled">Merge's Gap</a>
-    </li>
-    <li>
-      <a href="players.html">Players</a>
     </li>
   </ul>
 </nav>
