@@ -8,9 +8,7 @@ class Filters extends HTMLElement {
 
   #data = {
     template: `
-    <div class="filters">
-      <div class="controllers"></div>
-    </div>
+    <div class="controllers"></div>
   `,
   }
 
@@ -45,6 +43,7 @@ class Filters extends HTMLElement {
   }
 
   connectedCallback() {
+    this.classList.add('filters')
     this.innerHTML = this.#data.template
     const container = this.querySelector('.controllers')
     container.innerHTML = this.#createFilters()
