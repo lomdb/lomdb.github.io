@@ -79,7 +79,7 @@ const dictionary = {
     "Leading Server": "Servidor principal",
     "Merged": "Fusionado",
     "Empty": "Vacío",
-    "Length": "Duración",
+    "Length": "Tamaño",
   
     "DB State": "Estado de la BD",
     "Region": "Región",
