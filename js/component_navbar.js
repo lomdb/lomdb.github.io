@@ -18,7 +18,7 @@ class Navbar extends HTMLElement {
       <a href="merges.html">Merges</a>
     </li>
     <li>
-      <a href="gaps.html" class="disabled">Merge's Gaps</a>
+      <a href="gaps.html">Merge's Gaps</a>
     </li>
   </ul>
 </nav>

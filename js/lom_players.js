@@ -5,7 +5,12 @@ import { langs } from './component_filters.js'
 import './component_navbar.js'
 
 class Players extends HTMLElement {
-  #template = `
+  #data = {
+    attrs: [],
+    language: 'all',
+    langs,
+    users,
+    template: `
 <nn-caja padding="4" class="base">
   <lom-navbar></lom-navbar>
   <lom-filters></lom-filters>
@@ -22,13 +27,7 @@ class Players extends HTMLElement {
     <div class="table-body"></div>
   </div>
 </nn-caja>
-`
-
-  #data = {
-    attrs: [],
-    language: 'all',
-    langs,
-    users,
+`,
   }
 
   constructor() {
@@ -65,9 +64,7 @@ class Players extends HTMLElement {
 
     let table = this.#data.users
     if (this.#data.language !== 'all') {
-      table = this.#data.users.filter(
-        user => user.lang === this.#data.language
-      )
+      table = this.#data.users.filter(user => user.lang === this.#data.language)
     }
 
     const fragment = document.createDocumentFragment()
@@ -147,7 +144,7 @@ class Players extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = this.#template
+    this.innerHTML = this.#data.template
     this.#generateTable()
     this.#generateListeners()
   }

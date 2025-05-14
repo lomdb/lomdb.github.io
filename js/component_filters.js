@@ -6,11 +6,13 @@ class Filters extends HTMLElement {
     super()
   }
 
-  #template = `
+  #data = {
+    template: `
     <div class="filters">
       <div class="controllers"></div>
     </div>
-  `
+  `,
+  }
 
   static langs = [
     'all',
@@ -43,7 +45,7 @@ class Filters extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = this.#template
+    this.innerHTML = this.#data.template
     const container = this.querySelector('.controllers')
     container.innerHTML = this.#createFilters()
   }

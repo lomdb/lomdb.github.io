@@ -16,24 +16,23 @@ class Timeline extends HTMLElement {
     language: 'all',
     langs,
     servers,
+    template: `
+      <nn-caja padding="4" class="base">
+        <lom-navbar></lom-navbar>
+        <lom-filters></lom-filters>
+
+        <h2>Merged Servers</h2>
+
+        <div class="table">
+          <nn-fila break="sm" class="table-header" gap="1">
+            <nn-pilar size="25%">LEADING SERVER</nn-pilar>
+            <nn-pilar size="75% - 0.25rem">MERGED</nn-pilar>
+          </nn-fila>
+          <div class="table-body"></div>
+        </div>
+      </nn-caja>
+  `,
   }
-
-  #template = `
-  <nn-caja padding="4" class="base">
-    <lom-navbar></lom-navbar>
-		<lom-filters></lom-filters>
-
-    <h2>Merged Servers</h2>
-
-    <div class="table">
-      <nn-fila break="sm" class="table-header" gap="1">
-        <nn-pilar size="25%">LEADING SERVER</nn-pilar>
-        <nn-pilar size="75% - 0.25rem">MERGED</nn-pilar>
-      </nn-fila>
-      <div class="table-body"></div>
-    </div>
-  </nn-caja>
-  `
 
   #generateListeners() {
     const filterContainer = this.querySelector('.filters')
@@ -128,7 +127,7 @@ class Timeline extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = this.#template
+    this.innerHTML = this.#data.template
     this.#generateTable()
     this.#generateListeners()
   }

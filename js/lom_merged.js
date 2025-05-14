@@ -13,22 +13,21 @@ class Merges extends HTMLElement {
     language: 'all',
     langs,
     mergesArray: this.#mapToTableRows([mergesGlobal, mergesSea, mergesTW]),
-  }
-
-  #template = `
+    template: `
     <nn-caja padding="4" class="base">
       <lom-navbar></lom-navbar>
       <lom-filters></lom-filters>
       <div id="merged-list" class="merged-list"></div>
     </nn-caja>
-  `
+  `,
+  }
 
   constructor() {
     super()
   }
 
   connectedCallback() {
-    this.innerHTML = this.#template
+    this.innerHTML = this.#data.template
     this.#generateTable()
     this.#generateListeners()
   }

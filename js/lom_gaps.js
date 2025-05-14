@@ -7,42 +7,42 @@ import { langs } from './component_filters.js'
 import { countryCodes } from './enum_country-codes.js'
 import './component_navbar.js'
 
-const template = `
-  <nn-caja padding="4" class="base">
-    <lom-navbar></lom-navbar>
-    <lom-filters></lom-filters>
-    <div id="all-servers" class="base"></div>
-  </nn-caja>
-`
-const data = {
-  attrs: [],
-  language: 'all',
-  spreadServers,
-}
-
-function generateRange(id, start, end) {
-  const range = Array.from(
-    { length: end - start + 1 },
-    (_, i) => i + start
-  ).map(server => {
-    const number = `${server}`.replace(countryCodes[id], '')
-
-    return [id, number].join('_')
-  })
-  return range
-}
-
 class Gaps extends HTMLElement {
   constructor() {
     super()
   }
 
-  generateListeners() {
+  #data = {
+    attrs: [],
+    language: 'all',
+    spreadServers,
+    template: `
+    <nn-caja padding="4" class="base">
+      <lom-navbar></lom-navbar>
+      <lom-filters></lom-filters>
+      <div id="all-servers" class="base"></div>
+    </nn-caja>
+    `
+  }
+
+  #generateRange(id, start, end) {
+    const range = Array.from(
+      { length: end - start + 1 },
+      (_, i) => i + start
+    ).map(server => {
+      const number = `${server}`.replace(countryCodes[id], '')
+
+      return [id, number].join('_')
+    })
+    return range
+  }
+
+  #generateListeners() {
     langs.forEach(lang => {
       document
         .querySelector('.filters button.' + lang)
         .addEventListener('click', () => {
-          data.language = lang
+          this.#data.language = lang
           document
             .querySelectorAll('.filters button')
             .forEach(btn => btn.classList.remove('active'))
@@ -51,98 +51,98 @@ class Gaps extends HTMLElement {
     })
   }
 
-  generateGapsList() {
+  #generateGapsList() {
     const container = this.querySelector('#all-servers')
     container.innerHTML = ''
 
     document
-      .querySelector('.filters button.' + data.language)
+      .querySelector('.filters button.' + this.#data.language)
       .classList.add('active')
 
     const servers = [
       {
         title: 'CN (1)',
         filter: 'cn',
-        servers: generateRange('CN', 1001, 1999),
+        servers: this.#generateRange('CN', 1001, 1999),
       },
       {
         title: 'AMEN (1)',
         filter: 'amen',
-        servers: generateRange('AMEN', 1001, 1999),
+        servers: this.#generateRange('AMEN', 1001, 1999),
       },
       {
         title: 'VN (4)',
         filter: 'vn',
-        servers: generateRange('VN', 4001, 4999),
+        servers: this.#generateRange('VN', 4001, 4999),
       },
       {
         title: 'ES (6)',
         filter: 'es',
-        servers: generateRange('ES', 6001, 6999),
+        servers: this.#generateRange('ES', 6001, 6999),
       },
       {
         title: 'ID (7)',
         filter: 'id',
-        servers: generateRange('ID', 7001, 7999),
+        servers: this.#generateRange('ID', 7001, 7999),
       },
       {
         title: 'EN (10)',
         filter: 'en',
-        servers: generateRange('EN', 10001, 10999),
+        servers: this.#generateRange('EN', 10001, 10999),
       },
       {
         title: 'PT/ESPT (11)',
         filter: 'pt',
-        servers: generateRange('PT', 11001, 11999),
+        servers: this.#generateRange('PT', 11001, 11999),
       },
       {
         title: 'TH (13)',
         filter: 'th',
-        servers: generateRange('TH', 13001, 13999),
+        servers: this.#generateRange('TH', 13001, 13999),
       },
       {
         title: 'EUEN/MUSH (30)',
         filter: 'euen',
-        servers: generateRange('EUEN', 30001, 30999),
+        servers: this.#generateRange('EUEN', 30001, 30999),
       },
       {
         title: 'DE (33)',
         filter: 'de',
-        servers: generateRange('DE', 33001, 33999),
+        servers: this.#generateRange('DE', 33001, 33999),
       },
       {
         title: 'FR (36)',
         filter: 'fr',
-        servers: generateRange('FR', 36001, 36999),
+        servers: this.#generateRange('FR', 36001, 36999),
       },
       {
         title: 'ME/TR (39)',
         filter: 'me',
-        servers: generateRange('ME', 39001, 39999),
+        servers: this.#generateRange('ME', 39001, 39999),
       },
       {
         title: 'RU (42)',
         filter: 'ru',
-        servers: generateRange('RU', 42001, 42999),
+        servers: this.#generateRange('RU', 42001, 42999),
       },
       {
         title: 'TW',
         filter: 'tw',
-        servers: generateRange('TW', 54001, 54999),
+        servers: this.#generateRange('TW', 54001, 54999),
       },
       {
         title: 'KR',
         filter: 'kr',
-        servers: generateRange('KR', 641001, 642999),
+        servers: this.#generateRange('KR', 641001, 642999),
       },
       {
         title: 'JP',
         filter: 'jp',
-        servers: generateRange('JP', 74001, 74999),
+        servers: this.#generateRange('JP', 74001, 74999),
       },
     ].filter(item => {
-      if (data.language === 'all') return true
-      return data.language === item.filter
+      if (this.#data.language === 'all') return true
+      return this.#data.language === item.filter
     })
 
     servers.forEach(serv => {
@@ -161,7 +161,7 @@ class Gaps extends HTMLElement {
       })
 
       serv.servers.forEach(server => {
-        const isMissing = !data.spreadServers.includes(server)
+        const isMissing = !this.#data.spreadServers.includes(server)
 
         const serverDetails = getCountryCode(server)
 
@@ -179,12 +179,10 @@ class Gaps extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = template
-    this.generateGapsList()
-    this.generateListeners()
+    this.innerHTML = this.#data.template
+    this.#generateGapsList()
+    this.#generateListeners()
   }
 }
 
 window.customElements.define(getPrefix('gaps'), Gaps)
-
-export { data }
