@@ -11,7 +11,7 @@ class Gaps extends HTMLElement {
   }
 
   #data = {
-    language: 'amen',
+    language: 'all',
     spreadServers,
     template: `
       <nn-caja padding="4" class="base">
