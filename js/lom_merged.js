@@ -9,6 +9,10 @@ import mergesTW from './db_merges_tw.js'
 import './component_navbar.js'
 
 class Merges extends HTMLElement {
+  constructor() {
+    super()
+  }
+  
   #data = {
     language: 'all',
     langs,
@@ -20,10 +24,6 @@ class Merges extends HTMLElement {
       <div id="merged-list" class="merged-list"></div>
     </nn-caja>
   `,
-  }
-
-  constructor() {
-    super()
   }
 
   connectedCallback() {

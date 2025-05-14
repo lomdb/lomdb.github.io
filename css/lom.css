@@ -284,7 +284,22 @@ lom-merges {
 }
 
 lom-gaps {
-  
+  .table-body {
+    gap: .5rem;
+    text-align: center;
+    
+    nn-pilar {
+      --size: auto;
+      flex-grow: 1;
+      width: 75px;
+      padding: 1rem;
+      border-radius: 10px;
+
+      &.missing {
+        opacity: 0.2;
+      }
+    }
+  }
 }
 
 @keyframes waves {

@@ -5,6 +5,10 @@ import { langs } from './component_filters.js'
 import './component_navbar.js'
 
 class Players extends HTMLElement {
+  constructor() {
+    super()
+  }
+  
   #data = {
     attrs: [],
     language: 'all',
@@ -28,10 +32,6 @@ class Players extends HTMLElement {
   </div>
 </nn-caja>
 `,
-  }
-
-  constructor() {
-    super()
   }
 
   #generateListeners() {
