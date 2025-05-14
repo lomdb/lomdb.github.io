@@ -63,44 +63,51 @@ class State extends HTMLElement {
   #table = [
     {
       region: 'The Americas',
+      class: 'amen',
       top100: this.#getPlayersLastDate(am, 'top'),
-      elites: this.#getPlayersLastDate(am, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(am, 'elite'),
       merges: this.#getMergeLastDate(mergesGlobal),
     },
     {
       region: 'Europe',
+      class: 'euen',
       top100: this.#getPlayersLastDate(eu, 'top'),
-      elites: '-', //this.#getPlayersLastDate(eu, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(eu, 'elite'),
       merges: this.#getMergeLastDate(mergesGlobal),
     },
     {
       region: 'South East Asian (SEA)',
+      class: 'en',
       top100: this.#getPlayersLastDate(sea, 'top'),
-      elites: '-', //this.#getPlayersLastDate(sea, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(sea, 'elite'),
       merges: this.#getMergeLastDate(mergesSea),
     },
     {
       region: 'Taiwan',
+      class: 'tw',
       top100: this.#getPlayersLastDate(tw, 'top'),
-      elites: this.#getPlayersLastDate(tw, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(tw, 'elite'),
       merges: this.#getMergeLastDate(mergesTW),
     },
     {
       region: 'Korea',
+      class: 'kr',
       top100: this.#getPlayersLastDate(kr, 'top'),
-      elites: this.#getPlayersLastDate(kr, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(kr, 'elite'),
       merges: this.#getMergeLastDate(mergesKR),
     },
     {
       region: 'Japan',
+      class: 'jp',
       top100: this.#getPlayersLastDate(jp, 'top'),
-      elites: this.#getPlayersLastDate(jp, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(jp, 'elite'),
       merges: '-',
     },
     {
       region: 'China',
+      class: 'cn',
       top100: '-', //this.#getPlayersLastDate(cn, 'top'),
-      elites: '-', //this.#getPlayersLastDate(cn, 'elite'),
+      elites: '(Adding players on request)', //this.#getPlayersLastDate(cn, 'elite'),
       merges: '-',
     },
   ]
@@ -113,17 +120,23 @@ class State extends HTMLElement {
       const wrapper = document.createElement('div')
       wrapper.innerHTML = `
         <nn-fila break="sm" class="row" gap="1">
-          <nn-pilar size="25% - 3px"">
-            ${row.region}
+          <nn-pilar size="25% - 3px">
+            <span class="pill ${row.class}">
+              ${row.region}
+            </span>
           </nn-pilar>
-          <nn-pilar size="25% - 3px"">
+          <nn-pilar size="25% - 3px">
             ${row.merges}
           </nn-pilar>
-          <nn-pilar size="25% - 3px"">
-            ${row.top100}
+          <nn-pilar size="25% - 3px">
+            <span class="pill top">
+              ${row.top100}
+            </span>
           </nn-pilar>
-          <nn-pilar size="25% - 3px"">
-            ${row.elites}
+          <nn-pilar size="25% - 3px">
+            <span class="pill elite">
+              ${row.elites}
+            </span>
           </nn-pilar>
         </nn-fila>
       `
