@@ -76,7 +76,7 @@ class State extends HTMLElement {
     {
       region: 'South East Asian (SEA)',
       top100: this.#getPlayersLastDate(sea, 'top'),
-      elites: this.#getPlayersLastDate(sea, 'elite'),
+      elites: '-', //this.#getPlayersLastDate(sea, 'elite'),
       merges: this.#getMergeLastDate(mergesSea),
     },
     {
