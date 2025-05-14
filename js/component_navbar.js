@@ -20,6 +20,9 @@ class Navbar extends HTMLElement {
     <li>
       <a href="gaps.html">Merge's Gaps</a>
     </li>
+    <li>
+      <a href="state.html">DB State</a>
+    </li>
   </ul>
 </nav>
 `

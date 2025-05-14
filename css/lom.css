@@ -259,6 +259,13 @@ h2 {
   opacity: .1;
 } */
 
+lom-state {
+  nn-pilar {
+    padding: 1rem;
+  }
+}
+
+lom-state,
 lom-players {
   nn-pilar {
     background-color: hsl(240 6% 17% / 1);
@@ -287,7 +294,7 @@ lom-gaps {
   .table-body {
     gap: .5rem;
     text-align: center;
-    
+
     nn-pilar {
       --size: auto;
       flex-grow: 1;

@@ -4,16 +4,15 @@
   flex-direction: column;
   gap: 1rem;
   color: #fff;
+  text-align: center;
 
   nn-pilar.empty {
     padding: 1rem;
-    text-align: center;
     background-color: hsl(240 6% 17% / 1);
   }
 
   .table-header {
     nn-pilar {
-      text-align: center;
       padding: 1rem;
       background: rgba(255, 255, 255, 0.12);
     }
