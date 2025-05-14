@@ -2,7 +2,7 @@ import './modules/index.js'
 import { getPrefix } from './helpers.js'
 
 class Navbar extends HTMLElement {
-  static template = `
+  #template = `
 <nav>
   <ul>
     <li>
@@ -24,7 +24,7 @@ class Navbar extends HTMLElement {
 </nav>
 `
 
-/* <li>
+  /* <li>
   <input type="checkbox" id="theme">
 </li> */
 
@@ -32,21 +32,21 @@ class Navbar extends HTMLElement {
     super()
   }
 
-  static data = {
+  #data = {
     theme: 'dark',
   }
 
   // setTheme(theme) {
-  //   const localTheme = theme || Navbar.data.theme
+  //   const localTheme = theme || this.#data.theme
   //   localStorage.setItem('theme', localTheme)
   //   document.body.classList.remove('dark', 'light')
   //   document.body.classList.add(localTheme)
   // }
 
   connectedCallback() {
-    this.innerHTML = Navbar.template
-    const localTheme = localStorage.getItem('theme') || Navbar.data.theme
-    Navbar.data.theme = localTheme
+    this.innerHTML = this.#template
+    const localTheme = localStorage.getItem('theme') || this.#data.theme
+    this.#data.theme = localTheme
     // this.setTheme()
 
     // this.querySelector('#theme').checked = localTheme === 'dark' ? true : false
@@ -58,5 +58,3 @@ class Navbar extends HTMLElement {
 }
 
 window.customElements.define(getPrefix('navbar'), Navbar)
-
-export { Navbar }

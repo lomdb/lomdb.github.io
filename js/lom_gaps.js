@@ -3,14 +3,14 @@ import { spreadServers } from './db_merges.js'
 import { getPrefix, createNode } from './helpers.js'
 import { getCountryCode } from './utils.js'
 import './component_users.js'
-import { createFilters, langs } from './component_filters.js'
+import { langs } from './component_filters.js'
 import { countryCodes } from './enum_country-codes.js'
 import './component_navbar.js'
 
 const template = `
   <nn-caja padding="4" class="base">
     <lom-navbar></lom-navbar>
-    ${createFilters(['tr', 'espt', 'mush'])}
+    <lom-filters></lom-filters>
     <div id="all-servers" class="base"></div>
   </nn-caja>
 `

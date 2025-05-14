@@ -1,14 +1,14 @@
 import './modules/index.js'
 import { getPrefix } from './helpers.js'
 import { usersDB as users } from './db_users.js'
-import { createFilters, langs } from './component_filters.js'
+import { langs } from './component_filters.js'
 import './component_navbar.js'
 
 class Players extends HTMLElement {
   #template = `
 <nn-caja padding="4" class="base">
   <lom-navbar></lom-navbar>
-  ${createFilters()}
+  <lom-filters></lom-filters>
 
   <h2>Players</h2>
 

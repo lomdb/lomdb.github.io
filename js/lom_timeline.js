@@ -2,7 +2,7 @@ import './modules/index.js'
 import { servers } from './db_merges.js'
 import { getTooltip } from './utils.js'
 import { getPrefix } from './helpers.js'
-import { createFilters, langs } from './component_filters.js'
+import { langs } from './component_filters.js'
 import './component_navbar.js'
 import './component_users.js'
 
@@ -21,7 +21,7 @@ class Timeline extends HTMLElement {
   #template = `
   <nn-caja padding="4" class="base">
     <lom-navbar></lom-navbar>
-		${createFilters()}
+		<lom-filters></lom-filters>
 
     <h2>Merged Servers</h2>
 

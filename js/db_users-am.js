@@ -808,7 +808,6 @@ export const am = [
   ]),
   user(['Hakan', 'Bruno', 'Yusuke'], 'PT_174', '4010F', [
     { rank: 'elite', date: '2025-04-25' },
-    { rank: 'detective', date: '2025-04-25' },
   ]),
   user(['kirito', 'soldado'], 'PT_174', 'C080F', [
     { rank: 'elite', date: '2025-04-25' },

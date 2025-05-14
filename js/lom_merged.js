@@ -1,7 +1,7 @@
 import './modules/index.js'
 import { getTooltip, getCountryCode } from './utils.js'
 import { getPrefix } from './helpers.js'
-import { createFilters, langs } from './component_filters.js'
+import { langs } from './component_filters.js'
 import './component_users.js'
 import mergesGlobal from './db_merges_global.js'
 import mergesSea from './db_merges_sea.js'
@@ -18,7 +18,7 @@ class Merges extends HTMLElement {
   #template = `
     <nn-caja padding="4" class="base">
       <lom-navbar></lom-navbar>
-      ${createFilters()}
+      <lom-filters></lom-filters>
       <div id="merged-list" class="merged-list"></div>
     </nn-caja>
   `
