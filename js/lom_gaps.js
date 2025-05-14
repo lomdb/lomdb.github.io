@@ -23,14 +23,13 @@ class Gaps extends HTMLElement {
   }
 
   #serverConfigs = [
-    { title: 'AMEN (1)', filter: 'amen', starts: 1, ends: 900 },
-    { title: 'ES (6)', filter: 'es', starts: 1, ends: 144 },
+    { title: 'AMEN (1)', filter: 'amen', starts: 1 },
+    { title: 'ES (6)', filter: 'es', starts: 1 },
     {
       title: 'ESPT (11)',
       filter: 'espt',
       internalfilter: 'pt',
       starts: 248,
-      ends: 500,
     },
     { title: 'PT (11)', filter: 'pt', starts: 1, ends: 247 },
     { title: 'EUEN (30)', filter: 'euen', starts: 1, ends: 261 },
@@ -39,10 +38,9 @@ class Gaps extends HTMLElement {
       filter: 'mush',
       internalfilter: 'euen',
       starts: 262,
-      ends: 500,
     },
-    { title: 'DE (33)', filter: 'de', starts: 1, ends: 400 },
-    { title: 'FR (36)', filter: 'fr', starts: 1, ends: 400 },
+    { title: 'DE (33)', filter: 'de', starts: 1 },
+    { title: 'FR (36)', filter: 'fr', starts: 1 },
     { title: 'ME (39)', filter: 'me', starts: 1, ends: 90 },
     {
       title: 'TR (39)',
@@ -51,15 +49,15 @@ class Gaps extends HTMLElement {
       starts: 91,
       ends: 200,
     },
-    { title: 'RU (42)', filter: 'ru', starts: 1, ends: 400 },
-    { title: 'CN (1)', filter: 'cn', starts: 1, ends: 18 },
-    { title: 'VN (4)', filter: 'vn', starts: 1, ends: 900 },
-    { title: 'ID (7)', filter: 'id', starts: 1, ends: 36 },
-    { title: 'EN (10)', filter: 'en', starts: 1, ends: 600 },
-    { title: 'TH (13)', filter: 'th', starts: 1, ends: 400 },
-    { title: 'KR', filter: 'kr', starts: 0, ends: 0 },
-    { title: 'JP', filter: 'jp', starts: 0, ends: 0 },
-    { title: 'TW', filter: 'tw', starts: 1001, ends: 1800 },
+    { title: 'RU (42)', filter: 'ru', starts: 1 },
+    { title: 'CN (1)', filter: 'cn', starts: 1 },
+    { title: 'VN (4)', filter: 'vn', starts: 1 },
+    { title: 'ID (7)', filter: 'id', starts: 1 },
+    { title: 'EN (10)', filter: 'en', starts: 1 },
+    { title: 'TH (13)', filter: 'th', starts: 1 },
+    { title: 'KR', filter: 'kr', starts: 0 },
+    { title: 'JP', filter: 'jp', starts: 0 },
+    { title: 'TW', filter: 'tw', starts: 1001 },
   ]
 
   #servers = []
@@ -75,7 +73,15 @@ class Gaps extends HTMLElement {
         .filter(s => s.startsWith(internal.toUpperCase() + '_'))
         .map(s => +s.split('_')[1])
       const mergedSet = new Set(merged)
-      const range = this.#generateRange(config.starts, config.ends)
+
+      const ends =
+        typeof config.ends === 'number'
+          ? config.ends
+          : merged.length > 0
+          ? Math.max(...merged)
+          : 0
+
+      const range = this.#generateRange(config.starts, ends)
 
       return {
         title: config.title,
