@@ -1,6 +1,21 @@
+import { getPrefix } from './helpers.js'
+
+class Merges extends HTMLElement {
+  constructor() {
+    super()
+    this.#shadow = this.attachShadow({ mode: 'closed' })
+    this.#shadow.innerHTML = this.#data.styles + this.#data.template
+  }
+
+  #shadow
+  #data = {
+    styles: `
+<style>
+</style>
+    `,
+    template: `
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="320" height="280" viewBox="0 0 84.666665 74.083333" version="1.1" id="svg100980">
-  
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="320" height="280" viewBox="0 0 84.666665 74.083333" version="1.1" id="svg100980">
   <g id="layer1">
     <g id="g71284" transform="matrix(0.79502238,0,0,0.79502238,-156.34102,-184.62326)">
       <g aria-label="+" transform="matrix(0.26458333,0,0,0.26458333,8.7994428,18.482773)" id="text56187" style="font-weight:bold;font-size:29.3333px;font-family:Quicksand;-inkscape-font-specification:'Quicksand Bold';text-align:center;text-anchor:middle;white-space:pre;shape-inside:url(#rect56189);display:inline;fill:#c4714c;0;">
@@ -121,3 +136,8 @@
     </g>
   </g>
 </svg>
+    `,
+  }
+}
+
+window.customElements.define(getPrefix('svg-merges'), Merges)
