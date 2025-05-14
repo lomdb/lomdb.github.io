@@ -70,7 +70,7 @@ class State extends HTMLElement {
     {
       region: 'Europe',
       top100: this.#getPlayersLastDate(eu, 'top'),
-      elites: this.#getPlayersLastDate(eu, 'elite'),
+      elites: '-', //this.#getPlayersLastDate(eu, 'elite'),
       merges: this.#getMergeLastDate(mergesGlobal),
     },
     {
