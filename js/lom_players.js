@@ -3,12 +3,13 @@ import { getPrefix } from './helpers.js'
 import { usersDB as users } from './db_users.js'
 import { langs } from './component_filters.js'
 import './component_navbar.js'
+import { t } from './translations.js'
 
 class Players extends HTMLElement {
   constructor() {
     super()
   }
-  
+
   #data = {
     attrs: [],
     language: 'all',
@@ -19,14 +20,16 @@ class Players extends HTMLElement {
   <lom-navbar></lom-navbar>
   <lom-filters></lom-filters>
 
-  <h2>Players</h2>
+  <h2>${t('Players')}</h2>
 
   <div class="table">
     <nn-fila break="sm" class="table-header" gap="1">
-      <nn-pilar size="20%">Server</nn-pilar>
-      <nn-pilar size="20%">UID</nn-pilar>
-      <nn-pilar size="35% - 0.25rem * 3">Nick</nn-pilar>
-      <nn-pilar size="25%">Rank :: Position :: Date</nn-pilar>
+      <nn-pilar size="20%">${t('Server')}</nn-pilar>
+      <nn-pilar size="20%">${t('UID')}</nn-pilar>
+      <nn-pilar size="35% - 0.25rem * 3">${t('Nick')}</nn-pilar>
+      <nn-pilar size="25%">${t('Rank')} :: ${t('Position')} :: ${t(
+      'Date'
+    )}</nn-pilar>
     </nn-fila>
     <div class="table-body"></div>
   </div>
@@ -85,7 +88,7 @@ class Players extends HTMLElement {
             return `
             <span class="pill ${rank?.rank}">
               ${[
-                rank?.rank,
+                t(rank?.rank),
                 rank?.rank === 'top' && user?.maxPosition,
                 rank?.date,
               ]
@@ -100,7 +103,7 @@ class Players extends HTMLElement {
           user.maxPower && user.maxLevel
             ? `
           <span class="pill ${user.lang}">
-            lv${user.maxLevel} :: ${user.maxPower / 1000000}M
+            ${t('lv')}${user.maxLevel} :: ${user.maxPower / 1000000}M
           </span>
         `
             : ''
@@ -131,7 +134,7 @@ class Players extends HTMLElement {
       wrapper.innerHTML = `
         <nn-fila break="md">
           <nn-pilar size="100%" class="empty">
-            Empty
+            ${t('Empty')}
           </nn-pilar>
         </nn-fila>
         `

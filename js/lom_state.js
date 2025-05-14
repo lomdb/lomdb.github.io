@@ -3,6 +3,7 @@ import { servers } from './db_merges.js'
 import { getPrefix } from './helpers.js'
 import './component_navbar.js'
 import './component_users.js'
+import { t } from './translations.js'
 
 import mergesGlobal from './db_merges_global.js'
 import mergesSea from './db_merges_sea.js'
@@ -30,14 +31,14 @@ class State extends HTMLElement {
         <lom-navbar></lom-navbar>
         <lom-filters></lom-filters>
 
-        <h2>DB State</h2>
+        <h2>${t('DB State')}</h2>
 
         <div class="table">
           <nn-fila break="sm" class="table-header" gap="1">
-            <nn-pilar size="25% - ${4 - 1}px">REGION</nn-pilar>
-            <nn-pilar size="25% - ${4 - 1}px">MERGES</nn-pilar>
-            <nn-pilar size="25% - ${4 - 1}px">TOP 100</nn-pilar>
-            <nn-pilar size="25% - ${4 - 1}px">ELITES</nn-pilar>
+            <nn-pilar size="25% - ${4 - 1}px">${t('Region')}</nn-pilar>
+            <nn-pilar size="25% - ${4 - 1}px">${t('Merges')}</nn-pilar>
+            <nn-pilar size="25% - ${4 - 1}px">${t('Top 100')}</nn-pilar>
+            <nn-pilar size="25% - ${4 - 1}px">${t('Elites')}</nn-pilar>
           </nn-fila>
           <div class="table-body"></div>
         </div>
@@ -62,52 +63,52 @@ class State extends HTMLElement {
 
   #table = [
     {
-      region: 'The Americas',
+      region: t('The Americas'),
       class: 'amen',
       top100: this.#getPlayersLastDate(am, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(am, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(am, 'elite'),
       merges: this.#getMergeLastDate(mergesGlobal),
     },
     {
-      region: 'Europe',
+      region: t('Europe'),
       class: 'euen',
       top100: this.#getPlayersLastDate(eu, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(eu, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(eu, 'elite'),
       merges: this.#getMergeLastDate(mergesGlobal),
     },
     {
-      region: 'South East Asian (SEA)',
+      region: t('South East Asian (SEA)'),
       class: 'en',
       top100: this.#getPlayersLastDate(sea, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(sea, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(sea, 'elite'),
       merges: this.#getMergeLastDate(mergesSea),
     },
     {
-      region: 'Taiwan',
+      region: t('Taiwan'),
       class: 'tw',
       top100: this.#getPlayersLastDate(tw, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(tw, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(tw, 'elite'),
       merges: this.#getMergeLastDate(mergesTW),
     },
     {
-      region: 'Korea',
+      region: t('Korea'),
       class: 'kr',
       top100: this.#getPlayersLastDate(kr, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(kr, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(kr, 'elite'),
       merges: this.#getMergeLastDate(mergesKR),
     },
     {
-      region: 'Japan',
+      region: t('Japan'),
       class: 'jp',
       top100: this.#getPlayersLastDate(jp, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(jp, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(jp, 'elite'),
       merges: '-',
     },
     {
-      region: 'China',
+      region: t('China'),
       class: 'cn',
       top100: '-', //this.#getPlayersLastDate(cn, 'top'),
-      elites: '(Adding players on request)', //this.#getPlayersLastDate(cn, 'elite'),
+      elites: t('(Adding players on request)'), //this.#getPlayersLastDate(cn, 'elite'),
       merges: '-',
     },
   ]

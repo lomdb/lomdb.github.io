@@ -1,5 +1,6 @@
 import { usersDB } from './db_users.js'
 import { countryCodes } from './enum_country-codes.js'
+import { t } from './translations.js'
 
 function getTooltip(item, group = 0) {
   const names = item?.users
@@ -7,16 +8,20 @@ function getTooltip(item, group = 0) {
       const warning =
         !user?.lastVerify && user.maxRank === 'top'
           ? `
-          <nn-icono class="exclamation pill sunglow" title="Old Entry"></nn-icono>
+          <nn-icono class="exclamation pill sunglow" title="${t(
+            'Old Entry'
+          )}"></nn-icono>
         `
           : ''
-      const tooltip = `Verified ${user?.verifiedMonth} ${user?.verifiedMonth === 1 ? 'month' : 'months'} ago.`
+      const tooltip = `${t('Verified')} ${user?.verifiedMonth} ${
+        user?.verifiedMonth === 1 ? t('month') : t('months')
+      } ${t('ago')}.`
       const rank = `
         <small class="pill help-tooltip ${user?.maxRank}">
-          ${[user?.maxRank, user?.maxPosition].filter(Boolean).join(' :: ')}
-          <div class="help">Highest rank and position achieved</div>
+          ${[t(user?.maxRank), user?.maxPosition].filter(Boolean).join(' :: ')}
+          <div class="help">${t('Highest rank and position achieved')}</div>
         </small>
-        <strong class="help-tooltip pill month" Date: ${user?.lastVerify}">
+        <strong class="help-tooltip pill month">
           ${user?.verifiedMonth}
           <div class="help">${tooltip}</div>
         </strong>

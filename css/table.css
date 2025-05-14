@@ -15,6 +15,7 @@
     nn-pilar {
       padding: 1rem;
       background: rgba(255, 255, 255, 0.12);
+      text-transform: uppercase;
     }
   }
 

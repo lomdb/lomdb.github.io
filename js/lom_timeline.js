@@ -5,6 +5,7 @@ import { getPrefix } from './helpers.js'
 import { langs } from './component_filters.js'
 import './component_navbar.js'
 import './component_users.js'
+import { t } from './translations.js'
 
 class Timeline extends HTMLElement {
   constructor() {
@@ -21,12 +22,12 @@ class Timeline extends HTMLElement {
         <lom-navbar></lom-navbar>
         <lom-filters></lom-filters>
 
-        <h2>Merged Servers</h2>
+        <h2>${t('Merged Servers')}</h2>
 
         <div class="table">
           <nn-fila break="sm" class="table-header" gap="1">
-            <nn-pilar size="25%">LEADING SERVER</nn-pilar>
-            <nn-pilar size="75% - 0.25rem">MERGED</nn-pilar>
+            <nn-pilar size="25%">${t("Leading Server")}</nn-pilar>
+            <nn-pilar size="75% - 0.25rem">${t("Merged")}</nn-pilar>
           </nn-fila>
           <div class="table-body"></div>
         </div>
@@ -99,7 +100,7 @@ class Timeline extends HTMLElement {
         <nn-pilar size="25%" class="leading-server flex-column">
           <span class="index">${key.index}</span>
           <span class="pill ${key.id}">${key.label}</span>
-          <span class="pill white">Length: ${group.length}</span>
+          <span class="pill white">${t("Length")}: ${group.length}</span>
         </nn-pilar>
         <nn-pilar size="75% - 0.25rem">
           <nn-fila break="md" class="merge-group">
@@ -115,7 +116,7 @@ class Timeline extends HTMLElement {
       wrapper.innerHTML = `
       <nn-fila break="md" class="row" gap="1">
         <nn-pilar size="100%" class="empty">
-         Empty
+         ${t("Empty")}
         </nn-pilar>
       </nn-fila>
     `

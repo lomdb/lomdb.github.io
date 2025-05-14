@@ -7,12 +7,13 @@ import mergesGlobal from './db_merges_global.js'
 import mergesSea from './db_merges_sea.js'
 import mergesTW from './db_merges_tw.js'
 import './component_navbar.js'
+import { t } from './translations.js'
 
 class Merges extends HTMLElement {
   constructor() {
     super()
   }
-  
+
   #data = {
     language: 'all',
     langs,
@@ -99,8 +100,8 @@ class Merges extends HTMLElement {
         <h2>${merge.date}</h2>
         <div class="table">
           <nn-fila break="sm" class="table-header" gap="1">
-            <nn-pilar size="25%">LEADING SERVER</nn-pilar>
-            <nn-pilar size="75% - 0.25rem">MERGED</nn-pilar>
+            <nn-pilar size="25%">${t('Leading Server')}</nn-pilar>
+            <nn-pilar size="75% - 0.25rem">${t('Merged')}</nn-pilar>
           </nn-fila>
           <div class="table-body"></div>
         </div>
@@ -143,7 +144,7 @@ class Merges extends HTMLElement {
           row.innerHTML = `
             <nn-pilar size="25%" class="leading-server flex-column ${key.id}">
               <span class="pill ${key.id}">${key.label}</span>
-              <span class="pill white">Length: ${group.length}</span>
+              <span class="pill white">${t('Length')}: ${group.length}</span>
             </nn-pilar>
             <nn-pilar size="75% - 0.25rem">
               <nn-fila break="md" class="merge-group">
