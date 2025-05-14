@@ -152,7 +152,9 @@ body.home {
 
         &[size="30%"],
         &[size="70%"] {
-          text-align: center;
+          &, h2 {
+            text-align: center;
+          }
         }
       }
     }
