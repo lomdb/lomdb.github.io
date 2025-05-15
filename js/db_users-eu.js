@@ -1,10 +1,6 @@
 import { user } from './classes.js'
 
 export const eu = [
-  user(['AhkTaar'], 'EUEN_001', '31E0B', [
-    { rank: 'elite', date: '2025-04-25' },
-    { rank: 'creator', date: '2025-04-25' },
-  ]),
   user(['Gojo', 'GrumpyGojo'], 'DE_099', 'A0D05', [
     { rank: 'creator', date: '2025-04-25' },
   ]),
@@ -239,10 +235,6 @@ export const eu = [
   user(['F2P_Nemesis'], 'DE_103', '8050A', [
     { rank: 'top', position: 58, date: '2025-04-25' },
   ]),
-  user(['Baka'], 'EUEN_020', 'A0602', [
-    { rank: 'top', position: 59, date: '2025-04-25' },
-    { rank: 'top', position: 43, date: '2025-04-28' },
-  ]),
   user(['Zazou'], 'EUEN_051', '71D0E', [
     { rank: 'top', position: 60, date: '2025-04-25' },
     { rank: 'top', position: 58, date: '2025-04-28' },
@@ -250,10 +242,6 @@ export const eu = [
   user(['Mafia88'], 'EUEN_053', '41106', [
     { rank: 'top', position: 61, date: '2025-04-25' },
     { rank: 'top', position: 64, date: '2025-04-28' },
-  ]),
-  user(['CrownedClown', 'Shadovv'], 'DE_003', '01C06', [
-    { rank: 'top', position: 62, date: '2025-04-25' },
-    { rank: 'top', position: 71, date: '2025-04-28' },
   ]),
   user(['Shin'], 'EUEN_077', '50109', [
     { rank: 'top', position: 63, date: '2025-04-25' },
@@ -336,13 +324,10 @@ export const eu = [
   user(['iPlayZz'], 'EUEN_042', '90B0A', [
     { rank: 'top', position: 84, date: '2025-04-25' },
     { rank: 'top', position: 47, date: '2025-04-28' },
+    { rank: 'top', position: 76, date: '2025-05-14' },
   ]),
   user(['Jinn'], 'EUEN_012', '8070F', [
     { rank: 'top', position: 85, date: '2025-04-25' },
-  ]),
-  user(['WickedSoulQ8'], 'EUEN_064', '4010C', [
-    { rank: 'top', position: 86, date: '2025-04-25' },
-    { rank: 'top', position: 49, date: '2025-04-28' },
   ]),
   user(['Yass', 'Ado'], 'DE_035', 'B010C', [
     { rank: 'top', position: 87, date: '2025-04-25' },
@@ -359,13 +344,6 @@ export const eu = [
   user(['Illizar'], 'EUEN_036', '51604', [
     { rank: 'top', position: 90, date: '2025-04-25' },
     { rank: 'top', position: 45, date: '2025-04-28' },
-  ]),
-  user(['Retouresohn'], 'DE_001', '11705', [
-    { rank: 'top', position: 91, date: '2025-04-25' },
-    { rank: 'top', position: 75, date: '2025-04-28' },
-  ]),
-  user(['Daddy Nova'], 'EUEN_125', 'A0C0B', [
-    { rank: 'top', position: 92, date: '2025-04-25' },
   ]),
   user(['Nyrang', 'Scarlet'], 'EUEN_078', '50400', [
     { rank: 'top', position: 93, date: '2025-04-25' },
@@ -384,10 +362,6 @@ export const eu = [
   user(['Ariel'], 'FR_100', '50A08', [
     { rank: 'top', position: 97, date: '2025-04-25' },
     { rank: 'top', position: 78, date: '2025-04-28' },
-  ]),
-  user(['Rocky'], 'EUEN_027', '80504', [
-    { rank: 'top', position: 98, date: '2025-04-25' },
-    { rank: 'top', position: 80, date: '2025-04-28' },
   ]),
   user(['William'], 'EUEN_109', '70008', [
     { rank: 'top', position: 99, date: '2025-04-25' },
@@ -428,6 +402,7 @@ export const eu = [
   ]),
   user(['HaveNoMoney'], 'EUEN_198', '50F0C', [
     { rank: 'top', position: 91, date: '2025-04-28' },
+    { rank: 'top', position: 79, date: '2025-05-14' },
   ]),
   user(['Pandoricart', 'Baeuflegoat'], 'FR_099', '40F00', [
     { rank: 'top', position: 92, date: '2025-04-28' },
@@ -437,9 +412,6 @@ export const eu = [
   ]),
   user(['Zoro'], 'DE_036', '60A0A', [
     { rank: 'top', position: 94, date: '2025-04-28' },
-  ]),
-  user(['Tegger'], 'DE_112', '01B0D', [
-    { rank: 'top', position: 95, date: '2025-04-28' },
   ]),
   user(['WhatYouGoBy'], 'EUEN_203', 'F020A', [
     { rank: 'top', position: 96, date: '2025-04-28' },
@@ -456,11 +428,6 @@ export const eu = [
   ]),
   user(['Tehman'], 'FR_100', '70B05', [
     { rank: 'top', position: 100, date: '2025-04-28' },
-  ]),
-
-  //----------------------------------------------------------------------------
-  user(['Preséphone'], 'FR_133', '4030B', [
-    { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['Amithon'], 'EUEN_036', '60C08', [
     { rank: 'top', position: 100, date: '2024-12-07' },
@@ -501,16 +468,10 @@ export const eu = [
   user(['Wity'], 'EUEN_077', '31F09', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
-  user(['NIBUS_2000'], 'EUEN_077', '4050D', [
-    { rank: 'top', position: 100, date: '2024-12-07' },
-  ]),
   user(['LaGigaFraude'], 'EUEN_036', '4190A', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['FLASHBIRD'], 'DE_036', 'A050B', [
-    { rank: 'top', position: 100, date: '2024-12-07' },
-  ]),
-  user(['Nova'], 'EUEN_054', '2160C', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['Chopper'], 'FR_073', '41905', [
@@ -547,9 +508,6 @@ export const eu = [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['Reigen'], 'FR_120', '50705', [
-    { rank: 'top', position: 100, date: '2024-12-07' },
-  ]),
-  user(['Catom'], 'EUEN_053', '2190A', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
   user(['Rapunzel'], 'DE_001', '70F08', [
@@ -642,6 +600,93 @@ export const eu = [
   user(['GoblinSlayer'], 'DE_061', '4010F', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    user(['Mats'], 'EUEN_001', '40F06', [
+      { rank: 'top', position: 63, date: '2025-05-14' },
+    ]),
+    user(['Thesia', 'Preséphone'], 'FR_133', '4030B', [
+      { rank: 'top', position: 100, date: '2024-12-07' },
+      { rank: 'top', position: 80, date: '2025-05-14' },
+    ]),
+    user(['Tegger'], 'DE_112', '01B0D', [
+      { rank: 'top', position: 95, date: '2025-04-28' },
+      { rank: 'top', position: 81, date: '2025-05-14' },
+    ]),
+    user(['WickedSoulQ8'], 'EUEN_064', '4010C', [
+      { rank: 'top', position: 86, date: '2025-04-25' },
+      { rank: 'top', position: 49, date: '2025-04-28' },
+      { rank: 'top', position: 82, date: '2025-05-14' },
+    ]),
+    user(['CrownedClown', 'Shadovv'], 'DE_003', '01C06', [
+      { rank: 'top', position: 62, date: '2025-04-25' },
+      { rank: 'top', position: 71, date: '2025-04-28' },
+      { rank: 'top', position: 83, date: '2025-05-14' },
+    ]),
+    user(['L \'Arabecroft', 'NIBUS_2000'], 'EUEN_077', '4050D', [
+      { rank: 'top', position: 100, date: '2024-12-07' },
+      { rank: 'top', position: 84, date: '2025-05-14' },
+    ]),
+    user(['AhkTaar'], 'EUEN_001', '31E0B', [
+      { rank: 'elite', date: '2025-04-25' },
+      { rank: 'creator', date: '2025-04-25' },
+      { rank: 'top', position: 85, date: '2025-05-14' },
+    ]),
+    user(['CapucciNoita', 'Baka'], 'EUEN_020', 'A0602', [
+      { rank: 'top', position: 59, date: '2025-04-25' },
+      { rank: 'top', position: 43, date: '2025-04-28' },
+      { rank: 'top', position: 86, date: '2025-05-14' },
+    ]),
+    user(['BanBan'], 'EUEN_129', '90A04', [
+      { rank: 'top', position: 87, date: '2025-05-14' },
+    ]),
+    user(['Retouresohn'], 'DE_001', '11705', [
+      { rank: 'top', position: 91, date: '2025-04-25' },
+      { rank: 'top', position: 75, date: '2025-04-28' },
+      { rank: 'top', position: 88, date: '2025-05-14' },
+    ]),
+    user(['AkyReZ'], 'EUEN_053', 'F0102', [
+      { rank: 'top', position: 89, date: '2025-05-14' },
+    ]),
+    user(['ReckNorris'], 'EUEN_116', 'E0B0B', [
+      { rank: 'top', position: 90, date: '2025-05-14' },
+    ]),
+    user(['Thaenval'], 'EUEN_064', 'C0F08', [
+      { rank: 'top', position: 91, date: '2025-05-14' },
+    ]),
+    user(['Rawly'], 'EUEN_098', '01A04', [
+      { rank: 'top', position: 92, date: '2025-05-14' },
+    ]),
+    user(['Rocky'], 'EUEN_027', '80504', [
+      { rank: 'top', position: 98, date: '2025-04-25' },
+      { rank: 'top', position: 80, date: '2025-04-28' },
+      { rank: 'top', position: 93, date: '2025-05-14' },
+    ]),
+    user(['Daddy Nova'], 'EUEN_125', 'A0C0B', [
+      { rank: 'top', position: 92, date: '2025-04-25' },
+      { rank: 'top', position: 94, date: '2025-05-14' },
+    ]),
+    user(['Astralis', 'Nova'], 'EUEN_054', '2160C', [
+      { rank: 'top', position: 100, date: '2024-12-07' },
+      { rank: 'top', position: 95, date: '2025-05-14' },
+    ]),
+    user(['Nitsugua'], 'EUEN_054', '31B03', [
+      { rank: 'top', position: 96, date: '2025-05-14' },
+    ]),
+    user(['Rudy'], 'EUEN_077', 'E0008', [
+      { rank: 'top', position: 97, date: '2025-05-14' },
+    ]),
+    user(['Catom'], 'EUEN_053', '2190A', [
+      { rank: 'top', position: 100, date: '2024-12-07' },
+      { rank: 'top', position: 98, date: '2025-05-14' },
+    ]),
+    user(['Pi'], 'EUEN_179', '8010C', [
+      { rank: 'top', position: 99, date: '2025-05-14' },
+    ]),
+    user(['Notorious'], 'EUEN_098', '80A04', [
+      { rank: 'top', position: 100, date: '2025-05-14' },
+    ]),
+
 
   //------------------------------- scouts
   user(['Ipek'], 'FR_264', '90E0E', [
