@@ -26,6 +26,9 @@ class Navbar extends HTMLElement {
       <a href="state.html?lang=${locale}">${t('DB State')}</a>
     </li>
     <li>
+      <a href="normalizer.html?lang=${locale}">${t('Normalizer')}</a>
+    </li>
+    <li>
       <nn-dropdown icon="globe">
         <a href="?lang=en">English</a>
         <a href="?lang=es">Español</a>

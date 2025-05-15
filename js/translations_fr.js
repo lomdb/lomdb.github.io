@@ -55,6 +55,10 @@ export default {
   'jp': 'jp',
   'tw': 'tw',
 
+  "Normalizer": "Normaliseur",
+  "Output:": "Sortie :",
+  "Paste your merge raw data here:": "Collez vos données brutes de fusion ici :",
+
   'Verified': 'Vérifié',
   'month': 'mois',
   'months': 'mois',

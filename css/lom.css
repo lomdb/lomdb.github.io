@@ -250,15 +250,6 @@ h2 {
   }
 }
 
-/* aside.paper {
-  position: fixed;
-  inset: 0 0 0 0;
-  background: url(../img/paper.webp);
-  z-index: 1;
-  pointer-events: none;
-  opacity: .1;
-} */
-
 lom-state {
   nn-pilar {
     padding: 1rem;
@@ -306,6 +297,34 @@ lom-gaps {
         opacity: 0.2;
       }
     }
+  }
+}
+
+lom-normalizer {
+
+  .input,
+  .output {
+    width: 100%;
+    font-size: 1rem;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .input {
+    color: #ddd;
+    background: #333;
+    resize: none;
+    /* border: ; */
+    min-height: 320px;
+  }
+  
+  .output {
+    color: #ddd;
+    border: none;
+    background: #2a2a5e;
   }
 }
 
