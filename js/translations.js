@@ -7,7 +7,7 @@ const dictionary = {
     "Leading Server": "Leading Server",
     "Merged": "Merged",
     "Empty": "Empty",
-    "Length": "Length",
+    "Size": "Size",
 
     "DB State": "DB State",
     "Region": "Region",
@@ -79,7 +79,7 @@ const dictionary = {
     "Leading Server": "Servidor principal",
     "Merged": "Fusionado",
     "Empty": "Vacío",
-    "Length": "Tamaño",
+    "Size": "Tamaño",
   
     "DB State": "Estado de la BD",
     "Region": "Región",
@@ -140,7 +140,7 @@ const dictionary = {
         Una captura de pantalla de tu perfil de usuario, idealmente mostrando tu servidor original.
       </li>
       <li>
-        Capturas que muestren tu presencia en el rango Campeón Élite o superior.
+        Capturas que muestren tu presencia en el rango Reyes de los Cien o superior.
       </li>
       <li>La fecha en que alcanzaste uno de esos rangos.</li>
     </ul>

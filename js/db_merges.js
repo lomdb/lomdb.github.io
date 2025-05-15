@@ -63,9 +63,19 @@ function expandDependencyMapWithMetadata(dependencyMap) {
   const langCounters = {}
 
   return Object.entries(dependencyMap)
+    .sort(([keyA], [keyB]) => {
+      const aMeta = getCountryCode(keyA)
+      const bMeta = getCountryCode(keyB)
+
+      if (aMeta.numericId !== bMeta.numericId) {
+        return aMeta.numericId - bMeta.numericId
+      }
+
+      return aMeta.label.localeCompare(bMeta.label)
+    })
     .map(([key, values]) => {
       const keyMeta = getCountryCode(key)
-      const lang = countryCodes[keyMeta.id.toUpperCase()]
+      const lang = keyMeta.id.toUpperCase()
 
       if (!langCounters[lang]) langCounters[lang] = 1
       else langCounters[lang]++
@@ -78,7 +88,6 @@ function expandDependencyMapWithMetadata(dependencyMap) {
         values: values.map(getCountryCode),
       }
     })
-    .sort((a, b) => a.key.numericId - b.key.numericId)
 }
 
 const expanded = expandDependencyMapWithMetadata(mergedMap)

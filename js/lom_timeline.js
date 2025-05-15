@@ -100,7 +100,7 @@ class Timeline extends HTMLElement {
         <nn-pilar size="25%" class="leading-server flex-column">
           <span class="index">${key.index}</span>
           <span class="pill ${key.id}">${key.label}</span>
-          <span class="pill white">${t("Length")}: ${group.length}</span>
+          <span class="pill white">${t("Size")}: ${group.length}</span>
         </nn-pilar>
         <nn-pilar size="75% - 0.25rem">
           <nn-fila break="md" class="merge-group">
