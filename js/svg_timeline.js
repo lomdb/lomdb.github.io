@@ -1,0 +1,45 @@
+import { getPrefix } from './helpers.js'
+
+class Merges extends HTMLElement {
+  constructor() {
+    super()
+    this.#shadow = this.attachShadow({ mode: 'closed' })
+    this.#shadow.innerHTML = this.#data.styles + this.#data.template
+  }
+
+  #shadow
+  #data = {
+    styles: `
+<style>
+  .linea {
+    fill: #e38d81;
+    stroke-width: 2.17898;
+    animation: shake 1s ease-in-out alternate infinite;
+  }
+
+  @keyframes shake {
+    from {
+      rotate: 0deg;
+    }
+
+    to {
+      rotate: 3deg;
+    }
+  }
+</style>
+    `,
+    template: `
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg   xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="320" height="280" viewBox="0 0 84.666665 74.083333" version="1.1" id="svg100980">
+  
+  <g id="layer1">
+    <rect style="fill:#a1d6ff;fill-opacity:0.33333334;stroke-width:5.42846;" id="rect82047" width="78.598663" height="43.811832" x="2.7077565" y="16.306879" ry="4.3500977"></rect>
+    <rect style="fill:#feffe1;stroke-width:4.50309;" id="rect87832" width="69.802101" height="34.90234" x="7.1060414" y="20.761629" ry="3.6085546"></rect>
+    <path class="linea" d="m 67.388135,10.763685 a 1.089598,1.089598 0 0 0 -0.632002,0.23151 l -7.611939,5.972765 -7.611938,5.972762 a 1.089598,1.089598 0 0 0 0.266133,1.868103 l 5.542814,2.225704 -6.317443,9.06663 -12.62507,-2.566251 a 2.1733974,2.1733974 0 0 0 -2.413806,1.238167 l -5.888529,13.081889 -13.3165,-0.628902 a 2.1733974,2.1733974 0 0 0 -2.247925,1.816426 l -1.955436,11.830286 a 2.1731801,2.1731801 0 0 0 1.789038,2.498039 2.1731801,2.1731801 0 0 0 2.500106,-1.789039 l 1.63866,-9.921875 12.863297,0.607199 a 2.1733974,2.1733974 0 0 0 2.086178,-1.278992 l 5.781042,-12.847795 12.322245,2.50579 a 2.1733974,2.1733974 0 0 0 2.216919,-0.886767 l 7.706507,-11.062374 8.275464,3.323828 a 1.089598,1.089598 0 0 0 1.484147,-1.165303 L 69.873772,21.276741 68.50693,11.698512 a 1.089598,1.089598 0 0 0 -0.67231,-0.856796 1.089598,1.089598 0 0 0 -0.446485,-0.07803 z"></path>
+  </g>
+</svg>
+    `,
+  }
+}
+
+customElements.define(getPrefix('svg-timeline'), Merges)

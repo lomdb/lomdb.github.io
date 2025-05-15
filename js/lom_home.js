@@ -2,6 +2,7 @@ import { getPrefix } from './helpers.js'
 import './modules/index.js'
 import './svg_angel.js'
 import './svg_merges.js'
+import './svg_timeline.js'
 import './component_navbar.js'
 import { t } from './translations.js'
 import { locale } from './locale.js'
@@ -33,10 +34,8 @@ class Home extends HTMLElement {
             class="ltr"
           >
             <nn-pilar size="30%">
-              <img
-                src="./img/timeline.svg"
-                alt="a graph showing an increment"
-              />
+              <lom-svg-timeline>
+              </lom-svg-timeline>
             </nn-pilar>
             <nn-pilar size="70%">
               <h2>${t('Timeline')}</h2>
@@ -93,10 +92,8 @@ class Home extends HTMLElement {
             class="ltr"
           >
             <nn-pilar size="30%">
-              <img
-                src="./img/merges.svg"
-                alt="a summatory of mushroms servers"
-              />
+              <lom-svg-merges>
+              </lom-svg-merges>
             </nn-pilar>
             <nn-pilar size="70%">
               <h2>${t('Merges')}</h2>
