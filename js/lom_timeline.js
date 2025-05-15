@@ -137,4 +137,4 @@ class Timeline extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('timeline'), Timeline)
+customElements.define(getPrefix('timeline'), Timeline)

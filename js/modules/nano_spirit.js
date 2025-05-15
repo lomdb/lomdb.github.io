@@ -100,4 +100,4 @@ function formatJs(text) {
   return `${computedText}`
 }
 
-window.customElements.define('nn-code', SpiritJs)
+customElements.define('nn-code', SpiritJs)

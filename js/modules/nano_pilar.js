@@ -126,4 +126,4 @@ class Pilar extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('pilar'), Pilar)
+customElements.define(getPrefix('pilar'), Pilar)

@@ -154,4 +154,4 @@ class State extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('state'), State)
+customElements.define(getPrefix('state'), State)

@@ -2,7 +2,7 @@ import './modules/index.js'
 import { getPrefix } from './helpers.js'
 import { t } from './translations.js'
 import { locale } from './locale.js'
-
+import './modules/nano_dropdown.js'
 class Navbar extends HTMLElement {
   #template = `
 <nav>
@@ -20,10 +20,16 @@ class Navbar extends HTMLElement {
       <a href="merges.html?lang=${locale}">${t('Merges')}</a>
     </li>
     <li>
-      <a href="gaps.html?lang=${locale}">${t('Merge\'s Gaps')}</a>
+      <a href="gaps.html?lang=${locale}">${t("Merge's Gaps")}</a>
     </li>
     <li>
       <a href="state.html?lang=${locale}">${t('DB State')}</a>
+    </li>
+    <li>
+      <nn-dropdown icon="globe">
+        <a href="?lang=en">English</a>
+        <a href="?lang=es">Español</a>
+      </nn-dropdown>
     </li>
   </ul>
 </nav>
@@ -62,4 +68,4 @@ class Navbar extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('navbar'), Navbar)
+customElements.define(getPrefix('navbar'), Navbar)

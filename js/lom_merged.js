@@ -173,4 +173,4 @@ class Merges extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('merges'), Merges)
+customElements.define(getPrefix('merges'), Merges)

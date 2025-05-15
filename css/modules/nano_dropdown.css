@@ -1,0 +1,41 @@
+nn-dropdown {
+  --dropdown-bgcolor: #252740;
+  --dropdown-btn-bgcolor: #3f426e;
+  --dropdown-btn-color: #a2afd7;
+
+  position: relative;
+  display: inline-block;
+
+  &.open {
+    .dropdown-content {
+      display: block;
+    }
+  }
+
+  .dropdown-trigger {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: var(--dropdown-btn-bgcolor);
+    color: var(--dropdown-btn-color);
+    font-size: 1rem;
+  }
+
+  .dropdown-content {
+    display: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--dropdown-bgcolor);
+    padding: 0.5em;
+    z-index: 1000;
+  }
+
+  .dropdown-content ::slotted(*) {
+    display: block;
+    padding: 0.25em 0;
+  }
+}

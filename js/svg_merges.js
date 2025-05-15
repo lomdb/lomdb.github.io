@@ -140,4 +140,4 @@ class Merges extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('svg-merges'), Merges)
+customElements.define(getPrefix('svg-merges'), Merges)

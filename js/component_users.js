@@ -74,4 +74,4 @@ class Users extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('users'), Users)
+customElements.define(getPrefix('users'), Users)

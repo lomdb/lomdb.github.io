@@ -50,6 +50,6 @@ class Filters extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('filters'), Filters)
+customElements.define(getPrefix('filters'), Filters)
 
 export const langs = Filters.langs

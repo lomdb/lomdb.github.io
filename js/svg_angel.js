@@ -44,4 +44,4 @@ class Angel extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('svg-angel'), Angel)
+customElements.define(getPrefix('svg-angel'), Angel)

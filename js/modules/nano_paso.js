@@ -47,6 +47,6 @@ class Paso extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('paso'), Paso)
+customElements.define(getPrefix('paso'), Paso)
 
 export { data }

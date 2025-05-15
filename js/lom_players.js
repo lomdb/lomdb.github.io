@@ -154,4 +154,4 @@ class Players extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('players'), Players)
+customElements.define(getPrefix('players'), Players)

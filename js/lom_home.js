@@ -189,4 +189,4 @@ class Home extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('home'), Home)
+customElements.define(getPrefix('home'), Home)

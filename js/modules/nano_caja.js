@@ -47,6 +47,6 @@ class Caja extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('caja'), Caja)
+customElements.define(getPrefix('caja'), Caja)
 
 export { data }

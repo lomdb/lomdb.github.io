@@ -52,6 +52,6 @@ class Fila extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('fila'), Fila)
+customElements.define(getPrefix('fila'), Fila)
 
 export { data }

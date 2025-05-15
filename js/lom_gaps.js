@@ -166,4 +166,4 @@ class Gaps extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('gaps'), Gaps)
+customElements.define(getPrefix('gaps'), Gaps)

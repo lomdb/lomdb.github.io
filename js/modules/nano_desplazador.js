@@ -6,4 +6,4 @@ class Desplazador extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('desplazador'), Desplazador)
+customElements.define(getPrefix('desplazador'), Desplazador)

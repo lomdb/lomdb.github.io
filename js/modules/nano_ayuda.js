@@ -48,4 +48,4 @@ class Ayuda extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('ayuda'), Ayuda)
+customElements.define(getPrefix('ayuda'), Ayuda)

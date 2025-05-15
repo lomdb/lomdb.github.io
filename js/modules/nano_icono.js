@@ -6,4 +6,4 @@ class Icono extends HTMLElement {
   }
 }
 
-window.customElements.define(getPrefix('icono'), Icono)
+customElements.define(getPrefix('icono'), Icono)
