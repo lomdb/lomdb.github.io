@@ -281,6 +281,43 @@ lom-merges {
   }
 }
 
+lom-timeline {
+  dialog {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--background-color);
+
+    .matrix {
+      display: flex;
+      flex-wrap: wrap;
+      width: 800px;
+      max-width: 100%;
+      padding: 1rem;
+      margin: 0;
+      list-style: none;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-direction: column;
+
+      li {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .25rem;
+        width: 100%;
+        background-color: #2b2d44;
+        padding: 1rem;
+      }
+    }
+
+    .btn-close {
+      width: 200px;
+    }
+  }
+}
+
 lom-gaps {
   .table-body {
     gap: .5rem;
@@ -301,7 +338,6 @@ lom-gaps {
 }
 
 lom-normalizer {
-
   .input,
   .output {
     width: 100%;
@@ -315,9 +351,8 @@ lom-normalizer {
 
   .input {
     color: #ddd;
-    background: #333;
+    background: #373452;
     resize: none;
-    /* border: ; */
     min-height: 320px;
   }
   

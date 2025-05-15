@@ -128,7 +128,7 @@ class Merges extends HTMLElement {
               const tooltip = getTooltip(cell)
               return `
                 <nn-pilar
-                  class="fusion ${[cell.id, ...tooltip.classes].join(' ')}"
+                  class="fusion ${cell.id}"
                   style="order:${cell.numericId}"
                 >
                   ${tooltip.msg || cell.label}

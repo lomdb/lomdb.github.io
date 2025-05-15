@@ -48,17 +48,14 @@ function getTooltip(item, players, label) {
       return `<li>${rank} ${user.label}</li>`
     })
     .join('')
-  const classes = ['group']
 
   return localPlayers?.length > 0
     ? {
-        classes,
         msg: localPlayers
           ? `<lom-users label="${localLabel}">${names}</lom-users>`
           : '',
       }
     : {
-        classes: [],
         msg: '',
       }
 }
