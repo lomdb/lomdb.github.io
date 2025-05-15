@@ -75,9 +75,10 @@ class Players extends HTMLElement {
       table.forEach(user => {
         const names = user.names
           .map(n => {
+            const localName = n?.o ? `${n.o} (${n.t})` : n
             return `
             <span class="pill ${user.lang}">
-              ${n}
+              ${localName}
             </span>
           `
           })

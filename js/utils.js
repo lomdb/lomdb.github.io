@@ -1,18 +1,37 @@
 import { usersDB } from './db_users.js'
 import { countryCodes } from './enum_country-codes.js'
 import { t } from './translations.js'
+import { rank } from './enum_rank.js'
 
-function getTooltip(item, group = 0) {
-  const names = item?.users
+
+function getTooltip(item, players, label) {
+  const localLabel = label || item.label
+  const localPlayers = players || item?.users
+  localPlayers.sort((a, b) => {
+    const aPos = a.maxPosition ?? Infinity
+    const bPos = b.maxPosition ?? Infinity
+
+    if (aPos !== bPos) {
+      return aPos - bPos
+    }
+    if (a.lastVerify !== b.lastVerify) {
+      return new Date(b.lastVerify) - new Date(a.lastVerify)
+    }
+    if (a.maxRank !== b.maxRank) {
+      return rank[a.maxRank] - rank[b.maxRank]
+    }
+    if (a.langNumber !== b.langNumber) {
+      return a.langNumber - b.langNumber
+    }
+    if (a.server[0] !== b.server[0]) {
+      return a.server[0].localeCompare(b.server[0])
+    }
+
+    return 0
+  })
+
+  const names = localPlayers
     ?.map(user => {
-      const warning =
-        !user?.lastVerify && user.maxRank === 'top'
-          ? `
-          <nn-icono class="exclamation pill sunglow" title="${t(
-            'Old Entry'
-          )}"></nn-icono>
-        `
-          : ''
       const tooltip = `${t('Verified')} ${user?.verifiedMonth} ${
         user?.verifiedMonth === 1 ? t('month') : t('months')
       } ${t('ago')}.`
@@ -26,18 +45,16 @@ function getTooltip(item, group = 0) {
           <div class="help">${tooltip}</div>
         </strong>
       `
-      return `<li>${rank} ${user.label} ${warning}</li>`
+      return `<li>${rank} ${user.label}</li>`
     })
     .join('')
   const classes = ['group']
 
-  return item?.users?.length > 0
+  return localPlayers?.length > 0
     ? {
         classes,
-        msg: item?.users
-          ? `<lom-users label="${[item.label, group ? `(${group})` : null].join(
-              ' '
-            )}">${names}</lom-users>`
+        msg: localPlayers
+          ? `<lom-users label="${localLabel}">${names}</lom-users>`
           : '',
       }
     : {

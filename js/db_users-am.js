@@ -39,12 +39,23 @@ export const am = [
     { rank: 'top', position: 6, date: '2025-05-05', power: 151600000, lv: 184 },
     { rank: 'top', position: 3, date: '2025-05-08', power: 152900000, lv: 185 },
   ]),
-  user(['熳灵熳灵烘 (Man Ling Man Ling Hong)'], 'AMEN_019', 'D030F', [
-    { rank: 'top', position: 11, date: '2025-04-25' },
-    { rank: 'top', position: 10, date: '2025-04-28' },
-    { rank: 'top', position: 12, date: '2025-05-01' },
-    { rank: 'top', position: 7, date: '2025-05-05', power: 160700000, lv: 189 },
-  ]),
+  user(
+    [{ o: '熳灵熳灵烘', t: 'Man Ling Man Ling Hong' }],
+    'AMEN_019',
+    'D030F',
+    [
+      { rank: 'top', position: 11, date: '2025-04-25' },
+      { rank: 'top', position: 10, date: '2025-04-28' },
+      { rank: 'top', position: 12, date: '2025-05-01' },
+      {
+        rank: 'top',
+        position: 7,
+        date: '2025-05-05',
+        power: 160700000,
+        lv: 189,
+      },
+    ]
+  ),
   user(['pheel'], 'AMEN_323', '40200', [
     { rank: 'top', position: 20, date: '2025-04-25' },
     { rank: 'top', position: 12, date: '2025-04-28' },
@@ -81,12 +92,17 @@ export const am = [
     { rank: 'top', position: 17, date: '2025-05-01' },
     { rank: 'top', position: 12, date: '2025-05-05' },
   ]),
-  user(['充钱使你快乐 (Chong Qian Shi Ni Kuai Le)'], 'AMEN_019', 'D0406', [
-    { rank: 'top', position: 16, date: '2025-04-25' },
-    { rank: 'top', position: 19, date: '2025-04-28' },
-    { rank: 'top', position: 13, date: '2025-05-01' },
-    { rank: 'top', position: 13, date: '2025-05-05' },
-  ]),
+  user(
+    [{ o: '充钱使你快乐', t: 'Chong Qian Shi Ni Kuai Le' }],
+    'AMEN_019',
+    'D0406',
+    [
+      { rank: 'top', position: 16, date: '2025-04-25' },
+      { rank: 'top', position: 19, date: '2025-04-28' },
+      { rank: 'top', position: 13, date: '2025-05-01' },
+      { rank: 'top', position: 13, date: '2025-05-05' },
+    ]
+  ),
   user(['SorryNotSorry'], 'AMEN_019', 'A0107', [
     { rank: 'top', position: 26, date: '2025-04-25' },
     { rank: 'top', position: 23, date: '2025-04-28' },
@@ -497,7 +513,7 @@ export const am = [
     { rank: 'top', position: 43, date: '2025-04-28' },
     { rank: 'top', position: 91, date: '2025-05-05' },
   ]),
-  user(['ゴッドハンター (Goddo Hantaa)'], 'AMEN_002', '11A07', [
+  user([{ o: 'ゴッドハンター', t: 'Goddo Hantaa' }], 'AMEN_002', '11A07', [
     { rank: 'top', position: 92, date: '2025-05-05' },
   ]),
   user(['MrsMadHatter'], 'AMEN_321', 'C070B', [

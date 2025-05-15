@@ -9,7 +9,8 @@ class User {
 
     const serverParts = server.split('_')
 
-    this.label = [id, names[0]].filter(Boolean).join(' :: ')
+    const firstNick = names[0]?.o ? names[0].o : names[0]
+    this.label = [id, firstNick].filter(Boolean).join(' :: ')
     this.langNumber = countryCodes[serverParts[0]]
     this.lang = serverParts[0].toLowerCase()
     this.server = server

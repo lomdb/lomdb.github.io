@@ -80,16 +80,23 @@ function expandDependencyMapWithMetadata(dependencyMap) {
       if (!langCounters[lang]) langCounters[lang] = 1
       else langCounters[lang]++
 
+      const localValues = values.map(getCountryCode)
+
+      const allPlayers = localValues.map(s => s.users).flat()
+
       return {
         key: {
           ...keyMeta,
+          allPlayers,
           index: langCounters[lang],
         },
-        values: values.map(getCountryCode),
+        values: localValues,
       }
     })
 }
 
 const expanded = expandDependencyMapWithMetadata(mergedMap)
+
+// console.log(expanded)
 
 export { expanded as servers, spreadServers, expandDependencyMapWithMetadata }

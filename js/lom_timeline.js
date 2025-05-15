@@ -94,6 +94,8 @@ class Timeline extends HTMLElement {
           })
           .join('')
 
+          const playersList = getTooltip(key, key.allPlayers, t('Players').toUpperCase())
+
         const wrapper = document.createElement('div')
         wrapper.innerHTML = `
       <nn-fila break="md" class="row" gap="1">
@@ -101,6 +103,7 @@ class Timeline extends HTMLElement {
           <span class="index">${key.index}</span>
           <span class="pill ${key.id}">${key.label}</span>
           <span class="pill white">${t("Size")}: ${group.length}</span>
+          ${playersList.msg}
         </nn-pilar>
         <nn-pilar size="75% - 0.25rem">
           <nn-fila break="md" class="merge-group">
