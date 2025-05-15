@@ -168,22 +168,38 @@ class Timeline extends HTMLElement {
         </nn-pilar>
       </nn-fila>
     `
-        const button = wrapper.querySelector('.open-modal')
-        button?.addEventListener('click', function (e) {
-          e.stopPropagation()
-          const modal = this.nextElementSibling
-          if (modal) {
-            modal.showModal()
-          }
-        })
+        if (players) {
+          const modal = wrapper.querySelector('dialog')
 
-        const closeButton = wrapper.querySelector('.btn-close')
-        closeButton?.addEventListener('click', function (e) {
-          const dialog = this.closest('dialog')
-          if (dialog) {
-            dialog.close()
-          }
-        })
+          const button = wrapper.querySelector('.open-modal')
+          button.addEventListener('click', function (e) {
+            e.stopPropagation()
+            if (modal) {
+              modal.showModal()
+            }
+          })
+
+          const closeButton = wrapper.querySelector('.btn-close')
+          closeButton.addEventListener('click', function (e) {
+            const dialog = this.closest('dialog')
+            if (dialog) {
+              dialog.close()
+            }
+          })
+
+          modal.addEventListener('click', function (e) {
+            const rect = modal.getBoundingClientRect()
+            const clickedOutside =
+              e.clientX < rect.left ||
+              e.clientX > rect.right ||
+              e.clientY < rect.top ||
+              e.clientY > rect.bottom
+
+            if (clickedOutside) {
+              modal.close()
+            }
+          })
+        }
 
         fragment.appendChild(wrapper.firstElementChild)
       })
