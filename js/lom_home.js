@@ -3,6 +3,7 @@ import './modules/index.js'
 import './svg_angel.js'
 import './svg_merges.js'
 import './svg_timeline.js'
+import './svg_state.js'
 import './component_navbar.js'
 import { t } from './translations.js'
 import { locale } from './locale.js'
@@ -92,8 +93,7 @@ class Home extends HTMLElement {
             class="ltr"
           >
             <nn-pilar size="30%">
-              <lom-svg-merges>
-              </lom-svg-merges>
+              <lom-svg-merges></lom-svg-merges>
             </nn-pilar>
             <nn-pilar size="70%">
               <h2>${t('Merges')}</h2>
@@ -150,10 +150,7 @@ class Home extends HTMLElement {
             class="ltr"
           >
             <nn-pilar size="30%">
-              <img
-                src="./img/state.svg"
-                alt="a sequence of numbers missing number 5."
-              />
+              <lom-svg-state></lom-svg-state>
             </nn-pilar>
             <nn-pilar size="70%">
               <h2>${t('DB State')}</h2>

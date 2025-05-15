@@ -7,6 +7,10 @@ nn-dropdown {
   display: inline-block;
 
   &.open {
+    .dropdown-trigger {
+      background: var(--header-color);
+      color: var(--background-color);
+    }
     .dropdown-content {
       display: block;
     }
@@ -18,9 +22,13 @@ nn-dropdown {
     padding: 1rem;
     border-radius: 10px;
     border: none;
-    background: var(--dropdown-btn-bgcolor);
-    color: var(--dropdown-btn-color);
+    color: var(--header-color);
     font-size: 1rem;
+    
+    &:hover {
+      background: var(--header-color);
+      color: var(--background-color);
+    }
   }
 
   .dropdown-content {
