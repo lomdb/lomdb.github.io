@@ -1,4 +1,6 @@
 export default {
+  "Close Modal": "Fechar Modal",
+
   'Merged Servers': 'Servidores fundidos',
   "Leading Server": "Servidor principal",
   "Merged": "Fundido",

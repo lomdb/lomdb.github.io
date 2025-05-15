@@ -157,7 +157,7 @@ class Timeline extends HTMLElement {
             <ul class="matrix">
               ${players}
             </ul>
-            <button type="button" class="btn sunglow btn-close">Close Modal</button>
+            <button type="button" class="btn sunglow btn-close">${t('Close Modal')}</button>
           </dialog>
 
         </nn-pilar>
