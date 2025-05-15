@@ -11,8 +11,8 @@ const dictionary = {
   en,
   es,
   pt,
-  // fr,
-  // de,
+  fr,
+  de,
 }
 
 export function t(key, params = {}) {

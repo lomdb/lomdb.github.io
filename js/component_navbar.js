@@ -30,6 +30,8 @@ class Navbar extends HTMLElement {
         <a href="?lang=en">English</a>
         <a href="?lang=es">Español</a>
         <a href="?lang=pt">Português</a>
+        <a href="?lang=fr">Français</a>
+        <a href="?lang=de">Deutsch</a>
       </nn-dropdown>
     </li>
   </ul>

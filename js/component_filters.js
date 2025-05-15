@@ -1,5 +1,6 @@
 import './modules/index.js'
 import { getPrefix } from './helpers.js'
+import { t } from './translations.js'
 
 class Filters extends HTMLElement {
   constructor() {
@@ -37,7 +38,7 @@ class Filters extends HTMLElement {
 
   #createFilters(remove = []) {
     const buttons = Filters.langs
-      .map(item => `<button class="${item}">${item.toUpperCase()}</button>`)
+      .map(item => `<button class="${item}">${t(item).toUpperCase()}</button>`)
       .join('')
     return buttons
   }
