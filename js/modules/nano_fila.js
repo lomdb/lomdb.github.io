@@ -35,7 +35,7 @@ class Fila extends HTMLElement {
   updateAttr(attr) {
     this.removeCustomClass(attr.regex)
     const value = this.getAttribute(attr.name)
-    attr && this.classList.add([attr.prefix, value].join('-'))
+    attr & value && this.classList.add([attr.prefix, value].join('-'))
   }
 
   connectedCallback() {
