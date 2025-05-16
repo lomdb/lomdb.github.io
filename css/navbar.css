@@ -1,4 +1,29 @@
-nav {
+lom-navbar {
+  display: block;
+
+  .mobile-controls {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 1rem;
+      border: none;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      background-color: transparent;
+      color: var(--foreground-color);
+
+      &.close-menu {
+        display: none;
+      }
+
+      &:active,
+      &:focus {
+        background-color: (255 255 255 / 0.1);
+      }
+    }
+  }
+
   ul {
     display: flex;
     padding: 0 .5rem;
@@ -20,6 +45,62 @@ nav {
       &.active {
         background-color: var(--header-color);
         color: var(--background-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  lom-navbar {
+    &.open {
+      /* height: 100svh;
+      overflow: auto; */
+
+      .mobile-controls {
+        button {
+          &.close-menu {
+            display: block;
+          }
+        }
+      }
+
+      ul {
+        display: flex;
+      }
+    }
+
+    ul {
+      flex-direction: column;
+      display: none;
+
+      li {
+        width: 100%;
+        text-align: center;
+
+        a {
+          width: 100%;
+        }
+      }
+
+      nn-dropdown {
+        flex-basis: 100%;
+        width: 100%;
+        display: block;
+
+        &,
+        &.open {
+          .dropdown-trigger {
+            display: none;
+          }
+
+          .dropdown-content {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            position: static;
+          }
+        }
+
       }
     }
   }

@@ -6,6 +6,14 @@ import './modules/nano_dropdown.js'
 class Navbar extends HTMLElement {
   #template = `
 <nav>
+  <div class="mobile-controls">
+    <button type="button" class="toggle" tabindex="0">
+      <nn-icono class="bars"></nn-icono>
+    </button>
+    <button type="button" class="close-menu">
+      <nn-icono class="times"></nn-icono>
+    </button>
+  </div>
   <ul>
     <li>
       <a href="index.html?lang=${locale}">${t('Home')}</a>
@@ -64,6 +72,17 @@ class Navbar extends HTMLElement {
     this.innerHTML = this.#template
     const localTheme = localStorage.getItem('theme') || this.#data.theme
     this.#data.theme = localTheme
+
+    const toggleBtn = this.querySelector('.toggle')
+    const closeBtn = this.querySelector('.close-menu')
+
+    toggleBtn.addEventListener('click', () => {
+      this.classList.toggle('open')
+    })
+
+    closeBtn.addEventListener('click', () => {
+      this.classList.remove('open')
+    })
     // this.setTheme()
 
     // this.querySelector('#theme').checked = localTheme === 'dark' ? true : false

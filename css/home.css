@@ -146,7 +146,7 @@ lom-home {
 }
 
 @media (max-width: 992px) {
-  .home {
+  lom-home {
     section {
       nn-pilar {
 
@@ -154,7 +154,8 @@ lom-home {
         &[size="70%"] {
 
           &,
-          h2 {
+          h2,
+          p {
             text-align: center;
           }
         }
