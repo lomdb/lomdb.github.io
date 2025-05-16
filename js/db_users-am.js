@@ -7,7 +7,7 @@ export const am = [
     { rank: 'top', position: 1, date: '2025-05-01' },
     { rank: 'top', position: 1, date: '2025-05-05', power: 198200000, lv: 197 },
   ]),
-  user(['concrete'], 'AMEN_353', '4070B', [
+  user(['concrete'], 'AMEN_363', '4070B', [
     { rank: 'top', position: 3, date: '2025-04-25' },
     { rank: 'top', position: 2, date: '2025-04-28' },
     { rank: 'top', position: 2, date: '2025-05-01' },
@@ -173,7 +173,7 @@ export const am = [
       { rank: 'top', position: 24, date: '2025-05-05' },
     ]
   ),
-  user(['(blank)'], 'AMEN_024', '40001', [
+  user(['(blank)'], 'AMEN_055', '40001', [
     { rank: 'top', position: 14, date: '2025-04-25' },
     { rank: 'top', position: 7, date: '2025-04-28' },
     { rank: 'top', position: 7, date: '2025-05-01' },
@@ -223,7 +223,7 @@ export const am = [
     { rank: 'top', position: 41, date: '2025-05-01' },
     { rank: 'top', position: 32, date: '2025-05-05' },
   ]),
-  user(['pvtmeow'], 'AMEN_182', 'F0E0C', [
+  user(['pvtmeow'], 'AMEN_204', 'F0E0C', [
     { rank: 'top', position: 27, date: '2025-04-25' },
     { rank: 'top', position: 81, date: '2025-05-01' },
     { rank: 'top', position: 33, date: '2025-05-05' },

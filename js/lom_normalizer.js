@@ -13,21 +13,15 @@ customElements.define(
 
     #data = {
       attrs: [],
-      input: `1526	←	[1530,1531]
+      input: `1526	←	[1530,11131]
 1537	←	[1538,1539]
-1549	←	[1550,1551]
-1561	←	[1562]
-1563	←	[1565]
-1573	←	[1574,1578]
+1549	←	[1550,6551]
 30218	←	[42121,42124]
-30272	←	[30273,30276,39134,39135]
 30274	←	[30277,39136,39137,42225]
 30275	←	[42226,42227,42228]
 30314	←	[42265]
-30315	←	[30316]
-30317	←	[30318]
-30319	←	[42256]
-30320	←	[42260]`,
+CN-389	 ←	[VN-460]
+EN389	 ←	[EN390,VN658,VN659,VN660]`,
       template: `
       <nn-caja padding="4" class="base">
         <lom-navbar></lom-navbar>
@@ -65,17 +59,35 @@ customElements.define(
 
     #normalize(merges) {
       return merges
-        .replace(/	←	/g, ': ')
-        .replace(/\d+/g, num => {
-          if (num.length <= 3) return num
+        .replace(/[^\S\r\n]+/g, ' ') // Collapse spaces/tabs but preserve line breaks
+        .replace(/←/g, ':') // Replace arrow with colon
+        .replace(/ : /g, ': ') // Remove the space before the semicolon and keep the one after
+        .replace(/-/g, '_') // Replace dashes by underscore
+        .replace(/\[(.*?)\]/g, this.#quoteServersInBrackets)
+        .replace(/\d+/g, this.#normalizeNumericIds.bind(this))
+        .replace(/\b([A-Z]+)(\d+)\b/g, '$1_$2') // Add underscore between region and number
+        .replace(/^.+$/gm, '$&,') // Add trailing comma to each line
+    }
 
-          const serverId = num.slice(-3)
-          const regionCode = parseInt(num.slice(0, -3), 10)
-          const region = this.#countryCodes[regionCode]
+    #quoteServersInBrackets(_, servers) {
+      return (
+        '[' +
+        servers
+          .split(',')
+          .map(s => `"${s.trim()}"`)
+          .join(',') +
+        ']'
+      )
+    }
 
-          return region ? `"${region}_${serverId}"` : num
-        })
-        .replace(/^.+$/gm, '$&,')
+    #normalizeNumericIds(num) {
+      if (num.length <= 3) return num
+
+      const serverId = num.slice(-3)
+      const regionCode = parseInt(num.slice(0, -3), 10)
+      const region = this.#countryCodes[regionCode]
+
+      return region ? `${region}_${serverId}` : num
     }
 
     handleChange(e, text) {
@@ -88,7 +100,7 @@ customElements.define(
 
       const input = this.querySelector('.input')
       input.addEventListener('input', this.handleChange)
-      
+
       input.innerHTML = this.#data.input
       this.handleChange(null, this.#data.input)
     }
