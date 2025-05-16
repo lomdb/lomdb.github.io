@@ -11,6 +11,7 @@ nn-dropdown {
       background: var(--header-color);
       color: var(--background-color);
     }
+
     .dropdown-content {
       display: block;
     }
@@ -24,7 +25,7 @@ nn-dropdown {
     border: none;
     color: var(--header-color);
     font-size: 1rem;
-    
+
     &:hover {
       background: var(--header-color);
       color: var(--background-color);
@@ -40,6 +41,12 @@ nn-dropdown {
     background: var(--dropdown-bgcolor);
     padding: 0.5em;
     z-index: 1000;
+
+    a,
+    button {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   .dropdown-content ::slotted(*) {

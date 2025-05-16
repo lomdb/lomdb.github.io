@@ -38,11 +38,11 @@ class Navbar extends HTMLElement {
     </li>
     <li>
       <nn-dropdown icon="globe">
+        <a href="?lang=de">Deutsch</a>
         <a href="?lang=en">English</a>
         <a href="?lang=es">Español</a>
-        <a href="?lang=pt">Português</a>
         <a href="?lang=fr">Français</a>
-        <a href="?lang=de">Deutsch</a>
+        <a href="?lang=pt">Português</a>
       </nn-dropdown>
     </li>
   </ul>
