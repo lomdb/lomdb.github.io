@@ -2,7 +2,7 @@ lom-navbar {
   display: block;
 
   .mobile-controls {
-    display: flex;
+    display: none;
     justify-content: space-between;
 
     button {
@@ -53,9 +53,6 @@ lom-navbar {
 @media (max-width: 992px) {
   lom-navbar {
     &.open {
-      /* height: 100svh;
-      overflow: auto; */
-
       .mobile-controls {
         button {
           &.close-menu {
@@ -67,6 +64,10 @@ lom-navbar {
       ul {
         display: flex;
       }
+    }
+
+    .mobile-controls {
+      display: flex;
     }
 
     ul {
