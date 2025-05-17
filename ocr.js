@@ -6,6 +6,7 @@ import Tesseract from 'tesseract.js'
 // ------------------- Settings
 const inputDir = './leaderboard'
 const outputDir = path.join(inputDir, 'cropped')
+const outputPath = path.join('leaderboard', 'data.js')
 
 const imageExtensions = ['.png']
 
@@ -32,13 +33,10 @@ if (!fs.existsSync(outputDir)) {
 
 // ------------------- Block areas and return output path
 async function blockAreas(inputPath) {
-  const outputPath = path.join(outputDir, path.basename(inputPath))
+  const outputFile = path.join(outputDir, path.basename(inputPath))
 
   const composites = await Promise.all(
     blankAreas.map(async area => {
-      const isWhiteArea =
-        area.left === 251 && area.top === 0 && area.width === 465 - 249
-
       const buffer = await sharp({
         create: {
           width: area.width,
@@ -60,37 +58,12 @@ async function blockAreas(inputPath) {
     .composite(composites)
     .grayscale()
     .linear(4.0, -160)
-    // .threshold(150)
-    .toFile(outputPath)
+    .toFile(outputFile)
 
-  return outputPath
+  return outputFile
 }
 
-// ------------------- Add text format
-function formatOCROutput(text) {
-  const date = new Date().toISOString().slice(0, 10)
-  return text
-    .split('\n')
-    .map(line => line.trim())
-    .filter(Boolean)
-    .map(line => {
-      const match = line.match(/^(\d+)\s*(.+)$/)
-      if (!match) return null
-
-      const [, row, name] = match
-      const cleanName = name.replace(/\s+/g, '')
-
-      return `[
-  user(['${cleanName}'], 'JP_', '', [
-    { rank: 'top', position: ${row}, date: '${date}' },
-  ]),
-],`
-    })
-    .filter(Boolean)
-    .join('\n')
-}
-
-// ------------------- Run OCR
+// ------------------- Run OCR and return formatted blocks
 async function runOCR(imagePath) {
   try {
     const {
@@ -99,31 +72,76 @@ async function runOCR(imagePath) {
       logger: m => console.log(`OCR (${path.basename(imagePath)}):`, m.status),
     })
 
-    const formattedOutput = formatOCROutput(text)
+    const date = new Date().toISOString().slice(0, 10)
 
-    const outputPath = path.join('leaderboard', 'data.js')
-    fs.appendFileSync(outputPath, '\n' + formattedOutput + '\n', 'utf-8')
+    const blocks = text
+      .split('\n')
+      .map(line => line.trim())
+      .filter(Boolean)
+      .map(line => {
+        const match = line.match(/^(\d+)\s+(.+)$/)
+        if (!match) return null
 
-    console.log(
-      `\n[${path.basename(imagePath)}] Extracted Text:\n${formattedOutput}\n`
-    )
+        const [, row, name] = match
+        const cleanName = name.replace(/\s+/g, '')
+        return {
+          position: parseInt(row, 10),
+          name: cleanName,
+          date,
+        }
+      })
+      .filter(Boolean)
+
+    return blocks
   } catch (err) {
     console.error(`OCR failed for ${imagePath}:`, err)
+    return []
   }
 }
 
-// ------------------- Process all images
+// ------------------- Write to file
+function saveDataJS(data) {
+  const sorted = data.sort((a, b) => a.position - b.position)
+
+  const blocks = sorted.map(
+    ({ name, position, date }) => `  [
+    user(['${name}'], 'JP_', '', [
+      { rank: 'top', position: ${position}, date: '${date}' },
+    ]),
+  ]`
+  )
+
+  const content = `import { user } from '../js/classes.js'
+
+export default [
+${blocks.join(',\n')}
+]
+`
+
+  fs.writeFileSync(outputPath, content, 'utf-8')
+}
+
+// ------------------- Main process
 async function processAllImages() {
   const images = getImageFiles(inputDir).map(file => path.join(inputDir, file))
+  const allEntries = []
 
   for (const image of images) {
     try {
       console.log(`Processing ${image}...`)
       const croppedPath = await blockAreas(image)
-      await runOCR(croppedPath)
+      const entries = await runOCR(croppedPath)
+      allEntries.push(...entries)
     } catch (err) {
       console.error(`Failed to process ${image}:`, err)
     }
+  }
+
+  if (allEntries.length > 0) {
+    saveDataJS(allEntries)
+    console.log(`✅ Exported ${allEntries.length} entries to ${outputPath}`)
+  } else {
+    console.log('⚠️ No valid entries found.')
   }
 }
 
