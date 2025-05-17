@@ -12,11 +12,14 @@ const imageExtensions = ['.png']
 
 const blankAreas = [
   { left: 251, top: 0, width: 465 - 249, height: 2400, isWhite: true },
-  { left: 0, top: 0, width: 152, height: 2400 },
-  { left: 0, top: 0, width: 1080, height: 1208 },
-  { left: 705, top: 0, width: 1080 - 705, height: 2400 },
-  { left: 0, top: 1625, width: 1080, height: 2400 },
 ]
+
+const cropRegion = {
+  left: 132,
+  top: 1189,
+  width: 700 - 132,
+  height: 1639 - 1189,
+}
 
 // ------------------- Utility: Get image files
 function getImageFiles(dir) {
@@ -31,9 +34,9 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir)
 }
 
-// ------------------- Block areas and return output path
+// ------------------- Block areas, crop region, and return output path
 async function blockAreas(inputPath) {
-  const outputFile = path.join(outputDir, path.basename(inputPath))
+  const baseImage = sharp(inputPath)
 
   const composites = await Promise.all(
     blankAreas.map(async area => {
@@ -54,11 +57,15 @@ async function blockAreas(inputPath) {
     })
   )
 
-  await sharp(inputPath)
+  const processedBuffer = await baseImage
     .composite(composites)
     .grayscale()
-    .linear(4.0, -160)
-    .toFile(outputFile)
+    .linear(3.0, -130)
+    .toBuffer()
+
+  const outputFile = path.join(outputDir, path.basename(inputPath))
+
+  await sharp(processedBuffer).extract(cropRegion).toFile(outputFile)
 
   return outputFile
 }
@@ -79,18 +86,20 @@ async function runOCR(imagePath) {
       .map(line => line.trim())
       .filter(Boolean)
       .map(line => {
-        const match = line.match(/^(\d+)\s+(.+)$/)
+        const match = line.match(/^(\d+)?\s*(.+)$/)
         if (!match) return null
 
         const [, row, name] = match
         const cleanName = name.replace(/\s+/g, '')
         return {
-          position: parseInt(row, 10),
+          position: +row || null,
           name: cleanName,
           date,
         }
       })
       .filter(Boolean)
+
+    console.log(blocks)
 
     return blocks
   } catch (err) {
@@ -101,20 +110,22 @@ async function runOCR(imagePath) {
 
 // ------------------- Write to file
 function saveDataJS(data) {
-  const sorted = data.sort((a, b) => a.position - b.position)
+  const sorted = data.sort(
+    (a, b) => (a.position ?? 9999) - (b.position ?? 9999)
+  )
 
   const blocks = sorted.map(
-    ({ name, position, date }) => `  [
-    user(['${name}'], 'JP_', '', [
-      { rank: 'top', position: ${position}, date: '${date}' },
-    ]),
-  ]`
+    ({ name, position, date }) => `
+  user(['${name}'], 'JP_', '', [
+    { rank: 'top', position: ${position}, date: '${date}' },
+  ]),
+`
   )
 
   const content = `import { user } from '../js/classes.js'
 
 export default [
-${blocks.join(',\n')}
+${blocks.join('\n')}
 ]
 `
 
