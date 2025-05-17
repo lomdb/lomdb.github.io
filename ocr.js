@@ -66,6 +66,30 @@ async function blockAreas(inputPath) {
   return outputPath
 }
 
+// ------------------- Add text format
+function formatOCROutput(text) {
+  const date = new Date().toISOString().slice(0, 10)
+  return text
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => {
+      const match = line.match(/^(\d+)\s*(.+)$/)
+      if (!match) return null
+
+      const [, row, name] = match
+      const cleanName = name.replace(/\s+/g, '')
+
+      return `[
+  user(['${cleanName}'], 'JP_', '', [
+    { rank: 'top', position: ${row}, date: '${date}' },
+  ]),
+],`
+    })
+    .filter(Boolean)
+    .join('\n')
+}
+
 // ------------------- Run OCR
 async function runOCR(imagePath) {
   try {
@@ -74,10 +98,14 @@ async function runOCR(imagePath) {
     } = await Tesseract.recognize(imagePath, 'jpn', {
       logger: m => console.log(`OCR (${path.basename(imagePath)}):`, m.status),
     })
+
+    const formattedOutput = formatOCROutput(text)
+
+    const outputPath = path.join('leaderboard', 'data.js')
+    fs.appendFileSync(outputPath, '\n' + formattedOutput + '\n', 'utf-8')
+
     console.log(
-      `\n[${path.basename(imagePath)}] Extracted Text:\n${text
-        .trim()
-        .split('\n')}\n`
+      `\n[${path.basename(imagePath)}] Extracted Text:\n${formattedOutput}\n`
     )
   } catch (err) {
     console.error(`OCR failed for ${imagePath}:`, err)
