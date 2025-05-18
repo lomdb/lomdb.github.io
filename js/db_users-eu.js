@@ -97,7 +97,7 @@ export const eu = [
   user(['Ezi'], 'EUEN_051', '70F09', [
     { rank: 'top', position: 82, date: '2025-04-28' },
   ]),
-  user(['D'], 'FR_003', '90302', [
+  user(['D', 'マテオ', 'Deku8488'], 'FR_003', '90302', [
     { rank: 'top', position: 84, date: '2025-04-28' },
   ]),
   user(['Nayzz', 'Reezh'], 'EUEN_053', 'D0B0D', [
@@ -602,7 +602,7 @@ export const eu = [
     { rank: 'top', position: 46, date: '2025-04-25' },
     { rank: 'top', position: 58, date: '2025-05-14' },
   ]),
-  user(['D3MONKILLA'], 'EUEN_020', '21C02', [
+  user(['D3MONKILLA'], 'EUEN_023', '21C02', [
     { rank: 'top', position: 93, date: '2025-04-28' },
     { rank: 'top', position: 59, date: '2025-05-14' },
   ]),
@@ -774,6 +774,11 @@ export const eu = [
   ]),
   user(['Notorious'], 'EUEN_098', '80A04', [
     { rank: 'top', position: 100, date: '2025-05-14' },
+  ]),
+  //------------------------------- elite
+
+  user(['Truss', 'bombadillo'], 'EUEN_020', 'F040B', [
+    { rank: 'elite', date: '2025-05-17' },
   ]),
 
   //------------------------------- scouts
