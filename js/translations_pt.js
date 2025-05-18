@@ -12,7 +12,7 @@ export default {
   "Merges": "Fusões",
   "Top 100": "Top 100",
   "Elites": "Elites",
-  'The Americas': 'Américas',
+  'The Americas': 'América',
   'Europe': 'Europa',
   'South East Asian (SEA)': 'Sudeste Asiático (SEA)',
   'Taiwan': 'Taiwan',
