@@ -1313,7 +1313,7 @@ export const am = [
     { rank: 'elite', date: '2025-04-25' },
   ]),
 
-  user(['Rome'], 'AMEN_281', '71A00', [{ rank: 'elite', date: '2025-04-25' }]),
+  user(['Rome'], 'ES_100', '71A00', [{ rank: 'elite', date: '2025-04-25' }]),
 
   user(['BilyBily2'], 'AMEN_109', '40D07', [
     { rank: 'elite', date: '2025-04-25' },
