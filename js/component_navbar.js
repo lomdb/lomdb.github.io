@@ -1,7 +1,7 @@
 import './modules/index.js'
 import { getPrefix } from './helpers.js'
 import { t } from './translations.js'
-import { locale } from './locale.js'
+import { locale } from './params.js'
 import './modules/nano_dropdown.js'
 class Navbar extends HTMLElement {
   #template = `

@@ -7,6 +7,9 @@ import './component_navbar.js'
 import './component_users.js'
 import { t } from './translations.js'
 import { rank } from './enum_rank.js'
+import { filters } from './params.js'
+
+const hasFilters = filters?.length > 0
 
 class Timeline extends HTMLElement {
   constructor() {
@@ -16,14 +19,14 @@ class Timeline extends HTMLElement {
   #data = {
     attrs: [],
     language: 'all',
+    filters,
     langs,
     servers,
     template: `
       <nn-caja padding="4" class="base">
         <lom-navbar></lom-navbar>
-        <lom-filters></lom-filters>
-
-        <h2>${t('Merged Servers')}</h2>
+        ${!hasFilters ? `<lom-filters></lom-filters>` : ''}
+        ${!hasFilters ? `<h2>${t('Merged Servers')}</h2>` : ''}
 
         <div class="table">
           <nn-fila break="sm" class="table-header" gap="1">
@@ -59,7 +62,7 @@ class Timeline extends HTMLElement {
   #generateTable() {
     const tableBody = this.querySelector('.table-body')
 
-    this.querySelector('.filters button.' + this.#data.language).classList.add(
+    !hasFilters && this.querySelector('.filters button.' + this.#data.language).classList.add(
       'active'
     )
 
@@ -70,6 +73,10 @@ class Timeline extends HTMLElement {
         server =>
           server.key.id === this.#data.language ||
           server.values.some(val => val.id === this.#data.language)
+      )
+    } else if (this.#data.filters) {
+      localServers = this.#data.servers.filter(server =>
+        this.#data.filters.includes(server.key.label)
       )
     } else {
       localServers = this.#data.servers
@@ -157,7 +164,9 @@ class Timeline extends HTMLElement {
             <ul class="matrix">
               ${players}
             </ul>
-            <button type="button" class="btn sunglow btn-close">${t('Close Modal')}</button>
+            <button type="button" class="btn sunglow btn-close">${t(
+              'Close Modal'
+            )}</button>
           </dialog>
 
         </nn-pilar>
@@ -222,7 +231,7 @@ class Timeline extends HTMLElement {
   connectedCallback() {
     this.innerHTML = this.#data.template
     this.#generateTable()
-    this.#generateListeners()
+    !hasFilters && this.#generateListeners()
   }
 }
 

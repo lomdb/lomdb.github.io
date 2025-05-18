@@ -10,7 +10,7 @@ const countryCodes = {
   ME: 40,
   TR: 45,
   RU: 50,
-  
+
   CN: 55,
   VN: 60,
   ID: 65,
@@ -32,7 +32,7 @@ const countryCodes = {
   40: 'ME',
   45: 'TR',
   50: 'RU',
-  
+
   55: 'CN',
   60: 'VN',
   65: 'ID',
@@ -44,6 +44,20 @@ const countryCodes = {
   90: 'TW',
 }
 
-export {
-  countryCodes,
+const lomCountryCodes = {
+  1: 'AMEN',
+  6: 'ES',
+  11: 'PT',
+  30: 'EUEN',
+  33: 'DE',
+  36: 'FR',
+  39: 'ME',
+  42: 'RU',
+
+  4: 'VN',
+  7: 'ID',
+  10: 'EN',
+  13: 'TH',
 }
+
+export { countryCodes, lomCountryCodes }
