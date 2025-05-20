@@ -223,10 +223,11 @@ export const am = [
     { rank: 'top', position: 41, date: '2025-05-01' },
     { rank: 'top', position: 32, date: '2025-05-05' },
   ]),
-  user(['pvtmeow'], 'AMEN_204', 'F0E0C', [
+  user(['pvtmeow', 'treefiddy'], 'AMEN_204', 'F0E0C', [
     { rank: 'top', position: 27, date: '2025-04-25' },
     { rank: 'top', position: 81, date: '2025-05-01' },
     { rank: 'top', position: 33, date: '2025-05-05' },
+    { rank: 'top', position: 25, date: '2025-05-20' },
   ]),
   user(['Fuxi'], 'AMEN_107', '80506', [
     { rank: 'elite', date: '2025-04-25' },
@@ -503,8 +504,10 @@ export const am = [
     { rank: 'creator', date: '2025-04-25' },
     { rank: 'top', position: 24, date: '2025-04-28' },
     { rank: 'top', position: 89, date: '2025-05-05' },
+    { rank: 'top', position: 13, date: '2025-05-20' },
   ]),
   user(['Trippy'], 'AMEN_108', 'A0F04', [
+    { rank: 'top', position: 67, date: '2025-05-20' },
     { rank: 'top', position: 90, date: '2025-05-05' },
     { rank: 'elite', date: '2025-04-25' },
   ]),
@@ -536,6 +539,7 @@ export const am = [
     { rank: 'top', position: 98, date: '2025-05-05' },
   ]),
   user(['Dean_W'], 'AMEN_122', '80A03', [
+    { rank: 'top', position: 52, date: '2025-05-20' },
     { rank: 'top', position: 100, date: '2025-05-05' },
   ]),
   user(['Deathwing'], 'AMEN_216', 'B0605', [
@@ -582,6 +586,7 @@ export const am = [
   user(['Poseidon'], 'ES_046', 'C090D', [
     { rank: 'top', position: 100, date: '2025-04-25' },
     { rank: 'top', position: 94, date: '2025-05-01' },
+    { rank: 'top', position: 96, date: '2025-05-20' },
   ]),
   user(['Kaido'], 'ES_022', '90A02', [
     { rank: 'top', position: 68, date: '2025-02-24' },
@@ -771,6 +776,7 @@ export const am = [
     { rank: 'top', position: 90, date: '2025-05-01' },
     { rank: 'top', position: 68, date: '2025-05-05' },
     { rank: 'top', position: 84, date: '2025-05-14' },
+    { rank: 'top', position: 81, date: '2025-05-20' },
   ]),
   user(['Chopa', 'Grandma'], 'AMEN_488', 'A0A03', [
     { rank: 'top', position: 83, date: '2025-05-05' },
@@ -988,6 +994,7 @@ export const am = [
   ]),
   user(['Doc'], 'AMEN_021', 'C0D0D', [
     { rank: 'top', position: 100, date: '2024-12-07' },
+    { rank: 'top', position: 85, date: '2025-05-20' },
   ]),
   user(['Simcraft'], 'AMEN_302', '0120C', [
     { rank: 'top', position: 100, date: '2024-12-07' },
@@ -1006,6 +1013,14 @@ export const am = [
   ]),
   user(['YodaNBeer'], 'AMEN_386', '60A03', [
     { rank: 'top', position: 100, date: '2024-12-07' },
+  ]),
+  user(['Sentry', 'MrFatJoe'], 'AMEN_114', '40108', [
+    { rank: 'top', position: 64, date: '2025-05-20' },
+    { rank: 'elite', date: '2024-12-07' },
+  ]),
+  user(['JujuMia', 'MugiMia'], 'AMEN_107', 'C050D', [
+    { rank: 'top', position: 84, date: '2025-05-20' },
+    { rank: 'elite', date: '2025-04-25' },
   ]),
 
   // ------------------------------- elite ↓
@@ -1130,9 +1145,6 @@ export const am = [
   ]),
   user(['Rytired', 'Ry'], 'AMEN_030', '11C0A', [
     { rank: 'top', position: 100, date: '2024-12-07' },
-    { rank: 'elite', date: '2025-04-25' },
-  ]),
-  user(['JujuMia'], 'AMEN_107', 'C050D', [
     { rank: 'elite', date: '2025-04-25' },
   ]),
   user(['RastaPasta'], 'AMEN_419', '50902', [
@@ -1609,9 +1621,6 @@ export const am = [
   ]),
   user(['Boof'], 'AMEN_117', 'E0A0B', [{ rank: 'elite', date: '2024-12-07' }]),
   user(['GrimPickle'], 'AMEN_549', '80403', [
-    { rank: 'elite', date: '2024-12-07' },
-  ]),
-  user(['MrFatJoe'], 'AMEN_114', '40108', [
     { rank: 'elite', date: '2024-12-07' },
   ]),
   user(['Shion'], 'AMEN_034', 'C0B07', [{ rank: 'elite', date: '2024-12-07' }]),
