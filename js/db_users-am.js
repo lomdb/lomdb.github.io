@@ -413,7 +413,7 @@ export const am = [
     { rank: 'top', position: 93, date: '2025-05-01' },
     { rank: 'top', position: 64, date: '2025-05-05' },
   ]),
-  user(['Mikerodose'], 'AMEN_121', 'E030D', [
+  user(['Mikerodose'], 'AMEN_108', 'E0E0D', [
     { rank: 'top', position: 88, date: '2025-04-25' },
     { rank: 'top', position: 69, date: '2025-04-28' },
     { rank: 'top', position: 77, date: '2025-05-01' },
@@ -579,7 +579,7 @@ export const am = [
   user(['Fenixchaos'], 'AMEN_003', '90C0F', [
     { rank: 'top', position: 99, date: '2025-04-25' },
   ]),
-  user(['Poseidon'], 'AMEN_112', 'C090D', [
+  user(['Poseidon'], 'ES_046', 'C090D', [
     { rank: 'top', position: 100, date: '2025-04-25' },
     { rank: 'top', position: 94, date: '2025-05-01' },
   ]),
