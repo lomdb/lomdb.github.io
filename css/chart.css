@@ -1,7 +1,20 @@
 lom-3d-chart {
   display: block;
-  min-height: 100svh;
   position: relative;
+  min-height: 100svh;
+
+  lom-navbar {
+    padding: 1rem;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--background-color);
+  }
+
+  #tree {
+    position: absolute;
+    z-index: 1;
+  }
 
   canvas {
     max-width: 100%;
@@ -14,5 +27,6 @@ lom-3d-chart {
     margin: auto;
     position: absolute;
     bottom: 0;
+    z-index: 2;
   }
 }

@@ -97,5 +97,6 @@ export default {
   </ul>
   `,
   "Tools": "Tools",
-  "footer": `Built with <span class="heart"></span> by <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`
+  "footer": `Built with <span class="heart"></span> by <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`,
+  "3D Chart": "3D Chart",
 }

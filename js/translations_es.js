@@ -97,5 +97,6 @@ export default {
   </ul>
   `,
   "Tools": "Herramientas",
-  "footer": `Hecho con <span class="heart"></span> por <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`
+  "footer": `Hecho con <span class="heart"></span> por <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`,
+  "3D Chart": "Gráfico 3D",
 }
