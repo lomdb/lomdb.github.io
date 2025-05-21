@@ -94,5 +94,7 @@ export default {
     </li>
     <li>A data em que você atingiu um desses rankings.</li>
   </ul>
-  `
+  `,
+  "Tools": "Ferramentas",
+  "footer": `Feito com <span class="heart"></span> por <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`
 }

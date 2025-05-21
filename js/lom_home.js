@@ -5,6 +5,7 @@ import './svg_merges.js'
 import './svg_timeline.js'
 import './svg_state.js'
 import './component_navbar.js'
+import './component_footer.js'
 import { t } from './translations.js'
 import { locale } from './params.js'
 
@@ -166,15 +167,17 @@ class Home extends HTMLElement {
           </nn-fila>
         </nn-caja>
       </section>
+
+      <section class="instructions">
+        <blockquote>
+          <lom-svg-angel class="angel angel-1"></lom-svg-angel>
+          <lom-svg-angel class="angel angel-2"></lom-svg-angel>
+          ${t('instructions')}
+        </blockquote>
+      </section>
     </main>
 
-    <footer>
-      <blockquote>
-        <lom-svg-angel class="angel angel-1"></lom-svg-angel>
-        <lom-svg-angel class="angel angel-2"></lom-svg-angel>
-        ${t('instructions')}
-      </blockquote>
-    </footer>
+    <lom-footer></lom-footer>
   `,
   }
 

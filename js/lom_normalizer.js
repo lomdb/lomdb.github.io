@@ -1,6 +1,7 @@
 import './modules/index.js'
 import { getPrefix } from './helpers.js'
 import './component_navbar.js'
+import './component_footer.js'
 import { t } from './translations.js'
 
 customElements.define(
@@ -38,6 +39,7 @@ EN389	 ←	[EN390,VN658,VN659,VN660]`,
           <pre class="output"></pre>
         </div>
       </nn-caja>
+      <lom-footer></lom-footer>
     `,
     }
 

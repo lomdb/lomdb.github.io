@@ -93,5 +93,7 @@ export default {
     </li>
     <li>Das Datum, an dem du diesen Rang erreicht hast.</li>
   </ul>
-  `
+  `,
+  "Tools": "Werkzeuge",
+  "footer": `Erstellt mit <span class="heart"></span> von <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`
 }

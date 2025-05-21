@@ -94,5 +94,7 @@ export default {
     </li>
     <li>La fecha en que alcanzaste uno de esos rangos.</li>
   </ul>
-  `
+  `,
+  "Tools": "Herramientas",
+  "footer": `Hecho con <span class="heart"></span> por <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`
 }

@@ -1,7 +1,7 @@
 import './modules/index.js'
 import { getPrefix } from './helpers.js'
 import { t } from './translations.js'
-import { locale } from './params.js'
+import { locale, currentRoute } from './params.js'
 import './modules/nano_dropdown.js'
 class Navbar extends HTMLElement {
   #template = `
@@ -28,13 +28,11 @@ class Navbar extends HTMLElement {
       <a href="merges.html?lang=${locale}">${t('Merges')}</a>
     </li>
     <li>
-      <a href="gaps.html?lang=${locale}">${t("Merge's Gaps")}</a>
-    </li>
-    <li>
-      <a href="state.html?lang=${locale}">${t('DB State')}</a>
-    </li>
-    <li>
-      <a href="normalizer.html?lang=${locale}">${t('Normalizer')}</a>
+      <nn-dropdown label="${t('Tools')}">
+        <a href="gaps.html?lang=${locale}">${t("Merge's Gaps")}</a>
+        <a href="state.html?lang=${locale}">${t('DB State')}</a>
+        <a href="normalizer.html?lang=${locale}">${t('Normalizer')}</a>
+      </nn-dropdown>
     </li>
     <li>
       <nn-dropdown icon="globe">
@@ -59,6 +57,8 @@ class Navbar extends HTMLElement {
 
   #data = {
     theme: 'dark',
+    currentRoute,
+    locale,
   }
 
   // setTheme(theme) {
@@ -67,6 +67,13 @@ class Navbar extends HTMLElement {
   //   document.body.classList.remove('dark', 'light')
   //   document.body.classList.add(localTheme)
   // }
+
+  #setActiveLinks() {
+    const activeLink = this.querySelector(`a[href^="${this.#data.currentRoute}"]`)
+    const activeLang = this.querySelector(`a[href="?lang=${this.#data.locale}"]`)
+    activeLink?.classList.add('active')
+    activeLang?.classList.add('active')
+  }
 
   connectedCallback() {
     this.innerHTML = this.#template
@@ -83,6 +90,8 @@ class Navbar extends HTMLElement {
     closeBtn.addEventListener('click', () => {
       this.classList.remove('open')
     })
+
+    this.#setActiveLinks()
     // this.setTheme()
 
     // this.querySelector('#theme').checked = localTheme === 'dark' ? true : false

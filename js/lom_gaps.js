@@ -4,6 +4,7 @@ import { getPrefix, createNode } from './helpers.js'
 import './component_users.js'
 import './component_filters.js'
 import './component_navbar.js'
+import './component_footer.js'
 
 class Gaps extends HTMLElement {
   constructor() {
@@ -19,6 +20,7 @@ class Gaps extends HTMLElement {
         <lom-filters></lom-filters>
         <div id="all-servers" class="base"></div>
       </nn-caja>
+      <lom-footer></lom-footer>
     `,
   }
 

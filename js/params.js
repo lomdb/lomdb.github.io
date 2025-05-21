@@ -2,6 +2,8 @@ import { validateCountryCode } from './utils.js'
 
 const params = new URLSearchParams(window.location.search)
 const locale = params.get('lang') || 'en'
+const currentRoute = window.location.pathname.split('.html')[0].slice(1)
+
 const filters = params
   .get('server')
   ?.replace(/-/g, '_')
@@ -11,4 +13,4 @@ const filters = params
     return [validateCountryCode(id.toUpperCase(), serverId), serverId].join('_')
   })
 
-export { locale, filters }
+export { locale, filters, currentRoute }

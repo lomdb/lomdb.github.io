@@ -3,6 +3,7 @@ import { servers } from './db_merges.js'
 import { getPrefix } from './helpers.js'
 import './component_navbar.js'
 import './component_users.js'
+import './component_footer.js'
 import { t } from './translations.js'
 
 import mergesGlobal from './db_merges_global.js'
@@ -43,6 +44,7 @@ class State extends HTMLElement {
           <div class="table-body"></div>
         </div>
       </nn-caja>
+      <lom-footer></lom-footer>
   `,
   }
 

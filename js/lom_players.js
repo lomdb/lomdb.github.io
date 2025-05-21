@@ -3,6 +3,7 @@ import { getPrefix } from './helpers.js'
 import { usersDB as users } from './db_users.js'
 import { langs } from './component_filters.js'
 import './component_navbar.js'
+import './component_footer.js'
 import { t } from './translations.js'
 
 class Players extends HTMLElement {
@@ -16,24 +17,25 @@ class Players extends HTMLElement {
     langs,
     users,
     template: `
-<nn-caja padding="4" class="base">
-  <lom-navbar></lom-navbar>
-  <lom-filters></lom-filters>
+      <nn-caja padding="4" class="base">
+        <lom-navbar></lom-navbar>
+        <lom-filters></lom-filters>
 
-  <h2>${t('Players')}</h2>
+        <h2>${t('Players')}</h2>
 
-  <div class="table">
-    <nn-fila break="sm" class="table-header" gap="1">
-      <nn-pilar size="20%">${t('Server')}</nn-pilar>
-      <nn-pilar size="20%">${t('UID')}</nn-pilar>
-      <nn-pilar size="35% - 0.25rem * 3">${t('Nick')}</nn-pilar>
-      <nn-pilar size="25%">${t('Rank')} :: ${t('Position')} :: ${t(
-      'Date'
-    )}</nn-pilar>
-    </nn-fila>
-    <div class="table-body"></div>
-  </div>
-</nn-caja>
+        <div class="table">
+          <nn-fila break="sm" class="table-header" gap="1">
+            <nn-pilar size="20%">${t('Server')}</nn-pilar>
+            <nn-pilar size="20%">${t('UID')}</nn-pilar>
+            <nn-pilar size="35% - 0.25rem * 3">${t('Nick')}</nn-pilar>
+            <nn-pilar size="25%">${t('Rank')} :: ${t('Position')} :: ${t(
+            'Date'
+          )}</nn-pilar>
+          </nn-fila>
+          <div class="table-body"></div>
+        </div>
+      </nn-caja>
+      <lom-footer></lom-footer>
 `,
   }
 

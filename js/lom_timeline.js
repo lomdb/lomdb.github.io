@@ -5,6 +5,7 @@ import { getPrefix } from './helpers.js'
 import { langs } from './component_filters.js'
 import './component_navbar.js'
 import './component_users.js'
+import './component_footer.js'
 import { t } from './translations.js'
 import { rank } from './enum_rank.js'
 import { filters } from './params.js'
@@ -36,6 +37,7 @@ class Timeline extends HTMLElement {
           <div class="table-body"></div>
         </div>
       </nn-caja>
+      <lom-footer></lom-footer>
   `,
   }
 

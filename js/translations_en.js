@@ -94,5 +94,7 @@ export default {
     </li>
     <li>The date when you were ranked in one of these tiers.</li>
   </ul>
-  `
+  `,
+  "Tools": "Tools",
+  "footer": `Built with <span class="heart"></span> by <a href="https://jmiguelrivas.github.io/" target="_BLANK">Miguel Rivas</a>.`
 }

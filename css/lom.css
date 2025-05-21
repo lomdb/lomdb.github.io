@@ -6,6 +6,7 @@
 @import url('./navbar.css');
 @import url('./filters.css');
 @import url('./home.css');
+@import url('./footer.css');
 
 :root {
   color-scheme: light dark;
@@ -59,6 +60,8 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 
 html,
@@ -67,8 +70,6 @@ body {
   margin: 0;
   color: var(--foreground-color);
   background-color: var(--background-color);
-  font-family: 'Quicksand', Helvetica, Arial, sans-serif;
-  font-weight: 700;
 }
 
 body.light {

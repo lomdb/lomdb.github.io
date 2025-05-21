@@ -3,10 +3,11 @@ import { getTooltip, getCountryCode } from './utils.js'
 import { getPrefix } from './helpers.js'
 import { langs } from './component_filters.js'
 import './component_users.js'
+import './component_navbar.js'
+import './component_footer.js'
 import mergesGlobal from './db_merges_global.js'
 import mergesSea from './db_merges_sea.js'
 import mergesTW from './db_merges_tw.js'
-import './component_navbar.js'
 import { t } from './translations.js'
 
 class Merges extends HTMLElement {
@@ -24,6 +25,7 @@ class Merges extends HTMLElement {
       <lom-filters></lom-filters>
       <div id="merged-list" class="merged-list"></div>
     </nn-caja>
+    <lom-footer></lom-footer>
   `,
   }
 

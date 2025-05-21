@@ -25,7 +25,7 @@ export const am = [
     { rank: 'top', position: 5, date: '2025-05-01' },
     { rank: 'top', position: 3, date: '2025-05-06', power: 163800000, lv: 189 },
   ]),
-  user(['DarkChocolate', 'Vegas'], 'AMEN_026', 'A0B0F', [
+  user(['DarkChocolate', 'Vegas'], 'AMEN_098', 'A0B0F', [
     { rank: 'top', position: 5, date: '2025-04-25' },
     { rank: 'top', position: 4, date: '2025-04-28' },
     { rank: 'top', position: 4, date: '2025-05-01' },

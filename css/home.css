@@ -38,7 +38,7 @@ lom-home {
     display: flex;
     flex-direction: column;
     gap: 5rem;
-    padding-block: 10rem;
+    padding-block-start: 10rem;
   }
 
   section {
@@ -80,7 +80,7 @@ lom-home {
     }
   }
 
-  footer {
+  section.instructions {
     background-color: var(--footer-color);
     position: relative;
     padding: 6rem 0 7rem;
