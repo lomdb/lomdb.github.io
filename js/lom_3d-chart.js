@@ -2,9 +2,11 @@ import './modules/index.js'
 import { getPrefix } from './helpers.js'
 import * as THREE from './modules/three.module.min.js'
 import { OrbitControls } from './modules/OrbitControls.js'
+import { servers } from './db_merges.js'
+import { t } from './translations.js'
+
 import './component_navbar.js'
 import './component_footer.js'
-import { servers } from './db_merges.js'
 
 const rad = Math.PI / 180
 
@@ -34,10 +36,10 @@ const scolorHex = {
 }
 
 // Shared material instances
-const sharedMaterials = {}
-for (const [key, hex] of Object.entries(scolorHex)) {
-  sharedMaterials[key] = new THREE.MeshBasicMaterial({ color: hex })
-}
+// const sharedMaterials = {}
+// for (const [key, hex] of Object.entries(scolorHex)) {
+//   sharedMaterials[key] = new THREE.MeshBasicMaterial({ color: hex })
+// }
 
 customElements.define(
   getPrefix('3d-chart'),
@@ -64,7 +66,26 @@ customElements.define(
       servers: servers.sort((a, b) => b.values.length - a.values.length),
       controls: undefined,
 
+      mouse: new THREE.Vector2(),
+      raycaster: new THREE.Raycaster(),
+      hovered: null,
+      originalMaterials: new Map(),
+
       template: `
+        <style>
+          .tooltip-3d {
+            position: absolute;
+            padding: 4px 8px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 4px;
+            pointer-events: none;
+            font-size: 12px;
+            display: none;
+            z-index: 100;
+          }
+        </style>
+
         <nn-caja padding="4">
           <lom-navbar></lom-navbar>
         </nn-caja>
@@ -75,6 +96,8 @@ customElements.define(
         </div>
         <div id="tree"></div>
         <lom-footer></lom-footer>
+
+        <div class="tooltip-3d"></div>
       `,
     }
 
@@ -111,27 +134,85 @@ customElements.define(
     }
 
     #createGuides() {
-      this.#data.gridHelper = new THREE.GridHelper(255, 25)
+      this.#data.gridHelper = new THREE.GridHelper(75, 75)
       this.#data.scene.add(this.#data.gridHelper)
+    }
+
+    #handleHover(clientX, clientY) {
+      this.#data.raycaster.setFromCamera(this.#data.mouse, this.#data.camera)
+      const intersects = this.#data.raycaster.intersectObjects(
+        this.#data.scene.children
+      )
+
+      const tooltip = document.querySelector('.tooltip-3d')
+
+      if (intersects.length > 0) {
+        const intersect = intersects[0].object
+        if (intersect.name === 'cubo') {
+          tooltip.style.display = 'block'
+          tooltip.textContent = intersect.userData.label || 'Cube'
+
+          tooltip.style.left = `${clientX + 10}px`
+          tooltip.style.top = `${clientY + 10}px`
+        } else {
+          tooltip.style.display = 'none'
+        }
+      } else {
+        tooltip.style.display = 'none'
+      }
     }
 
     #createCubes() {
       const geometry = new THREE.BoxGeometry(1, 0.5, 1)
       const gap = 3
 
-      this.#data.servers.forEach(({ values }, ringIndex) => {
+      this.#data.servers.forEach(({ key, values }, ringIndex) => {
         const { x, y: z } = this.#getXY(ringIndex) // spiral on X-Z
         values.forEach(({ id }, stackIndex) => {
-          const material =
-            sharedMaterials[id] ??
-            new THREE.MeshBasicMaterial({ color: '#ffffff' })
+          const material = scolorHex?.[id]
+            ? new THREE.MeshBasicMaterial({ color: scolorHex?.[id] })
+            : new THREE.MeshBasicMaterial({ color: '#ffffff' })
+
+          // sharedMaterials[id] ??
+          // new THREE.MeshBasicMaterial({ color: '#ffffff' })
+
           const mesh = new THREE.Mesh(geometry, material)
           const y = stackIndex + 0.05 // vertical stack
           mesh.position.set(x * gap, y * 1.025, z * gap)
           mesh.name = 'cubo'
+          mesh.userData.label = `${key.label} / ${values.length} ${t(
+            'Servers'
+          )}`
           this.#data.scene.add(mesh)
         })
       })
+    }
+
+    #checkHover() {
+      const { raycaster, camera, scene, mouse, hovered, originalMaterials } =
+        this.#data
+
+      raycaster.setFromCamera(mouse, camera)
+      const intersects = raycaster.intersectObjects(scene.children)
+
+      if (intersects.length > 0) {
+        const first = intersects[0].object
+
+        if (first !== hovered) {
+          if (hovered) {
+            hovered.material.color.set(originalMaterials.get(hovered))
+          }
+
+          originalMaterials.set(first, first.material.color.getHex())
+          first.material.color.set(0xffffff)
+          this.#data.hovered = first
+        }
+      } else if (hovered) {
+        hovered.material.color.set(originalMaterials.get(hovered))
+        this.#data.hovered = null
+      }
+
+      this.#data.renderer.render(scene, camera)
     }
 
     connectedCallback() {
@@ -184,6 +265,15 @@ customElements.define(
       })
 
       window.addEventListener('resize', () => this.#resizeWindow())
+
+      this.querySelector('#tree').addEventListener('mousemove', event => {
+        const rect = this.#data.renderer.domElement.getBoundingClientRect()
+        this.#data.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
+        this.#data.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
+
+        this.#checkHover()
+        this.#handleHover(event.clientX, event.clientY)
+      })
     }
 
     #resizeWindow() {

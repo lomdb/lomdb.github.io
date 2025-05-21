@@ -23,6 +23,7 @@ export default {
 
   "Players": "Jogadores",
   "Server": "Servidor",
+  "Servers": "Servidores",
   "UID": "UID",
   "Nick": "Apelido",
   "Rank": "Ranking",
