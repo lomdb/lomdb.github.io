@@ -1,5 +1,5 @@
-@import url("./modules/nano.css");
-@import url("./modules/iconos.css");
+@import url('./modules/nano.css');
+@import url('./modules/iconos.css');
 @import url('../fonts/Quicksand/Quicksand.css');
 @import url('../fonts/Icomoon/Icomoon.css');
 @import url('./table.css');
@@ -7,6 +7,7 @@
 @import url('./filters.css');
 @import url('./home.css');
 @import url('./footer.css');
+@import url('./chart.css');
 
 :root {
   color-scheme: light dark;
@@ -43,8 +44,16 @@
   --elite: linear-gradient(131deg, rgb(75 146 81) 0%, rgb(24 90 48) 100%);
   --top: linear-gradient(131deg, rgb(34, 34, 196) 0%, rgb(179, 0, 255) 100%);
   --vmod: linear-gradient(131deg, rgb(97 31 202) 0%, rgb(14 173 145) 100%);
-  --creator: linear-gradient(131deg, rgb(212, 49, 185) 0%, rgb(14 173 145) 100%);
-  --detective: linear-gradient(131deg, rgb(202 155 31) 0%, rgb(246 216 83) 100%);
+  --creator: linear-gradient(
+    131deg,
+    rgb(212, 49, 185) 0%,
+    rgb(14 173 145) 100%
+  );
+  --detective: linear-gradient(
+    131deg,
+    rgb(202 155 31) 0%,
+    rgb(246 216 83) 100%
+  );
 
   /* linear-gradient(131deg, rgb(214, 184, 255) 0%, rgb(176, 241, 255) 100%); */
   /* linear-gradient(131deg, rgb(202 155 31) 0%, rgb(246 216 83) 100%); */
@@ -98,7 +107,6 @@ a {
   text-decoration: none;
 
   &.disabled {
-
     &,
     &.btn {
       color: #333 !important;
@@ -189,7 +197,7 @@ a {
 
 .detective {
   background: var(--detective);
-  color: #482802 !important
+  color: #482802 !important;
 }
 
 .elite {
@@ -306,7 +314,7 @@ lom-timeline {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: .25rem;
+        gap: 0.25rem;
         width: 100%;
         background-color: #2b2d44;
         padding: 1rem;
@@ -321,7 +329,7 @@ lom-timeline {
 
 lom-gaps {
   .table-body {
-    gap: .5rem;
+    gap: 0.5rem;
     text-align: center;
 
     nn-pilar {
@@ -343,7 +351,8 @@ lom-normalizer {
   .output {
     width: 100%;
     font-size: 1rem;
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-family: 'Courier New', Courier, 'Lucida Sans Typewriter',
+      'Lucida Typewriter', monospace;
     font-weight: bold;
     letter-spacing: 1px;
     border-radius: 10px;
@@ -356,7 +365,7 @@ lom-normalizer {
     resize: none;
     min-height: 320px;
   }
-  
+
   .output {
     color: #ddd;
     border: none;

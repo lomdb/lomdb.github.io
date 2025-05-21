@@ -27,7 +27,6 @@
     }
 
     div {
-
       &:hover,
       &.active {
         cursor: not-allowed;
@@ -37,7 +36,6 @@
     button,
     div {
       color: #fff;
-      font-family: "Gill Sans", sans-serif;
       font-size: 14px;
       flex-grow: 1;
       flex-wrap: wrap;

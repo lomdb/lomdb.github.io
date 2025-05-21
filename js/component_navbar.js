@@ -22,6 +22,9 @@ class Navbar extends HTMLElement {
       <a href="timeline.html?lang=${locale}">${t('Timeline')}</a>
     </li>
     <li>
+      <a href="3d-chart.html?lang=${locale}">${t('3D Chart')}</a>
+    </li>
+    <li>
       <a href="players.html?lang=${locale}">${t('Players')}</a>
     </li>
     <li>

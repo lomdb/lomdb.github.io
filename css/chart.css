@@ -1,0 +1,18 @@
+lom-3d-chart {
+  display: block;
+  min-height: 100svh;
+  position: relative;
+
+  canvas {
+    max-width: 100%;
+  }
+
+  .controls {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+  }
+}
