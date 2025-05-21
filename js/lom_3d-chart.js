@@ -174,7 +174,7 @@ customElements.define(
 
           const mesh = new THREE.Mesh(geometry, material)
           const y = stackIndex + 0.05
-          mesh.position.set(x * gap, y * 1.025, z * gap)
+          mesh.position.set(x * gap, y * 0.60000, z * gap)
           mesh.name = 'cubo'
           mesh.userData = {
             label: `${key.label} / ${values.length} ${t('Servers')}`,
