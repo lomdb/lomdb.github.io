@@ -25,8 +25,11 @@ class Timeline extends HTMLElement {
     servers,
     template: `
       <nn-caja padding="4" class="base">
-        <lom-navbar></lom-navbar>
+        <div class="nav-controls">
+          <lom-navbar></lom-navbar>
         ${!hasFilters ? `<lom-filters></lom-filters>` : ''}
+        </div>
+        
         ${!hasFilters ? `<h2>${t('Merged Servers')}</h2>` : ''}
 
         <div class="table">

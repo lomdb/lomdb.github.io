@@ -25,8 +25,9 @@ CN-389	 ←	[VN-460]
 EN389	 ←	[EN390,VN658,VN659,VN660]`,
       template: `
       <nn-caja padding="4" class="base">
-        <lom-navbar></lom-navbar>
-
+        <div class="nav-controls">
+          <lom-navbar></lom-navbar>
+        </div>
         <h2>${t('Normalizer')}</h2>
 
         <div>

@@ -18,9 +18,11 @@ class Players extends HTMLElement {
     users,
     template: `
       <nn-caja padding="4" class="base">
-        <lom-navbar></lom-navbar>
-        <lom-filters></lom-filters>
-
+        <div class="nav-controls">
+          <lom-navbar></lom-navbar>
+          <lom-filters></lom-filters>
+        </div>
+        
         <h2>${t('Players')}</h2>
 
         <div class="table">

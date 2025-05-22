@@ -16,7 +16,9 @@ class Home extends HTMLElement {
 
   #data = {
     template: `
-    <lom-navbar></lom-navbar>
+    <div class="nav-controls">
+      <lom-navbar></lom-navbar>
+    </div>
 
     <header>
       <img

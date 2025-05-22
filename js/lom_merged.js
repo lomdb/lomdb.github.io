@@ -21,8 +21,10 @@ class Merges extends HTMLElement {
     mergesArray: this.#mapToTableRows([mergesGlobal, mergesSea, mergesTW]),
     template: `
     <nn-caja padding="4" class="base">
-      <lom-navbar></lom-navbar>
-      <lom-filters></lom-filters>
+      <div class="nav-controls">
+        <lom-navbar></lom-navbar>
+        <lom-filters></lom-filters>
+      </div>
       <div id="merged-list" class="merged-list"></div>
     </nn-caja>
     <lom-footer></lom-footer>

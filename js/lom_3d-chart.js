@@ -82,10 +82,10 @@ customElements.define(
           }
         </style>
 
-      <nn-caja padding="4" class="base controles">
-        <lom-navbar></lom-navbar>
-        <lom-filters></lom-filters>
-      </nn-caja>
+        <div class="nav-controls">
+          <lom-navbar></lom-navbar>
+          <lom-filters></lom-filters>
+        </div>
 
         <div class="controls">
           <button id="grid" role="button" class="btn shamrock" data-color="hsl(149deg, 61%, 51%)">
