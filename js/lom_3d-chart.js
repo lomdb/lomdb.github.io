@@ -6,6 +6,7 @@ import { servers } from './db_merges.js'
 import { t } from './translations.js'
 
 import './component_navbar.js'
+import { langs } from './component_filters.js'
 
 const rad = Math.PI / 180
 
@@ -26,6 +27,9 @@ customElements.define(
       gridHelper: undefined,
       gridToggle: false,
 
+      language: 'all',
+      langs,
+
       minPolarAngle: 0,
       maxPolarAngle: 120 * rad,
       minDistance: 120,
@@ -40,27 +44,27 @@ customElements.define(
 
       // Predefined HEX colors
       scolorHex: {
-        amen: '#4d1e1e',
-        es: '#998c33',
-        espt: '#597359',
-        pt: '#33a68c',
-        euen: '#336699',
-        mush: '#335599',
-        de: '#333399',
-        fr: '#332699',
-        me: '#331a99',
-        tr: '#330d99',
-        ru: '#803366',
+        amen: '#713030',
+        es: '#9e8b2e',
+        espt: '#478547',
+        pt: '#2e9e79',
+        euen: '#2e669e',
+        mush: '#2e539e',
+        de: '#2e2e9e',
+        fr: '#412e9e',
+        me: '#662e9e',
+        tr: '#792e9e',
+        ru: '#8a2859',
 
-        cn: '#7a3b30',
-        vn: '#998c33',
-        id: '#999933',
-        en: '#669933',
-        th: '#336699',
+        cn: '#9d4b3b',
+        vn: '#9e662e',
+        id: '#8b9e2e',
+        en: '#669e2e',
+        th: '#2e8b9e',
 
-        kr: '#804c99',
-        jp: '#803366',
-        tw: '#993333',
+        kr: '#9f399f',
+        jp: '#9e2e66',
+        tw: '#9e2e2e',
       },
 
       template: `
@@ -78,8 +82,10 @@ customElements.define(
           }
         </style>
 
-
+      <nn-caja padding="4" class="base controles">
         <lom-navbar></lom-navbar>
+        <lom-filters></lom-filters>
+      </nn-caja>
 
         <div class="controls">
           <button id="grid" role="button" class="btn shamrock" data-color="hsl(149deg, 61%, 51%)">
@@ -158,12 +164,28 @@ customElements.define(
     }
 
     #createCubes() {
+      let localServers
+
+      if (this.#data.language !== 'all') {
+        localServers = this.#data.servers.filter(
+          server =>
+            server.key.id === this.#data.language ||
+            server.values.some(val => val.id === this.#data.language)
+        )
+      } else if (this.#data.filters) {
+        localServers = this.#data.servers.filter(server =>
+          this.#data.filters.includes(server.key.label)
+        )
+      } else {
+        localServers = this.#data.servers
+      }
+
       const geometry = new THREE.BoxGeometry(1, 0.5, 1)
       const gap = 8
 
       this.#data.serverGroups = new Map()
 
-      this.#data.servers.forEach(({ key, values }, ringIndex) => {
+      localServers.forEach(({ key, values }, ringIndex) => {
         const group = new THREE.Group()
         const { x, y: z } = this.#getXY(ringIndex) // spiral on X-Z
 
@@ -174,7 +196,7 @@ customElements.define(
 
           const mesh = new THREE.Mesh(geometry, material)
           const y = stackIndex + 0.05
-          mesh.position.set(x * gap, y * 0.60000, z * gap)
+          mesh.position.set(x * gap, y * 0.55, z * gap)
           mesh.name = 'cubo'
           mesh.userData = {
             label: `${key.label} / ${values.length} ${t('Servers')}`,
@@ -236,7 +258,67 @@ customElements.define(
         this.#data.hovered = null
       }
 
-      this.#data.renderer.render(scene, camera)
+      this.#renderScene()
+    }
+
+    #clearTree() {
+      this.#data.scene = new THREE.Scene()
+    }
+
+    #onToggleGrid() {
+      this.#data.gridToggle = !this.#data.gridToggle
+      this.#data.gridToggle
+        ? this.#data.scene.add(this.#data.gridHelper)
+        : this.#data.scene.remove(this.#data.gridHelper)
+      this.#renderScene()
+    }
+
+    #onHoverObjects() {
+      const rect = this.#data.renderer.domElement.getBoundingClientRect()
+      this.#data.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
+      this.#data.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
+
+      this.#checkHover()
+      this.#handleHover(event.clientX, event.clientY)
+    }
+
+    #generateListeners() {
+      const filterContainer = this.querySelector('.filters')
+      if (!filterContainer) return
+
+      filterContainer.addEventListener('click', e => {
+        const button = e.target.closest('button')
+        if (!button || !filterContainer.contains(button)) return
+
+        const lang = button.classList[0]
+        this.#data.language = lang
+
+        this.querySelectorAll('.filters button').forEach(btn =>
+          btn.classList.remove('active')
+        )
+        button.classList.add('active')
+
+        this.#clearTree()
+        this.#createGuides()
+        this.#createCubes()
+        this.#renderScene()
+      })
+
+      this.querySelector('#grid').addEventListener('click', () =>
+        this.#onToggleGrid()
+      )
+
+      this.#data.controls.addEventListener('change', () => this.#renderScene())
+
+      window.addEventListener('resize', () => this.#resizeWindow())
+
+      this.querySelector('#tree').addEventListener('mousemove', event =>
+        this.#onHoverObjects()
+      )
+    }
+
+    #renderScene() {
+      this.#data.renderer.render(this.#data.scene, this.#data.camera)
     }
 
     connectedCallback() {
@@ -274,30 +356,9 @@ customElements.define(
       this.#data.controls.minDistance = this.#data.minDistance
       this.#data.controls.maxDistance = this.#data.maxDistance
 
-      this.querySelector('#grid').addEventListener('click', () => {
-        this.#data.gridToggle = !this.#data.gridToggle
-        this.#data.gridToggle
-          ? this.#data.scene.add(this.#data.gridHelper)
-          : this.#data.scene.remove(this.#data.gridHelper)
-        this.#data.renderer.render(this.#data.scene, this.#data.camera)
-      })
+      this.#renderScene()
 
-      this.#data.renderer.render(this.#data.scene, this.#data.camera)
-
-      this.#data.controls.addEventListener('change', () => {
-        this.#data.renderer.render(this.#data.scene, this.#data.camera)
-      })
-
-      window.addEventListener('resize', () => this.#resizeWindow())
-
-      this.querySelector('#tree').addEventListener('mousemove', event => {
-        const rect = this.#data.renderer.domElement.getBoundingClientRect()
-        this.#data.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
-        this.#data.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
-
-        this.#checkHover()
-        this.#handleHover(event.clientX, event.clientY)
-      })
+      this.#generateListeners()
     }
 
     #resizeWindow() {
