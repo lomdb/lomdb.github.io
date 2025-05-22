@@ -750,8 +750,6 @@ export const am = [
     { rank: 'top', position: 1, date: '2024-08-07' },
     { rank: 'top', position: 3, date: '2024-10-19' },
   ]),
-
-  //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   user(['Cookie'], 'AMEN_004', '1130C', [
     { rank: 'top', position: 91, date: '2025-04-28' },
     { rank: 'elite', date: '2025-04-25' },
@@ -891,9 +889,6 @@ export const am = [
   user(['iRETIRED'], 'AMEN_215', 'F0B00', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
-  user(['Phemto'], 'AMEN_281', '50502', [
-    { rank: 'top', position: 100, date: '2024-12-07' },
-  ]),
   user(['Oogie'], 'AMEN_026', '50F0F', [
     { rank: 'top', position: 100, date: '2024-12-07' },
   ]),
@@ -1025,7 +1020,11 @@ export const am = [
   ]),
   user(['DipDop'], 'AMEN_386', 'F0304', [
     { rank: 'elite', date: '2025-04-25' },
-    { rank: 'top', position: 88, date: '2025-05-2@' },
+    { rank: 'top', position: 88, date: '2025-05-22' },
+  ]),
+    user(['Phemto'], 'AMEN_281', '50502', [
+    { rank: 'top', position: 100, date: '2024-12-07' },
+    { rank: 'top', position: 89, date: '2025-05-22' },
   ]),
 
   // ------------------------------- elite ↓
