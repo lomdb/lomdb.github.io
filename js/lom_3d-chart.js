@@ -25,7 +25,7 @@ customElements.define(
       scene: undefined,
       renderer: undefined,
       gridHelper: undefined,
-      gridToggle: false,
+      gridToggle: true,
 
       language: 'all',
       langs,
@@ -132,7 +132,7 @@ customElements.define(
 
     #createGuides() {
       this.#data.gridHelper = new THREE.GridHelper(200, 25)
-      // this.#data.scene.add(this.#data.gridHelper)
+      this.#data.scene.add(this.#data.gridHelper)
     }
 
     #handleHover(clientX, clientY) {
