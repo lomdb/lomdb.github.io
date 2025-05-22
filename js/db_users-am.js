@@ -781,6 +781,7 @@ export const am = [
   user(['Chopa', 'Grandma'], 'AMEN_488', 'A0A03', [
     { rank: 'top', position: 83, date: '2025-05-05' },
     { rank: 'top', position: 85, date: '2025-05-14' },
+    { rank: 'top', position: 40, date: '2025-05-20' },
   ]),
   user(['Code'], 'AMEN_091', 'B0B08', [
     { rank: 'top', position: 77, date: '2025-04-25' },
@@ -1022,6 +1023,10 @@ export const am = [
     { rank: 'top', position: 84, date: '2025-05-20' },
     { rank: 'elite', date: '2025-04-25' },
   ]),
+  user(['DipDop'], 'AMEN_386', 'F0304', [
+    { rank: 'elite', date: '2025-04-25' },
+    { rank: 'top', position: 88, date: '2025-05-2@' },
+  ]),
 
   // ------------------------------- elite ↓
   user(['Chavi'], 'AMEN_215', 'A1402', [{ rank: 'elite', date: '2025-05-19' }]),
@@ -1181,9 +1186,6 @@ export const am = [
   ]), // ESP server
   user(['Chm'], 'AMEN_122', '01C07', [{ rank: 'elite', date: '2025-04-25' }]),
   user(['BrokenSamurai'], 'AMEN_034', 'B0F03', [
-    { rank: 'elite', date: '2025-04-25' },
-  ]),
-  user(['DipDop'], 'AMEN_386', 'F0304', [
     { rank: 'elite', date: '2025-04-25' },
   ]),
   user(['Ghoul'], 'AMEN_254', '80D00', [{ rank: 'elite', date: '2025-04-25' }]),
