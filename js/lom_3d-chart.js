@@ -142,7 +142,7 @@ customElements.define(
         true // important to hit meshes inside groups
       )
 
-      const tooltip = document.querySelector('.tooltip-3d')
+      const tooltip = this.querySelector('.tooltip-3d')
 
       if (intersects.length > 0) {
         const intersect = intersects[0].object
@@ -262,7 +262,16 @@ customElements.define(
     }
 
     #clearTree() {
-      this.#data.scene = new THREE.Scene()
+      this.#data.scene.traverse(obj => {
+        if (obj.isMesh) {
+          obj.geometry.dispose()
+          obj.material.dispose()
+        }
+      })
+
+      this.#data.scene.clear()
+      this.#data.originalMaterials.clear()
+      this.#data.hovered = null
     }
 
     #onToggleGrid() {
