@@ -20,7 +20,7 @@ class Merges extends HTMLElement {
     langs,
     mergesArray: this.#mapToTableRows([mergesGlobal, mergesSea, mergesTW]),
     template: `
-    <nn-caja padding="4" class="base">
+    <nn-caja padding="1rem" class="base">
       <div class="nav-controls">
         <lom-navbar></lom-navbar>
         <lom-filters></lom-filters>
@@ -103,7 +103,7 @@ class Merges extends HTMLElement {
       mergeTable.innerHTML = `
         <h2>${merge.date}</h2>
         <div class="table">
-          <nn-fila break="sm" class="table-header" gap="1">
+          <nn-fila break="sm" class="table-header" gap=".25rem">
             <nn-pilar size="25%">${t('Leading Server')}</nn-pilar>
             <nn-pilar size="75% - 0.25rem">${t('Merged')}</nn-pilar>
           </nn-fila>
@@ -143,7 +143,7 @@ class Merges extends HTMLElement {
 
           const row = document.createElement('nn-fila')
           row.setAttribute('break', 'md')
-          row.setAttribute('gap', '1')
+          row.setAttribute('gap', '.25rem')
           row.classList.add('row')
           row.innerHTML = `
             <nn-pilar size="25%" class="leading-server flex-column ${key.id}">

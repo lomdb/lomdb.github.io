@@ -24,7 +24,7 @@ class Timeline extends HTMLElement {
     langs,
     servers,
     template: `
-      <nn-caja padding="4" class="base">
+      <nn-caja padding="1rem" class="base">
         <div class="nav-controls">
           <lom-navbar></lom-navbar>
         ${!hasFilters ? `<lom-filters></lom-filters>` : ''}
@@ -33,7 +33,7 @@ class Timeline extends HTMLElement {
         ${!hasFilters ? `<h2>${t('Merged Servers')}</h2>` : ''}
 
         <div class="table">
-          <nn-fila break="sm" class="table-header" gap="1">
+          <nn-fila break="sm" class="table-header" gap=".25rem">
             <nn-pilar size="25%">${t('Leading Server')}</nn-pilar>
             <nn-pilar size="75% - 0.25rem">${t('Merged')}</nn-pilar>
           </nn-fila>
@@ -157,7 +157,7 @@ class Timeline extends HTMLElement {
 
         const wrapper = document.createElement('div')
         wrapper.innerHTML = `
-      <nn-fila break="md" class="row" gap="1">
+      <nn-fila break="md" class="row" gap=".25rem">
         <nn-pilar size="25%" class="leading-server flex-column">
           <span class="index">${key.index}</span>
           <span class="pill ${key.id}">${key.label}</span>
@@ -220,7 +220,7 @@ class Timeline extends HTMLElement {
     } else {
       const wrapper = document.createElement('div')
       wrapper.innerHTML = `
-      <nn-fila break="md" class="row" gap="1">
+      <nn-fila break="md" class="row" gap=".25rem">
         <nn-pilar size="100%" class="empty">
          ${t('Empty')}
         </nn-pilar>

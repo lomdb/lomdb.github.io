@@ -17,7 +17,7 @@ class Players extends HTMLElement {
     langs,
     users,
     template: `
-      <nn-caja padding="4" class="base">
+      <nn-caja padding="1rem" class="base">
         <div class="nav-controls">
           <lom-navbar></lom-navbar>
           <lom-filters></lom-filters>
@@ -26,7 +26,7 @@ class Players extends HTMLElement {
         <h2>${t('Players')}</h2>
 
         <div class="table">
-          <nn-fila break="sm" class="table-header" gap="1">
+          <nn-fila break="sm" class="table-header" gap=".25rem">
             <nn-pilar size="20%">${t('Server')}</nn-pilar>
             <nn-pilar size="20%">${t('UID')}</nn-pilar>
             <nn-pilar size="35% - 0.25rem * 3">${t('Nick')}</nn-pilar>
@@ -115,7 +115,7 @@ class Players extends HTMLElement {
 
         const wrapper = document.createElement('div')
         wrapper.innerHTML = `
-        <nn-fila break="md" gap="1">
+        <nn-fila break="md" gap=".25rem">
           <nn-pilar size="20%" class="flex-row">
             <span class="pill ${user.lang}">${user.server}</span>
           </nn-pilar>

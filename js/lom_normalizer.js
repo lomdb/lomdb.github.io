@@ -24,7 +24,7 @@ customElements.define(
 CN-389	 ←	[VN-460]
 EN389	 ←	[EN390,VN658,VN659,VN660]`,
       template: `
-      <nn-caja padding="4" class="base">
+      <nn-caja padding="1rem" class="base">
         <div class="nav-controls">
           <lom-navbar></lom-navbar>
         </div>

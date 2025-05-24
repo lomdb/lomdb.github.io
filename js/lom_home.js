@@ -30,8 +30,8 @@ class Home extends HTMLElement {
     <main>
       <section>
         <nn-caja
-          size="1000"
-          padding="4"
+          max-width="1000px"
+          padding="1rem"
         >
           <nn-fila
             break="md"
@@ -58,8 +58,8 @@ class Home extends HTMLElement {
 
       <section>
         <nn-caja
-          size="1000"
-          padding="4"
+          max-width="1000px"
+          padding="1rem"
         >
           <nn-fila
             break="md"
@@ -88,8 +88,8 @@ class Home extends HTMLElement {
 
       <section>
         <nn-caja
-          size="1000"
-          padding="4"
+          max-width="1000px"
+          padding="1rem"
         >
           <nn-fila
             break="md"
@@ -115,8 +115,8 @@ class Home extends HTMLElement {
 
       <section>
         <nn-caja
-          size="1000"
-          padding="4"
+          max-width="1000px"
+          padding="1rem"
         >
           <nn-fila
             break="md"
@@ -145,8 +145,8 @@ class Home extends HTMLElement {
 
       <section>
         <nn-caja
-          size="1000"
-          padding="4"
+          max-width="1000px"
+          padding="1rem"
         >
           <nn-fila
             break="md"

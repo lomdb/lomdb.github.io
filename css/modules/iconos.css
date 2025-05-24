@@ -9,15 +9,20 @@ nn-icono {
     rotate: var(--direction);
   }
 
-  &.d0, &.down { --direction: 0deg; }
-  &.d45 { --direction: 45deg; }
-  &.d90, &.left { --direction: 90deg; }
-  &.d135 { --direction: 135deg; }
-  &.d180, &.up { --direction: 180deg; }
-  &.d225 { --direction: 225deg; }
-  &.d270, &.right { --direction: 270deg; }
-  &.d315 { --direction: 315deg; }
+  &[rotate="0"] { --direction: 0deg; }
+  &[rotate="45"] { --direction: 45deg; }
+  &[rotate="90"] { --direction: 90deg; }
+  &[rotate="135"] { --direction: 135deg; }
+  &[rotate="180"] { --direction: 180deg; }
+  &[rotate="225"] { --direction: 225deg; }
+  &[rotate="270"] { --direction: 270deg; }
+  &[rotate="315"] { --direction: 315deg; }
 
+  &[direction="down"] { --direction: 0deg; }
+  &[direction="left"] { --direction: 90deg; }
+  &[direction="up"] { --direction: 180deg; }
+  &[direction="right"] { --direction: 270deg; }
+  
   &.arrow-angle { --icon: "\2304"; }
   &.arrow-angle-double { --icon: "\21e3"; }
   &.arrow-chevron { --icon: "\2357"; }

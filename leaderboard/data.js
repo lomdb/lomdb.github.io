@@ -2,493 +2,498 @@ import { user } from '../js/classes.js'
 
 export default [
 
-  user(['0Zeko'], 'AMEN_', '', [
-    { rank: 'top', position: 1, date: '2025-05-20' },
+  user(['万8千負けのY'], 'JP_', '', [
+    { rank: 'top', position: 2, date: '2025-05-23' },
   ]),
 
 
-  user(['1'], 'AMEN_', '', [
-    { rank: 'top', position: 1, date: '2025-05-20' },
+  user(['カエラ君'], 'JP_', '', [
+    { rank: 'top', position: 4, date: '2025-05-23' },
   ]),
 
 
-  user(['5treefiddy'], 'AMEN_', '', [
-    { rank: 'top', position: 2, date: '2025-05-20' },
+  user(['ノノ大佐。'], 'JP_', '', [
+    { rank: 'top', position: 5, date: '2025-05-23' },
   ]),
 
 
-  user(['5Mahoraga'], 'AMEN_', '', [
-    { rank: 'top', position: 3, date: '2025-05-20' },
+  user(['fianad。'], 'JP_', '', [
+    { rank: 'top', position: 6, date: '2025-05-23' },
   ]),
 
 
-  user(['8DEMON:Ghost'], 'AMEN_', '', [
-    { rank: 'top', position: 3, date: '2025-05-20' },
+  user(['おりん'], 'JP_', '', [
+    { rank: 'top', position: 7, date: '2025-05-23' },
   ]),
 
 
-  user(['shroomi96253'], 'AMEN_', '', [
-    { rank: 'top', position: 4, date: '2025-05-20' },
+  user(['び。'], 'JP_', '', [
+    { rank: 'top', position: 8, date: '2025-05-23' },
   ]),
 
 
-  user(['8HootyHoo'], 'AMEN_', '', [
-    { rank: 'top', position: 4, date: '2025-05-20' },
+  user(['たっさん'], 'JP_', '', [
+    { rank: 'top', position: 9, date: '2025-05-23' },
   ]),
 
 
-  user(['Chem_Addict'], 'AMEN_', '', [
-    { rank: 'top', position: 5, date: '2025-05-20' },
+  user(['hiro0725'], 'JP_', '', [
+    { rank: 'top', position: 10, date: '2025-05-23' },
   ]),
 
 
-  user(['"WET:Kimmy'], 'AMEN_', '', [
-    { rank: 'top', position: 5, date: '2025-05-20' },
+  user(['えぬみん'], 'JP_', '', [
+    { rank: 'top', position: 11, date: '2025-05-23' },
   ]),
 
 
-  user(['"WET,PJyuen'], 'AMEN_', '', [
-    { rank: 'top', position: 6, date: '2025-05-20' },
+  user(['まいちょす'], 'JP_', '', [
+    { rank: 'top', position: 12, date: '2025-05-23' },
   ]),
 
 
-  user(['44SENTRYS'], 'AMEN_', '', [
-    { rank: 'top', position: 6, date: '2025-05-20' },
+  user(['しわびぴぃ'], 'JP_', '', [
+    { rank: 'top', position: 13, date: '2025-05-23' },
   ]),
 
 
-  user(['5Hollow'], 'AMEN_', '', [
-    { rank: 'top', position: 6, date: '2025-05-20' },
+  user(['びよょ'], 'JP_', '', [
+    { rank: 'top', position: 14, date: '2025-05-23' },
   ]),
 
 
-  user(['8Faraxx'], 'AMEN_', '', [
-    { rank: 'top', position: 6, date: '2025-05-20' },
+  user(['しょーん'], 'JP_', '', [
+    { rank: 'top', position: 15, date: '2025-05-23' },
   ]),
 
 
-  user(['"WET,QU'], 'AMEN_', '', [
-    { rank: 'top', position: 7, date: '2025-05-20' },
+  user(['リクーム'], 'JP_', '', [
+    { rank: 'top', position: 16, date: '2025-05-23' },
   ]),
 
 
-  user(['Mérk'], 'AMEN_', '', [
-    { rank: 'top', position: 8, date: '2025-05-20' },
+  user(['おばレインボー'], 'JP_', '', [
+    { rank: 'top', position: 17, date: '2025-05-23' },
   ]),
 
 
-  user(['imba'], 'AMEN_', '', [
-    { rank: 'top', position: 12, date: '2025-05-20' },
+  user(['ULLRY'], 'JP_', '', [
+    { rank: 'top', position: 18, date: '2025-05-23' },
   ]),
 
 
-  user(['8wide'], 'AMEN_', '', [
-    { rank: 'top', position: 13, date: '2025-05-20' },
+  user(['Moana'], 'JP_', '', [
+    { rank: 'top', position: 19, date: '2025-05-23' },
   ]),
 
 
-  user(['"RED,Rubop'], 'AMEN_', '', [
-    { rank: 'top', position: 14, date: '2025-05-20' },
+  user(['えめ'], 'JP_', '', [
+    { rank: 'top', position: 20, date: '2025-05-23' },
   ]),
 
 
-  user(['Bird'], 'AMEN_', '', [
-    { rank: 'top', position: 15, date: '2025-05-20' },
+  user(['超べじこ。'], 'JP_', '', [
+    { rank: 'top', position: 21, date: '2025-05-23' },
   ]),
 
 
-  user(['FEERBEIREER'], 'AMEN_', '', [
-    { rank: 'top', position: 16, date: '2025-05-20' },
+  user(['lenneth'], 'JP_', '', [
+    { rank: 'top', position: 22, date: '2025-05-23' },
   ]),
 
 
-  user(['KitKat'], 'AMEN_', '', [
-    { rank: 'top', position: 17, date: '2025-05-20' },
+  user(['ゆりいぃの:'], 'JP_', '', [
+    { rank: 'top', position: 23, date: '2025-05-23' },
   ]),
 
 
-  user(['"RED,Slovet'], 'AMEN_', '', [
-    { rank: 'top', position: 18, date: '2025-05-20' },
+  user(['あみる'], 'JP_', '', [
+    { rank: 'top', position: 24, date: '2025-05-23' },
   ]),
 
 
-  user(['Constantine'], 'AMEN_', '', [
-    { rank: 'top', position: 19, date: '2025-05-20' },
+  user(['キノコ4050A'], 'JP_', '', [
+    { rank: 'top', position: 25, date: '2025-05-23' },
   ]),
 
 
-  user(['‘Shroomrix'], 'AMEN_', '', [
-    { rank: 'top', position: 20, date: '2025-05-20' },
+  user(['ぷりちいぃぼゆ'], 'JP_', '', [
+    { rank: 'top', position: 26, date: '2025-05-23' },
   ]),
 
 
-  user(['Feeshy'], 'AMEN_', '', [
-    { rank: 'top', position: 21, date: '2025-05-20' },
+  user(['幸村精市'], 'JP_', '', [
+    { rank: 'top', position: 27, date: '2025-05-23' },
   ]),
 
 
-  user([''ShroémieB07'], 'AMEN_', '', [
-    { rank: 'top', position: 22, date: '2025-05-20' },
+  user(['karu29'], 'JP_', '', [
+    { rank: 'top', position: 28, date: '2025-05-23' },
   ]),
 
 
-  user(['Greed'], 'AMEN_', '', [
-    { rank: 'top', position: 23, date: '2025-05-20' },
+  user(['ちゅん'], 'JP_', '', [
+    { rank: 'top', position: 29, date: '2025-05-23' },
   ]),
 
 
-  user(['MadHatterVI|'], 'AMEN_', '', [
-    { rank: 'top', position: 24, date: '2025-05-20' },
+  user(['ぶり丸'], 'JP_', '', [
+    { rank: 'top', position: 30, date: '2025-05-23' },
   ]),
 
 
-  user([''duBBss'], 'AMEN_', '', [
-    { rank: 'top', position: 26, date: '2025-05-20' },
+  user(['Maljikal'], 'JP_', '', [
+    { rank: 'top', position: 31, date: '2025-05-23' },
   ]),
 
 
-  user(['Rock_Howard'], 'AMEN_', '', [
-    { rank: 'top', position: 27, date: '2025-05-20' },
+  user(['かわゅ'], 'JP_', '', [
+    { rank: 'top', position: 32, date: '2025-05-23' },
   ]),
 
 
-  user(['Gibby'], 'AMEN_', '', [
-    { rank: 'top', position: 28, date: '2025-05-20' },
+  user(['キレパンダ'], 'JP_', '', [
+    { rank: 'top', position: 33, date: '2025-05-23' },
   ]),
 
 
-  user(['‘Bapesta'], 'AMEN_', '', [
-    { rank: 'top', position: 29, date: '2025-05-20' },
+  user(['ジジたん'], 'JP_', '', [
+    { rank: 'top', position: 34, date: '2025-05-23' },
   ]),
 
 
-  user(['AlexAdams'], 'AMEN_', '', [
-    { rank: 'top', position: 30, date: '2025-05-20' },
+  user(['自上'], 'JP_', '', [
+    { rank: 'top', position: 35, date: '2025-05-23' },
   ]),
 
 
-  user(['Deserving'], 'AMEN_', '', [
-    { rank: 'top', position: 31, date: '2025-05-20' },
+  user(['ドコノコノ'], 'JP_', '', [
+    { rank: 'top', position: 36, date: '2025-05-23' },
   ]),
 
 
-  user(['EEIMALErany'], 'AMEN_', '', [
-    { rank: 'top', position: 32, date: '2025-05-20' },
+  user(['ISEKE'], 'JP_', '', [
+    { rank: 'top', position: 37, date: '2025-05-23' },
   ]),
 
 
-  user(['“Star'], 'AMEN_', '', [
-    { rank: 'top', position: 33, date: '2025-05-20' },
+  user(['安室透'], 'JP_', '', [
+    { rank: 'top', position: 38, date: '2025-05-23' },
   ]),
 
 
-  user(['DrAmALoC248'], 'AMEN_', '', [
-    { rank: 'top', position: 34, date: '2025-05-20' },
+  user(['まめん'], 'JP_', '', [
+    { rank: 'top', position: 39, date: '2025-05-23' },
   ]),
 
 
-  user(['WetMonster'], 'AMEN_', '', [
-    { rank: 'top', position: 36, date: '2025-05-20' },
+  user(['ミコミミコ'], 'JP_', '', [
+    { rank: 'top', position: 40, date: '2025-05-23' },
   ]),
 
 
-  user(['Calmskitzo'], 'AMEN_', '', [
-    { rank: 'top', position: 37, date: '2025-05-20' },
+  user(['光悦'], 'JP_', '', [
+    { rank: 'top', position: 41, date: '2025-05-23' },
   ]),
 
 
-  user(['SHREK'], 'AMEN_', '', [
-    { rank: 'top', position: 39, date: '2025-05-20' },
+  user(['to'], 'JP_', '', [
+    { rank: 'top', position: 42, date: '2025-05-23' },
   ]),
 
 
-  user(['Chopa'], 'AMEN_', '', [
-    { rank: 'top', position: 40, date: '2025-05-20' },
+  user(['シャルーシュ'], 'JP_', '', [
+    { rank: 'top', position: 43, date: '2025-05-23' },
   ]),
 
 
-  user(['"WETasu,LS'], 'AMEN_', '', [
-    { rank: 'top', position: 41, date: '2025-05-20' },
+  user(['ご妥もん'], 'JP_', '', [
+    { rank: 'top', position: 44, date: '2025-05-23' },
   ]),
 
 
-  user(['Bill'], 'AMEN_', '', [
-    { rank: 'top', position: 42, date: '2025-05-20' },
+  user(['びろりん。'], 'JP_', '', [
+    { rank: 'top', position: 45, date: '2025-05-23' },
   ]),
 
 
-  user(['Hyatella'], 'AMEN_', '', [
-    { rank: 'top', position: 43, date: '2025-05-20' },
+  user(['剣と魔法とハイジ'], 'JP_', '', [
+    { rank: 'top', position: 46, date: '2025-05-23' },
   ]),
 
 
-  user(['"DRYJHotFlash'], 'AMEN_', '', [
-    { rank: 'top', position: 44, date: '2025-05-20' },
+  user(['やっぱつれえわ'], 'JP_', '', [
+    { rank: 'top', position: 47, date: '2025-05-23' },
   ]),
 
 
-  user(['[Damo]'], 'AMEN_', '', [
-    { rank: 'top', position: 45, date: '2025-05-20' },
+  user(['チキン'], 'JP_', '', [
+    { rank: 'top', position: 48, date: '2025-05-23' },
   ]),
 
 
-  user(['NiiLoC'], 'AMEN_', '', [
-    { rank: 'top', position: 46, date: '2025-05-20' },
+  user(['5ひび'], 'JP_', '', [
+    { rank: 'top', position: 49, date: '2025-05-23' },
   ]),
 
 
-  user(['SQJOKER'], 'AMEN_', '', [
-    { rank: 'top', position: 47, date: '2025-05-20' },
+  user(['分身攻撃・山田'], 'JP_', '', [
+    { rank: 'top', position: 50, date: '2025-05-23' },
   ]),
 
 
-  user(['Bluey'], 'AMEN_', '', [
-    { rank: 'top', position: 49, date: '2025-05-20' },
+  user(['《ゃLucky'], 'JP_', '', [
+    { rank: 'top', position: 51, date: '2025-05-23' },
   ]),
 
 
-  user(['uzi'], 'AMEN_', '', [
-    { rank: 'top', position: 50, date: '2025-05-20' },
+  user(['キュアOUT'], 'JP_', '', [
+    { rank: 'top', position: 52, date: '2025-05-23' },
   ]),
 
 
-  user(['NoSteam'], 'AMEN_', '', [
-    { rank: 'top', position: 52, date: '2025-05-20' },
+  user(['弱体化せサーやまん'], 'JP_', '', [
+    { rank: 'top', position: 53, date: '2025-05-23' },
   ]),
 
 
-  user(['Lucifer'], 'AMEN_', '', [
-    { rank: 'top', position: 53, date: '2025-05-20' },
+  user(['のあまる'], 'JP_', '', [
+    { rank: 'top', position: 54, date: '2025-05-23' },
   ]),
 
 
-  user(['(gc_wolv3nn3'], 'AMEN_', '', [
-    { rank: 'top', position: 54, date: '2025-05-20' },
+  user(['リッキー'], 'JP_', '', [
+    { rank: 'top', position: 55, date: '2025-05-23' },
   ]),
 
 
-  user(['Postmaster'], 'AMEN_', '', [
-    { rank: 'top', position: 55, date: '2025-05-20' },
+  user(['おGさん'], 'JP_', '', [
+    { rank: 'top', position: 56, date: '2025-05-23' },
   ]),
 
 
-  user([''SQIskander'], 'AMEN_', '', [
-    { rank: 'top', position: 56, date: '2025-05-20' },
+  user(['けーすけ補'], 'JP_', '', [
+    { rank: 'top', position: 57, date: '2025-05-23' },
   ]),
 
 
-  user(['Mythic'], 'AMEN_', '', [
-    { rank: 'top', position: 57, date: '2025-05-20' },
+  user(['たこ'], 'JP_', '', [
+    { rank: 'top', position: 58, date: '2025-05-23' },
   ]),
 
 
-  user(['Cookie'], 'AMEN_', '', [
-    { rank: 'top', position: 58, date: '2025-05-20' },
+  user(['ななぞん!B'], 'JP_', '', [
+    { rank: 'top', position: 59, date: '2025-05-23' },
   ]),
 
 
-  user(['Wimm'], 'AMEN_', '', [
-    { rank: 'top', position: 59, date: '2025-05-20' },
+  user(['メルコ'], 'JP_', '', [
+    { rank: 'top', position: 60, date: '2025-05-23' },
   ]),
 
 
-  user(['pheel'], 'AMEN_', '', [
-    { rank: 'top', position: 60, date: '2025-05-20' },
+  user(['5みうみうe'], 'JP_', '', [
+    { rank: 'top', position: 61, date: '2025-05-23' },
   ]),
 
 
-  user(['Rafiki'], 'AMEN_', '', [
-    { rank: 'top', position: 61, date: '2025-05-20' },
+  user(['vヽsss遊神8eン'], 'JP_', '', [
+    { rank: 'top', position: 62, date: '2025-05-23' },
   ]),
 
 
-  user(['"JuraphicSark'], 'AMEN_', '', [
-    { rank: 'top', position: 62, date: '2025-05-20' },
+  user(['ぺっくま'], 'JP_', '', [
+    { rank: 'top', position: 63, date: '2025-05-23' },
   ]),
 
 
-  user(['Midswift'], 'AMEN_', '', [
-    { rank: 'top', position: 63, date: '2025-05-20' },
+  user(['ぐりこ'], 'JP_', '', [
+    { rank: 'top', position: 64, date: '2025-05-23' },
   ]),
 
 
-  user(['RougeVifsy'], 'AMEN_', '', [
-    { rank: 'top', position: 66, date: '2025-05-20' },
+  user(['天照リッツァ'], 'JP_', '', [
+    { rank: 'top', position: 65, date: '2025-05-23' },
   ]),
 
 
-  user(['Trippy'], 'AMEN_', '', [
-    { rank: 'top', position: 67, date: '2025-05-20' },
+  user(['園長'], 'JP_', '', [
+    { rank: 'top', position: 66, date: '2025-05-23' },
   ]),
 
 
-  user(['UDEOKY'], 'AMEN_', '', [
-    { rank: 'top', position: 69, date: '2025-05-20' },
+  user(['Amitie'], 'JP_', '', [
+    { rank: 'top', position: 67, date: '2025-05-23' },
   ]),
 
 
-  user(['Awesome'], 'AMEN_', '', [
-    { rank: 'top', position: 70, date: '2025-05-20' },
+  user(['otayu'], 'JP_', '', [
+    { rank: 'top', position: 68, date: '2025-05-23' },
   ]),
 
 
-  user(['Luna'], 'AMEN_', '', [
-    { rank: 'top', position: 71, date: '2025-05-20' },
+  user(['ブラック'], 'JP_', '', [
+    { rank: 'top', position: 69, date: '2025-05-23' },
   ]),
 
 
-  user(['Dre'], 'AMEN_', '', [
-    { rank: 'top', position: 72, date: '2025-05-20' },
+  user(['ベル'], 'JP_', '', [
+    { rank: 'top', position: 70, date: '2025-05-23' },
   ]),
 
 
-  user(['Gustavo'], 'AMEN_', '', [
-    { rank: 'top', position: 73, date: '2025-05-20' },
+  user(['こころ賠'], 'JP_', '', [
+    { rank: 'top', position: 71, date: '2025-05-23' },
   ]),
 
 
-  user(['Mavis'], 'AMEN_', '', [
-    { rank: 'top', position: 74, date: '2025-05-20' },
+  user(['ネギ様Geee'], 'JP_', '', [
+    { rank: 'top', position: 72, date: '2025-05-23' },
   ]),
 
 
-  user(['DEMON35.Pokey4'], 'AMEN_', '', [
-    { rank: 'top', position: 75, date: '2025-05-20' },
+  user(['ニキ'], 'JP_', '', [
+    { rank: 'top', position: 73, date: '2025-05-23' },
   ]),
 
 
-  user(['1100'], 'AMEN_', '', [
-    { rank: 'top', position: 76, date: '2025-05-20' },
+  user(['ナゾー'], 'JP_', '', [
+    { rank: 'top', position: 74, date: '2025-05-23' },
   ]),
 
 
-  user(['a7'], 'AMEN_', '', [
-    { rank: 'top', position: 77, date: '2025-05-20' },
+  user(['くま'], 'JP_', '', [
+    { rank: 'top', position: 75, date: '2025-05-23' },
   ]),
 
 
-  user(['Veils'], 'AMEN_', '', [
-    { rank: 'top', position: 78, date: '2025-05-20' },
+  user(['332のきのっ子'], 'JP_', '', [
+    { rank: 'top', position: 76, date: '2025-05-23' },
   ]),
 
 
-  user(['"WET,Carnicero'], 'AMEN_', '', [
-    { rank: 'top', position: 79, date: '2025-05-20' },
+  user(['ノコっち'], 'JP_', '', [
+    { rank: 'top', position: 77, date: '2025-05-23' },
   ]),
 
 
-  user(['*PrincessKane'], 'AMEN_', '', [
-    { rank: 'top', position: 80, date: '2025-05-20' },
+  user(['Yamato'], 'JP_', '', [
+    { rank: 'top', position: 78, date: '2025-05-23' },
   ]),
 
 
-  user(['c'], 'AMEN_', '', [
-    { rank: 'top', position: 9030, date: '2025-05-20' },
+  user(['ひなーの'], 'JP_', '', [
+    { rank: 'top', position: 79, date: '2025-05-23' },
   ]),
 
 
-  user(['BlackCreme'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['層'], 'JP_', '', [
+    { rank: 'top', position: 80, date: '2025-05-23' },
   ]),
 
 
-  user(['MikeroDoSe'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['ちまキング'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Alteron'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['うにまる'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['MugiMia'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['わい'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Doc'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['せーかのぶー'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Deathwing'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['わら179'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Akuma'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['茶莉愛'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Hostile'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['りあん'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['QDellyO@'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['あんのこ'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['MrsMadHatter'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['老化だいこん様'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Bonita'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['めぇ子ぷ'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['MrBates'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['ぽんこつペコ。'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['zhicBoyBrucE'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['はるおYT'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['‘Unicorn'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['きちたぬ'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['NrpRauCA'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['せらふいぃ一'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['PoseidoN'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['ichi889'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['Lollipop'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['れくさす'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['‘Cookies'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['み(や・・び)'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['‘StepsisLily'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['ガハハのD'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user(['‘Cookies'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['み(や・・び)'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 
-  user([''StepsisLily'], 'AMEN_', '', [
-    { rank: 'top', position: null, date: '2025-05-20' },
+  user(['ガハハのD'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
+  ]),
+
+
+  user(['熊猫隊ぽこた'], 'JP_', '', [
+    { rank: 'top', position: null, date: '2025-05-23' },
   ]),
 
 ]

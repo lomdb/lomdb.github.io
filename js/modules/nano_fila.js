@@ -1,57 +1,35 @@
 import { getPrefix } from './nano_helpers.js'
 
-const data = {
-  attrs: [
-    {
-      name: 'gap',
-      regex: /gap-(\d)*/g,
-      prefix: 'gap',
-    },
-    {
-      name: 'padding-inline',
-      regex: /pi-(\d)*/g,
-      prefix: 'pi',
-    },
-    {
-      name: 'break',
-      regex: /break-(.*)*/g,
-      prefix: 'break',
-    },
-  ],
-}
+customElements.define(
+  getPrefix('fila'),
+  class extends HTMLElement {
+    constructor() {
+      super()
+    }
 
-class Fila extends HTMLElement {
-  constructor() {
-    super()
+    static attrs = ['gap', 'padding-inline']
+
+    static get observedAttributes() {
+      return this.attrs
+    }
+
+    #updateAttrs() {
+      for (const name of this.constructor.attrs) {
+        const value = this.getAttribute(name)
+        if (value !== null) {
+          this.style.setProperty(`--${name}`, value)
+        }
+      }
+    }
+
+    connectedCallback() {
+      this.#updateAttrs()
+    }
+
+    attributeChangedCallback(name) {
+      if (this.constructor.attrs.includes(name)) {
+        this.#updateAttrs()
+      }
+    }
   }
-
-  removeCustomClass(regex) {
-    ;[...this.classList].forEach(
-      currentClass =>
-        regex.test(currentClass) && this.classList.remove(currentClass)
-    )
-  }
-
-  updateAttr(attr) {
-    const value = this.getAttribute(attr.name)
-    value && this.removeCustomClass(attr.regex)
-    value && this.classList.add([attr.prefix, value].join('-'))
-  }
-
-  connectedCallback() {
-    data.attrs.forEach(attr => this.updateAttr(attr))
-  }
-
-  static get observedAttributes() {
-    return data.attrs.map(attr => attr.name)
-  }
-
-  attributeChangedCallback(prop) {
-    const attr = data.attrs.find(attr => attr.name === prop)?.[0]
-    attr && this.updateAttr(attr)
-  }
-}
-
-customElements.define(getPrefix('fila'), Fila)
-
-export { data }
+)

@@ -15,7 +15,7 @@ class Gaps extends HTMLElement {
     language: 'all',
     spreadServers,
     template: `
-      <nn-caja padding="4" class="base">
+      <nn-caja padding="1rem" class="base">
         <div class="nav-controls">
           <lom-navbar></lom-navbar>
           <lom-filters></lom-filters>

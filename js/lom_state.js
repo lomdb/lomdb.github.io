@@ -28,7 +28,7 @@ class State extends HTMLElement {
     language: 'all',
     servers,
     template: `
-      <nn-caja padding="4" class="base">
+      <nn-caja padding="1rem" class="base">
         <div class="nav-controls">
           <lom-navbar></lom-navbar>
           <lom-filters></lom-filters>
@@ -37,7 +37,7 @@ class State extends HTMLElement {
         <h2>${t('DB State')}</h2>
 
         <div class="table">
-          <nn-fila break="sm" class="table-header" gap="1">
+          <nn-fila break="sm" class="table-header" gap=".25rem">
             <nn-pilar size="25% - ${4 - 1}px">${t('Region')}</nn-pilar>
             <nn-pilar size="25% - ${4 - 1}px">${t('Merges')}</nn-pilar>
             <nn-pilar size="25% - ${4 - 1}px">${t('Top 100')}</nn-pilar>
@@ -124,7 +124,7 @@ class State extends HTMLElement {
     this.#table.forEach(row => {
       const wrapper = document.createElement('div')
       wrapper.innerHTML = `
-        <nn-fila break="sm" class="row" gap="1">
+        <nn-fila break="sm" class="row" gap=".25rem">
           <nn-pilar size="25% - 3px">
             <span class="pill ${row.class}">
               ${row.region}

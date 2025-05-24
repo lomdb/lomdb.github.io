@@ -1022,7 +1022,7 @@ export const am = [
     { rank: 'elite', date: '2025-04-25' },
     { rank: 'top', position: 88, date: '2025-05-22' },
   ]),
-    user(['Phemto'], 'AMEN_281', '50502', [
+  user(['Phemto'], 'AMEN_281', '50502', [
     { rank: 'top', position: 100, date: '2024-12-07' },
     { rank: 'top', position: 89, date: '2025-05-22' },
   ]),
@@ -1878,6 +1878,9 @@ export const am = [
     { rank: 'elite', date: '2024-12-07' },
   ]),
   user(['Dazie'], 'AMEN_639', '01602', [{ rank: 'elite', date: '2024-12-07' }]),
+  user(['Stacheio'], 'AMEN_642', '40F06', [
+    { rank: 'elite', date: '2025-05-23' },
+  ]),
 
   // ------------------------------- creators ↓
   user(['Maylit'], 'ES_032', '60908', [
